@@ -1,0 +1,434 @@
+﻿{
+  "swagger": "2.0",
+  "info": {
+    "title": "Document AI API",
+    "version": "v1"
+  },
+  "paths": {
+    "/document-ai/document/analyze/enforce-policy": {
+      "post": {
+        "tags": [
+          "Analyze"
+        ],
+        "summary": "Enforce Policies to a Document to allow or block it using Advanced AI",
+        "description": "Enforce Policies to a Document to allow or block it using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "operationId": "ApplyRules",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Input request, including document and policy rules",
+            "schema": {
+              "$ref": "#/definitions/DocumentPolicyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DocumentPolicyResult"
+            }
+          }
+        }
+      }
+    },
+    "/document-ai/document/extract/fields": {
+      "post": {
+        "tags": [
+          "Extract"
+        ],
+        "summary": "Extract Field Values from a Document using AI",
+        "description": "Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "operationId": "ExtractFields",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "FieldNames",
+            "description": "Desired fields to extract",
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "InputFile",
+            "description": "Input document, or photos of a document, to extract data from",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ExtractFieldsResponse"
+            }
+          }
+        }
+      }
+    },
+    "/document-ai/document/extract/fields/advanced": {
+      "post": {
+        "tags": [
+          "Extract"
+        ],
+        "summary": "Extract Field Values from a Document using Advanced AI",
+        "description": "Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "operationId": "ExtractFieldsAdvanced",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Input request, including document file as byte array, and information on which fields to extract",
+            "schema": {
+              "$ref": "#/definitions/AdvancedExtractFieldsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ExtractFieldsResponse"
+            }
+          }
+        }
+      }
+    },
+    "/document-ai/document/extract/tables": {
+      "post": {
+        "tags": [
+          "Extract"
+        ],
+        "summary": "Extract Tables of Data from a Document using AI",
+        "description": "Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "operationId": "ExtractTables",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "InputFile",
+            "description": "Input document, or photos of a document, to extract data from",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ExtractFieldsResponse"
+            }
+          }
+        }
+      }
+    },
+    "/document-ai/document/extract/classify": {
+      "post": {
+        "tags": [
+          "Extract"
+        ],
+        "summary": "Extract Classification or Category from a Document using AI",
+        "description": "Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "operationId": "ExtractClassification",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Categories",
+            "description": "Desired classification to extract",
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "InputFile",
+            "description": "Input document, or photos of a document, to extract data from",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DocumentClassificationResult"
+            }
+          }
+        }
+      }
+    },
+    "/document-ai/document/extract/summary": {
+      "post": {
+        "tags": [
+          "Extract"
+        ],
+        "summary": "Extract Summary from a Document using AI",
+        "description": "Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "operationId": "ExtractSummary",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "InputFile",
+            "description": "Input document, or photos of a document, to extract data from",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/SummarizeDocumentResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "AdvancedExtractFieldsRequest": {
+      "description": "Request to perform an AI field extraction on a document",
+      "type": "object",
+      "properties": {
+        "InputFile": {
+          "format": "byte",
+          "description": "Input document file to perform the operation on as a byte array",
+          "type": "string"
+        },
+        "FieldsToExtract": {
+          "description": "Fields to extract from the document",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FieldToExtract"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "DocumentClassificationResult": {
+      "description": "Result of classifying a document using AI",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if successful, false otherwise",
+          "type": "boolean"
+        },
+        "DocumentCategoryResult": {
+          "description": "Category applied to the document; if a category could not be identified then \"other\" will be used.  Spaces are replaced with underscores.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DocumentPolicyRequest": {
+      "description": "Request to analyze a document",
+      "type": "object",
+      "properties": {
+        "InputFile": {
+          "format": "byte",
+          "description": "Input file as a byte array",
+          "type": "string"
+        },
+        "Rules": {
+          "description": "Rules to apply to the document",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PolicyRule"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "DocumentPolicyResult": {
+      "description": "Result of performing a document policy enforcement operation",
+      "type": "object",
+      "properties": {
+        "CleanResult": {
+          "description": "True if the document complies with all of the policies, and false if it does not",
+          "type": "boolean"
+        },
+        "RiskScore": {
+          "format": "double",
+          "description": "Risk score between 0.0 and 1.0 where values above 0.5 are increasing levels of risk",
+          "type": "number"
+        },
+        "RuleViolations": {
+          "description": "Policy violations",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PolicyRuleViolation"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ExtractFieldsResponse": {
+      "description": "Result of extracting fields from a document",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if successful, false otherwise",
+          "type": "boolean"
+        },
+        "Results": {
+          "description": "Field value results from the extraction operation",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FieldValue"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "FieldToExtract": {
+      "description": "Field to extract from a document using AI",
+      "type": "object",
+      "properties": {
+        "FieldName": {
+          "description": "Name of the field to extract",
+          "type": "string"
+        },
+        "FieldOptional": {
+          "description": "Optional: True if the field is optional, false if required (default)",
+          "type": "boolean"
+        },
+        "FieldDescription": {
+          "description": "Optional but recommended: Description of the field - use this to describe what the field is, how it is formatted, what is unique about it, etc.",
+          "type": "string"
+        },
+        "FieldExample": {
+          "description": "Optional: Example label or value of the field",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "FieldValue": {
+      "description": "Field value result of extracting fields from a document",
+      "type": "object",
+      "properties": {
+        "FieldName": {
+          "description": "Name of the field (note that spaces will be replaced with underscore)",
+          "type": "string"
+        },
+        "FieldStringValue": {
+          "description": "String value of the field that was extractged from the document",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "PolicyRule": {
+      "type": "object",
+      "properties": {
+        "RuleId": {
+          "description": "",
+          "type": "string"
+        },
+        "RuleType": {
+          "description": "Possible values are ALLOW and DENY",
+          "type": "string"
+        },
+        "RuleDescription": {
+          "description": "Description of the rule in natural language, e.g. Do not allow documents that contain offensive language",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "PolicyRuleViolation": {
+      "description": "Instances of a policy rule violation",
+      "type": "object",
+      "properties": {
+        "RuleId": {
+          "description": "ID of the rule; if no ID was supplied, the ID is the 1-based index of the rule",
+          "type": "string"
+        },
+        "RuleViolationRiskScore": {
+          "format": "double",
+          "description": "Risk score between 0.0 and 1.0 where values above 0.5 are increasing levels of risk",
+          "type": "number"
+        },
+        "RuleViolationRationale": {
+          "description": "AI natural language rationale for why this policy was violated",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "SummarizeDocumentResponse": {
+      "description": "Result of summarizing a document",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if successful, false otherwise",
+          "type": "boolean"
+        },
+        "DocumentSummaryText": {
+          "description": "Summary of the document",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "securityDefinitions": {
+    "Apikey": {
+      "type": "apiKey",
+      "name": "Apikey",
+      "in": "header",
+      "description": "API Key Authentication"
+    }
+  },
+  "security": [
+    {
+      "Apikey": [ ]
+    }
+  ]
+}
+

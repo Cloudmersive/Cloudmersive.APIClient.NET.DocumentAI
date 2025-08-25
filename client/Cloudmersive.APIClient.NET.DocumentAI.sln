@@ -1,0 +1,27 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+VisualStudioVersion = 12.0.0.0
+MinimumVisualStudioVersion = 10.0.0.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cloudmersive.APIClient.NET.DocumentAI", "src\Cloudmersive.APIClient.NET.DocumentAI\Cloudmersive.APIClient.NET.DocumentAI.csproj", "ead504d2-a313-4d74-a2ba-2f1aa9718ed9"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cloudmersive.APIClient.NET.DocumentAI.Test", "src\Cloudmersive.APIClient.NET.DocumentAI.Test\Cloudmersive.APIClient.NET.DocumentAI.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		ead504d2-a313-4d74-a2ba-2f1aa9718ed9.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		ead504d2-a313-4d74-a2ba-2f1aa9718ed9.Debug|Any CPU.Build.0 = Debug|Any CPU
+		ead504d2-a313-4d74-a2ba-2f1aa9718ed9.Release|Any CPU.ActiveCfg = Release|Any CPU
+		ead504d2-a313-4d74-a2ba-2f1aa9718ed9.Release|Any CPU.Build.0 = Release|Any CPU
+		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
