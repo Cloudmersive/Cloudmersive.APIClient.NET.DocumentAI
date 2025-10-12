@@ -1,7 +1,7 @@
 ﻿{
 
   "packageName" : "Cloudmersive.APIClient.NET.DocumentAI",
-  "packageVersion": "3.0.0",
+  "packageVersion": "3.0.1",
   "netCoreProjectFile": "false",
   "packageGuid": "ead504d2-a313-4d74-a2ba-2f1aa9718ed9"
 }  
