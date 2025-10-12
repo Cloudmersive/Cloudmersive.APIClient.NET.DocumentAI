@@ -25,6 +25,27 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Extract All Fields and Tables of Data from a Document using AI
+        /// </summary>
+        /// <remarks>
+        /// Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
+        /// <returns>ExtractFieldsAndTablesResponse</returns>
+        ExtractFieldsAndTablesResponse ExtractAllFieldsAndTables (System.IO.Stream inputFile = null);
+
+        /// <summary>
+        /// Extract All Fields and Tables of Data from a Document using AI
+        /// </summary>
+        /// <remarks>
+        /// Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
+        /// <returns>ApiResponse of ExtractFieldsAndTablesResponse</returns>
+        ApiResponse<ExtractFieldsAndTablesResponse> ExtractAllFieldsAndTablesWithHttpInfo (System.IO.Stream inputFile = null);
+        /// <summary>
         /// Extract Classification or Category from a Document using AI
         /// </summary>
         /// <remarks>
@@ -120,8 +141,8 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
-        /// <returns>ExtractFieldsResponse</returns>
-        ExtractFieldsResponse ExtractTables (System.IO.Stream inputFile = null);
+        /// <returns>ExtractTablesResponse</returns>
+        ExtractTablesResponse ExtractTables (System.IO.Stream inputFile = null);
 
         /// <summary>
         /// Extract Tables of Data from a Document using AI
@@ -131,10 +152,31 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
-        /// <returns>ApiResponse of ExtractFieldsResponse</returns>
-        ApiResponse<ExtractFieldsResponse> ExtractTablesWithHttpInfo (System.IO.Stream inputFile = null);
+        /// <returns>ApiResponse of ExtractTablesResponse</returns>
+        ApiResponse<ExtractTablesResponse> ExtractTablesWithHttpInfo (System.IO.Stream inputFile = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
+        /// <summary>
+        /// Extract All Fields and Tables of Data from a Document using AI
+        /// </summary>
+        /// <remarks>
+        /// Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
+        /// <returns>Task of ExtractFieldsAndTablesResponse</returns>
+        System.Threading.Tasks.Task<ExtractFieldsAndTablesResponse> ExtractAllFieldsAndTablesAsync (System.IO.Stream inputFile = null);
+
+        /// <summary>
+        /// Extract All Fields and Tables of Data from a Document using AI
+        /// </summary>
+        /// <remarks>
+        /// Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
+        /// <returns>Task of ApiResponse (ExtractFieldsAndTablesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ExtractFieldsAndTablesResponse>> ExtractAllFieldsAndTablesAsyncWithHttpInfo (System.IO.Stream inputFile = null);
         /// <summary>
         /// Extract Classification or Category from a Document using AI
         /// </summary>
@@ -231,8 +273,8 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
-        /// <returns>Task of ExtractFieldsResponse</returns>
-        System.Threading.Tasks.Task<ExtractFieldsResponse> ExtractTablesAsync (System.IO.Stream inputFile = null);
+        /// <returns>Task of ExtractTablesResponse</returns>
+        System.Threading.Tasks.Task<ExtractTablesResponse> ExtractTablesAsync (System.IO.Stream inputFile = null);
 
         /// <summary>
         /// Extract Tables of Data from a Document using AI
@@ -242,8 +284,8 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
-        /// <returns>Task of ApiResponse (ExtractFieldsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ExtractFieldsResponse>> ExtractTablesAsyncWithHttpInfo (System.IO.Stream inputFile = null);
+        /// <returns>Task of ApiResponse (ExtractTablesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ExtractTablesResponse>> ExtractTablesAsyncWithHttpInfo (System.IO.Stream inputFile = null);
         #endregion Asynchronous Operations
     }
 
@@ -342,6 +384,149 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         public void AddDefaultHeader(string key, string value)
         {
             this.Configuration.AddDefaultHeader(key, value);
+        }
+
+        /// <summary>
+        /// Extract All Fields and Tables of Data from a Document using AI Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
+        /// <returns>ExtractFieldsAndTablesResponse</returns>
+        public ExtractFieldsAndTablesResponse ExtractAllFieldsAndTables (System.IO.Stream inputFile = null)
+        {
+             ApiResponse<ExtractFieldsAndTablesResponse> localVarResponse = ExtractAllFieldsAndTablesWithHttpInfo(inputFile);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Extract All Fields and Tables of Data from a Document using AI Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
+        /// <returns>ApiResponse of ExtractFieldsAndTablesResponse</returns>
+        public ApiResponse< ExtractFieldsAndTablesResponse > ExtractAllFieldsAndTablesWithHttpInfo (System.IO.Stream inputFile = null)
+        {
+
+            var localVarPath = "/document-ai/document/extract/all";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (inputFile != null) localVarFileParams.Add("InputFile", this.Configuration.ApiClient.ParameterToFile("InputFile", inputFile));
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ExtractAllFieldsAndTables", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ExtractFieldsAndTablesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ExtractFieldsAndTablesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExtractFieldsAndTablesResponse)));
+        }
+
+        /// <summary>
+        /// Extract All Fields and Tables of Data from a Document using AI Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
+        /// <returns>Task of ExtractFieldsAndTablesResponse</returns>
+        public async System.Threading.Tasks.Task<ExtractFieldsAndTablesResponse> ExtractAllFieldsAndTablesAsync (System.IO.Stream inputFile = null)
+        {
+             ApiResponse<ExtractFieldsAndTablesResponse> localVarResponse = await ExtractAllFieldsAndTablesAsyncWithHttpInfo(inputFile);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Extract All Fields and Tables of Data from a Document using AI Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
+        /// <returns>Task of ApiResponse (ExtractFieldsAndTablesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ExtractFieldsAndTablesResponse>> ExtractAllFieldsAndTablesAsyncWithHttpInfo (System.IO.Stream inputFile = null)
+        {
+
+            var localVarPath = "/document-ai/document/extract/all";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (inputFile != null) localVarFileParams.Add("InputFile", this.Configuration.ApiClient.ParameterToFile("InputFile", inputFile));
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ExtractAllFieldsAndTables", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ExtractFieldsAndTablesResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ExtractFieldsAndTablesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExtractFieldsAndTablesResponse)));
         }
 
         /// <summary>
@@ -951,10 +1136,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
-        /// <returns>ExtractFieldsResponse</returns>
-        public ExtractFieldsResponse ExtractTables (System.IO.Stream inputFile = null)
+        /// <returns>ExtractTablesResponse</returns>
+        public ExtractTablesResponse ExtractTables (System.IO.Stream inputFile = null)
         {
-             ApiResponse<ExtractFieldsResponse> localVarResponse = ExtractTablesWithHttpInfo(inputFile);
+             ApiResponse<ExtractTablesResponse> localVarResponse = ExtractTablesWithHttpInfo(inputFile);
              return localVarResponse.Data;
         }
 
@@ -963,8 +1148,8 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
-        /// <returns>ApiResponse of ExtractFieldsResponse</returns>
-        public ApiResponse< ExtractFieldsResponse > ExtractTablesWithHttpInfo (System.IO.Stream inputFile = null)
+        /// <returns>ApiResponse of ExtractTablesResponse</returns>
+        public ApiResponse< ExtractTablesResponse > ExtractTablesWithHttpInfo (System.IO.Stream inputFile = null)
         {
 
             var localVarPath = "/document-ai/document/extract/tables";
@@ -1012,9 +1197,9 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ExtractFieldsResponse>(localVarStatusCode,
+            return new ApiResponse<ExtractTablesResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ExtractFieldsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExtractFieldsResponse)));
+                (ExtractTablesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExtractTablesResponse)));
         }
 
         /// <summary>
@@ -1022,10 +1207,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
-        /// <returns>Task of ExtractFieldsResponse</returns>
-        public async System.Threading.Tasks.Task<ExtractFieldsResponse> ExtractTablesAsync (System.IO.Stream inputFile = null)
+        /// <returns>Task of ExtractTablesResponse</returns>
+        public async System.Threading.Tasks.Task<ExtractTablesResponse> ExtractTablesAsync (System.IO.Stream inputFile = null)
         {
-             ApiResponse<ExtractFieldsResponse> localVarResponse = await ExtractTablesAsyncWithHttpInfo(inputFile);
+             ApiResponse<ExtractTablesResponse> localVarResponse = await ExtractTablesAsyncWithHttpInfo(inputFile);
              return localVarResponse.Data;
 
         }
@@ -1035,8 +1220,8 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
-        /// <returns>Task of ApiResponse (ExtractFieldsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ExtractFieldsResponse>> ExtractTablesAsyncWithHttpInfo (System.IO.Stream inputFile = null)
+        /// <returns>Task of ApiResponse (ExtractTablesResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ExtractTablesResponse>> ExtractTablesAsyncWithHttpInfo (System.IO.Stream inputFile = null)
         {
 
             var localVarPath = "/document-ai/document/extract/tables";
@@ -1084,9 +1269,9 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ExtractFieldsResponse>(localVarStatusCode,
+            return new ApiResponse<ExtractTablesResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ExtractFieldsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExtractFieldsResponse)));
+                (ExtractTablesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExtractTablesResponse)));
         }
 
     }

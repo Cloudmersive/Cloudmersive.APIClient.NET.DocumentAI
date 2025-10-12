@@ -65,6 +65,18 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Test
 
         
         /// <summary>
+        /// Test ExtractAllFieldsAndTables
+        /// </summary>
+        [Test]
+        public void ExtractAllFieldsAndTablesTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //System.IO.Stream inputFile = null;
+            //var response = instance.ExtractAllFieldsAndTables(inputFile);
+            //Assert.IsInstanceOf<ExtractFieldsAndTablesResponse> (response, "response is ExtractFieldsAndTablesResponse");
+        }
+        
+        /// <summary>
         /// Test ExtractClassification
         /// </summary>
         [Test]
@@ -123,7 +135,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Test
             // TODO uncomment below to test the method and replace null with proper value
             //System.IO.Stream inputFile = null;
             //var response = instance.ExtractTables(inputFile);
-            //Assert.IsInstanceOf<ExtractFieldsResponse> (response, "response is ExtractFieldsResponse");
+            //Assert.IsInstanceOf<ExtractTablesResponse> (response, "response is ExtractTablesResponse");
         }
         
     }

@@ -4,12 +4,79 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ExtractAllFieldsAndTables**](ExtractApi.md#extractallfieldsandtables) | **POST** /document-ai/document/extract/all | Extract All Fields and Tables of Data from a Document using AI
 [**ExtractClassification**](ExtractApi.md#extractclassification) | **POST** /document-ai/document/extract/classify | Extract Classification or Category from a Document using AI
 [**ExtractFields**](ExtractApi.md#extractfields) | **POST** /document-ai/document/extract/fields | Extract Field Values from a Document using AI
 [**ExtractFieldsAdvanced**](ExtractApi.md#extractfieldsadvanced) | **POST** /document-ai/document/extract/fields/advanced | Extract Field Values from a Document using Advanced AI
 [**ExtractSummary**](ExtractApi.md#extractsummary) | **POST** /document-ai/document/extract/summary | Extract Summary from a Document using AI
 [**ExtractTables**](ExtractApi.md#extracttables) | **POST** /document-ai/document/extract/tables | Extract Tables of Data from a Document using AI
 
+
+<a name="extractallfieldsandtables"></a>
+# **ExtractAllFieldsAndTables**
+> ExtractFieldsAndTablesResponse ExtractAllFieldsAndTables (System.IO.Stream inputFile = null)
+
+Extract All Fields and Tables of Data from a Document using AI
+
+Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using Cloudmersive.APIClient.NET.DocumentAI.Api;
+using Cloudmersive.APIClient.NET.DocumentAI.Client;
+using Cloudmersive.APIClient.NET.DocumentAI.Model;
+
+namespace Example
+{
+    public class ExtractAllFieldsAndTablesExample
+    {
+        public void main()
+        {
+            // Configure API key authorization: Apikey
+            Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
+
+            var apiInstance = new ExtractApi();
+            var inputFile = new System.IO.Stream(); // System.IO.Stream | Input document, or photos of a document, to extract data from (optional) 
+
+            try
+            {
+                // Extract All Fields and Tables of Data from a Document using AI
+                ExtractFieldsAndTablesResponse result = apiInstance.ExtractAllFieldsAndTables(inputFile);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ExtractApi.ExtractAllFieldsAndTables: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **System.IO.Stream**| Input document, or photos of a document, to extract data from | [optional] 
+
+### Return type
+
+[**ExtractFieldsAndTablesResponse**](ExtractFieldsAndTablesResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="extractclassification"></a>
 # **ExtractClassification**
@@ -281,7 +348,7 @@ Name | Type | Description  | Notes
 
 <a name="extracttables"></a>
 # **ExtractTables**
-> ExtractFieldsResponse ExtractTables (System.IO.Stream inputFile = null)
+> ExtractTablesResponse ExtractTables (System.IO.Stream inputFile = null)
 
 Extract Tables of Data from a Document using AI
 
@@ -312,7 +379,7 @@ namespace Example
             try
             {
                 // Extract Tables of Data from a Document using AI
-                ExtractFieldsResponse result = apiInstance.ExtractTables(inputFile);
+                ExtractTablesResponse result = apiInstance.ExtractTables(inputFile);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -332,7 +399,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExtractFieldsResponse**](ExtractFieldsResponse.md)
+[**ExtractTablesResponse**](ExtractTablesResponse.md)
 
 ### Authorization
 

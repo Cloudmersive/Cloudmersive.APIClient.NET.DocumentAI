@@ -149,7 +149,41 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/ExtractFieldsResponse"
+              "$ref": "#/definitions/ExtractTablesResponse"
+            }
+          }
+        }
+      }
+    },
+    "/document-ai/document/extract/all": {
+      "post": {
+        "tags": [
+          "Extract"
+        ],
+        "summary": "Extract All Fields and Tables of Data from a Document using AI",
+        "description": "Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "operationId": "ExtractAllFieldsAndTables",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "InputFile",
+            "description": "Input document, or photos of a document, to extract data from",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ExtractFieldsAndTablesResponse"
             }
           }
         }
@@ -307,6 +341,31 @@
       },
       "additionalProperties": false
     },
+    "ExtractFieldsAndTablesResponse": {
+      "description": "Result of extracting fields from a document",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if successful, false otherwise",
+          "type": "boolean"
+        },
+        "FieldResults": {
+          "description": "Field value results from the extraction operation",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FieldValue"
+          }
+        },
+        "TableResults": {
+          "description": "Table value results from the extraction operation",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TableResult"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
     "ExtractFieldsResponse": {
       "description": "Result of extracting fields from a document",
       "type": "object",
@@ -320,6 +379,24 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/FieldValue"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ExtractTablesResponse": {
+      "description": "Result of extracting tables from a document",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if successful, false otherwise",
+          "type": "boolean"
+        },
+        "TableResults": {
+          "description": "Table value results from the extraction operation",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TableResult"
           }
         }
       },
@@ -412,6 +489,53 @@
         "DocumentSummaryText": {
           "description": "Summary of the document",
           "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "TableResult": {
+      "description": "Table extracted from a document",
+      "type": "object",
+      "properties": {
+        "Title": {
+          "description": "Title of the table (optional)",
+          "type": "string"
+        },
+        "Rows": {
+          "description": "Rows of the table",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TableResultRow"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "TableResultCell": {
+      "description": "Cell of a row of a table extracted from a document",
+      "type": "object",
+      "properties": {
+        "CellHeader": {
+          "description": "Cell column header",
+          "type": "string"
+        },
+        "CellValue": {
+          "description": "Cell value as a string",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "TableResultRow": {
+      "description": "Row of a table extracted from a document",
+      "type": "object",
+      "properties": {
+        "Cells": {
+          "description": "Cells in the row",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TableResultCell"
+          }
         }
       },
       "additionalProperties": false
