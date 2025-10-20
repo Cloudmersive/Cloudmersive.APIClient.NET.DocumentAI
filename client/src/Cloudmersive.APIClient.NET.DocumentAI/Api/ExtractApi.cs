@@ -31,9 +31,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>ExtractFieldsAndTablesResponse</returns>
-        ExtractFieldsAndTablesResponse ExtractAllFieldsAndTables (System.IO.Stream inputFile = null);
+        ExtractFieldsAndTablesResponse ExtractAllFieldsAndTables (string recognitionMode = null, System.IO.Stream inputFile = null);
 
         /// <summary>
         /// Extract All Fields and Tables of Data from a Document using AI
@@ -42,9 +43,33 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>ApiResponse of ExtractFieldsAndTablesResponse</returns>
-        ApiResponse<ExtractFieldsAndTablesResponse> ExtractAllFieldsAndTablesWithHttpInfo (System.IO.Stream inputFile = null);
+        ApiResponse<ExtractFieldsAndTablesResponse> ExtractAllFieldsAndTablesWithHttpInfo (string recognitionMode = null, System.IO.Stream inputFile = null);
+        /// <summary>
+        /// Extract Barcodes of from a Document using AI
+        /// </summary>
+        /// <remarks>
+        /// Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
+        /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
+        /// <returns>ExtractBarcodesAiResponse</returns>
+        ExtractBarcodesAiResponse ExtractBarcodes (string recognitionMode = null, System.IO.Stream inputFile = null);
+
+        /// <summary>
+        /// Extract Barcodes of from a Document using AI
+        /// </summary>
+        /// <remarks>
+        /// Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
+        /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
+        /// <returns>ApiResponse of ExtractBarcodesAiResponse</returns>
+        ApiResponse<ExtractBarcodesAiResponse> ExtractBarcodesWithHttpInfo (string recognitionMode = null, System.IO.Stream inputFile = null);
         /// <summary>
         /// Extract Classification or Category from a Document using AI
         /// </summary>
@@ -53,9 +78,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categories">Desired classification to extract (optional)</param>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>DocumentClassificationResult</returns>
-        DocumentClassificationResult ExtractClassification (string categories = null, System.IO.Stream inputFile = null);
+        DocumentClassificationResult ExtractClassification (string categories = null, string recognitionMode = null, System.IO.Stream inputFile = null);
 
         /// <summary>
         /// Extract Classification or Category from a Document using AI
@@ -65,9 +91,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categories">Desired classification to extract (optional)</param>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>ApiResponse of DocumentClassificationResult</returns>
-        ApiResponse<DocumentClassificationResult> ExtractClassificationWithHttpInfo (string categories = null, System.IO.Stream inputFile = null);
+        ApiResponse<DocumentClassificationResult> ExtractClassificationWithHttpInfo (string categories = null, string recognitionMode = null, System.IO.Stream inputFile = null);
         /// <summary>
         /// Extract Field Values from a Document using AI
         /// </summary>
@@ -75,10 +102,11 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fieldNames">Desired fields to extract (optional)</param>
+        /// <param name="fieldNames">Desired fields to extract, comma separated (optional)</param>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>ExtractFieldsResponse</returns>
-        ExtractFieldsResponse ExtractFields (string fieldNames = null, System.IO.Stream inputFile = null);
+        ExtractFieldsResponse ExtractFields (string fieldNames = null, string recognitionMode = null, System.IO.Stream inputFile = null);
 
         /// <summary>
         /// Extract Field Values from a Document using AI
@@ -87,10 +115,11 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fieldNames">Desired fields to extract (optional)</param>
+        /// <param name="fieldNames">Desired fields to extract, comma separated (optional)</param>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>ApiResponse of ExtractFieldsResponse</returns>
-        ApiResponse<ExtractFieldsResponse> ExtractFieldsWithHttpInfo (string fieldNames = null, System.IO.Stream inputFile = null);
+        ApiResponse<ExtractFieldsResponse> ExtractFieldsWithHttpInfo (string fieldNames = null, string recognitionMode = null, System.IO.Stream inputFile = null);
         /// <summary>
         /// Extract Field Values from a Document using Advanced AI
         /// </summary>
@@ -98,9 +127,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="body">Input request, including document file as byte array, and information on which fields to extract (optional)</param>
         /// <returns>ExtractFieldsResponse</returns>
-        ExtractFieldsResponse ExtractFieldsAdvanced (AdvancedExtractFieldsRequest body = null);
+        ExtractFieldsResponse ExtractFieldsAdvanced (string recognitionMode = null, AdvancedExtractFieldsRequest body = null);
 
         /// <summary>
         /// Extract Field Values from a Document using Advanced AI
@@ -109,9 +139,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="body">Input request, including document file as byte array, and information on which fields to extract (optional)</param>
         /// <returns>ApiResponse of ExtractFieldsResponse</returns>
-        ApiResponse<ExtractFieldsResponse> ExtractFieldsAdvancedWithHttpInfo (AdvancedExtractFieldsRequest body = null);
+        ApiResponse<ExtractFieldsResponse> ExtractFieldsAdvancedWithHttpInfo (string recognitionMode = null, AdvancedExtractFieldsRequest body = null);
         /// <summary>
         /// Extract Summary from a Document using AI
         /// </summary>
@@ -119,9 +150,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>SummarizeDocumentResponse</returns>
-        SummarizeDocumentResponse ExtractSummary (System.IO.Stream inputFile = null);
+        SummarizeDocumentResponse ExtractSummary (string recognitionMode = null, System.IO.Stream inputFile = null);
 
         /// <summary>
         /// Extract Summary from a Document using AI
@@ -130,9 +162,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>ApiResponse of SummarizeDocumentResponse</returns>
-        ApiResponse<SummarizeDocumentResponse> ExtractSummaryWithHttpInfo (System.IO.Stream inputFile = null);
+        ApiResponse<SummarizeDocumentResponse> ExtractSummaryWithHttpInfo (string recognitionMode = null, System.IO.Stream inputFile = null);
         /// <summary>
         /// Extract Tables of Data from a Document using AI
         /// </summary>
@@ -140,9 +173,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>ExtractTablesResponse</returns>
-        ExtractTablesResponse ExtractTables (System.IO.Stream inputFile = null);
+        ExtractTablesResponse ExtractTables (string recognitionMode = null, System.IO.Stream inputFile = null);
 
         /// <summary>
         /// Extract Tables of Data from a Document using AI
@@ -151,9 +185,33 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>ApiResponse of ExtractTablesResponse</returns>
-        ApiResponse<ExtractTablesResponse> ExtractTablesWithHttpInfo (System.IO.Stream inputFile = null);
+        ApiResponse<ExtractTablesResponse> ExtractTablesWithHttpInfo (string recognitionMode = null, System.IO.Stream inputFile = null);
+        /// <summary>
+        /// Extract Text from a Document using AI
+        /// </summary>
+        /// <remarks>
+        /// Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
+        /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
+        /// <returns>ExtractTextResponse</returns>
+        ExtractTextResponse ExtractText (string recognitionMode = null, System.IO.Stream inputFile = null);
+
+        /// <summary>
+        /// Extract Text from a Document using AI
+        /// </summary>
+        /// <remarks>
+        /// Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
+        /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
+        /// <returns>ApiResponse of ExtractTextResponse</returns>
+        ApiResponse<ExtractTextResponse> ExtractTextWithHttpInfo (string recognitionMode = null, System.IO.Stream inputFile = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -163,9 +221,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>Task of ExtractFieldsAndTablesResponse</returns>
-        System.Threading.Tasks.Task<ExtractFieldsAndTablesResponse> ExtractAllFieldsAndTablesAsync (System.IO.Stream inputFile = null);
+        System.Threading.Tasks.Task<ExtractFieldsAndTablesResponse> ExtractAllFieldsAndTablesAsync (string recognitionMode = null, System.IO.Stream inputFile = null);
 
         /// <summary>
         /// Extract All Fields and Tables of Data from a Document using AI
@@ -174,9 +233,33 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>Task of ApiResponse (ExtractFieldsAndTablesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ExtractFieldsAndTablesResponse>> ExtractAllFieldsAndTablesAsyncWithHttpInfo (System.IO.Stream inputFile = null);
+        System.Threading.Tasks.Task<ApiResponse<ExtractFieldsAndTablesResponse>> ExtractAllFieldsAndTablesAsyncWithHttpInfo (string recognitionMode = null, System.IO.Stream inputFile = null);
+        /// <summary>
+        /// Extract Barcodes of from a Document using AI
+        /// </summary>
+        /// <remarks>
+        /// Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
+        /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
+        /// <returns>Task of ExtractBarcodesAiResponse</returns>
+        System.Threading.Tasks.Task<ExtractBarcodesAiResponse> ExtractBarcodesAsync (string recognitionMode = null, System.IO.Stream inputFile = null);
+
+        /// <summary>
+        /// Extract Barcodes of from a Document using AI
+        /// </summary>
+        /// <remarks>
+        /// Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
+        /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
+        /// <returns>Task of ApiResponse (ExtractBarcodesAiResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ExtractBarcodesAiResponse>> ExtractBarcodesAsyncWithHttpInfo (string recognitionMode = null, System.IO.Stream inputFile = null);
         /// <summary>
         /// Extract Classification or Category from a Document using AI
         /// </summary>
@@ -185,9 +268,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categories">Desired classification to extract (optional)</param>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>Task of DocumentClassificationResult</returns>
-        System.Threading.Tasks.Task<DocumentClassificationResult> ExtractClassificationAsync (string categories = null, System.IO.Stream inputFile = null);
+        System.Threading.Tasks.Task<DocumentClassificationResult> ExtractClassificationAsync (string categories = null, string recognitionMode = null, System.IO.Stream inputFile = null);
 
         /// <summary>
         /// Extract Classification or Category from a Document using AI
@@ -197,9 +281,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categories">Desired classification to extract (optional)</param>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>Task of ApiResponse (DocumentClassificationResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DocumentClassificationResult>> ExtractClassificationAsyncWithHttpInfo (string categories = null, System.IO.Stream inputFile = null);
+        System.Threading.Tasks.Task<ApiResponse<DocumentClassificationResult>> ExtractClassificationAsyncWithHttpInfo (string categories = null, string recognitionMode = null, System.IO.Stream inputFile = null);
         /// <summary>
         /// Extract Field Values from a Document using AI
         /// </summary>
@@ -207,10 +292,11 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fieldNames">Desired fields to extract (optional)</param>
+        /// <param name="fieldNames">Desired fields to extract, comma separated (optional)</param>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>Task of ExtractFieldsResponse</returns>
-        System.Threading.Tasks.Task<ExtractFieldsResponse> ExtractFieldsAsync (string fieldNames = null, System.IO.Stream inputFile = null);
+        System.Threading.Tasks.Task<ExtractFieldsResponse> ExtractFieldsAsync (string fieldNames = null, string recognitionMode = null, System.IO.Stream inputFile = null);
 
         /// <summary>
         /// Extract Field Values from a Document using AI
@@ -219,10 +305,11 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fieldNames">Desired fields to extract (optional)</param>
+        /// <param name="fieldNames">Desired fields to extract, comma separated (optional)</param>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>Task of ApiResponse (ExtractFieldsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ExtractFieldsResponse>> ExtractFieldsAsyncWithHttpInfo (string fieldNames = null, System.IO.Stream inputFile = null);
+        System.Threading.Tasks.Task<ApiResponse<ExtractFieldsResponse>> ExtractFieldsAsyncWithHttpInfo (string fieldNames = null, string recognitionMode = null, System.IO.Stream inputFile = null);
         /// <summary>
         /// Extract Field Values from a Document using Advanced AI
         /// </summary>
@@ -230,9 +317,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="body">Input request, including document file as byte array, and information on which fields to extract (optional)</param>
         /// <returns>Task of ExtractFieldsResponse</returns>
-        System.Threading.Tasks.Task<ExtractFieldsResponse> ExtractFieldsAdvancedAsync (AdvancedExtractFieldsRequest body = null);
+        System.Threading.Tasks.Task<ExtractFieldsResponse> ExtractFieldsAdvancedAsync (string recognitionMode = null, AdvancedExtractFieldsRequest body = null);
 
         /// <summary>
         /// Extract Field Values from a Document using Advanced AI
@@ -241,9 +329,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="body">Input request, including document file as byte array, and information on which fields to extract (optional)</param>
         /// <returns>Task of ApiResponse (ExtractFieldsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ExtractFieldsResponse>> ExtractFieldsAdvancedAsyncWithHttpInfo (AdvancedExtractFieldsRequest body = null);
+        System.Threading.Tasks.Task<ApiResponse<ExtractFieldsResponse>> ExtractFieldsAdvancedAsyncWithHttpInfo (string recognitionMode = null, AdvancedExtractFieldsRequest body = null);
         /// <summary>
         /// Extract Summary from a Document using AI
         /// </summary>
@@ -251,9 +340,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>Task of SummarizeDocumentResponse</returns>
-        System.Threading.Tasks.Task<SummarizeDocumentResponse> ExtractSummaryAsync (System.IO.Stream inputFile = null);
+        System.Threading.Tasks.Task<SummarizeDocumentResponse> ExtractSummaryAsync (string recognitionMode = null, System.IO.Stream inputFile = null);
 
         /// <summary>
         /// Extract Summary from a Document using AI
@@ -262,9 +352,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>Task of ApiResponse (SummarizeDocumentResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SummarizeDocumentResponse>> ExtractSummaryAsyncWithHttpInfo (System.IO.Stream inputFile = null);
+        System.Threading.Tasks.Task<ApiResponse<SummarizeDocumentResponse>> ExtractSummaryAsyncWithHttpInfo (string recognitionMode = null, System.IO.Stream inputFile = null);
         /// <summary>
         /// Extract Tables of Data from a Document using AI
         /// </summary>
@@ -272,9 +363,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>Task of ExtractTablesResponse</returns>
-        System.Threading.Tasks.Task<ExtractTablesResponse> ExtractTablesAsync (System.IO.Stream inputFile = null);
+        System.Threading.Tasks.Task<ExtractTablesResponse> ExtractTablesAsync (string recognitionMode = null, System.IO.Stream inputFile = null);
 
         /// <summary>
         /// Extract Tables of Data from a Document using AI
@@ -283,9 +375,33 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>Task of ApiResponse (ExtractTablesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ExtractTablesResponse>> ExtractTablesAsyncWithHttpInfo (System.IO.Stream inputFile = null);
+        System.Threading.Tasks.Task<ApiResponse<ExtractTablesResponse>> ExtractTablesAsyncWithHttpInfo (string recognitionMode = null, System.IO.Stream inputFile = null);
+        /// <summary>
+        /// Extract Text from a Document using AI
+        /// </summary>
+        /// <remarks>
+        /// Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
+        /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
+        /// <returns>Task of ExtractTextResponse</returns>
+        System.Threading.Tasks.Task<ExtractTextResponse> ExtractTextAsync (string recognitionMode = null, System.IO.Stream inputFile = null);
+
+        /// <summary>
+        /// Extract Text from a Document using AI
+        /// </summary>
+        /// <remarks>
+        /// Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
+        /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
+        /// <returns>Task of ApiResponse (ExtractTextResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ExtractTextResponse>> ExtractTextAsyncWithHttpInfo (string recognitionMode = null, System.IO.Stream inputFile = null);
         #endregion Asynchronous Operations
     }
 
@@ -390,11 +506,12 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract All Fields and Tables of Data from a Document using AI Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>ExtractFieldsAndTablesResponse</returns>
-        public ExtractFieldsAndTablesResponse ExtractAllFieldsAndTables (System.IO.Stream inputFile = null)
+        public ExtractFieldsAndTablesResponse ExtractAllFieldsAndTables (string recognitionMode = null, System.IO.Stream inputFile = null)
         {
-             ApiResponse<ExtractFieldsAndTablesResponse> localVarResponse = ExtractAllFieldsAndTablesWithHttpInfo(inputFile);
+             ApiResponse<ExtractFieldsAndTablesResponse> localVarResponse = ExtractAllFieldsAndTablesWithHttpInfo(recognitionMode, inputFile);
              return localVarResponse.Data;
         }
 
@@ -402,9 +519,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract All Fields and Tables of Data from a Document using AI Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>ApiResponse of ExtractFieldsAndTablesResponse</returns>
-        public ApiResponse< ExtractFieldsAndTablesResponse > ExtractAllFieldsAndTablesWithHttpInfo (System.IO.Stream inputFile = null)
+        public ApiResponse< ExtractFieldsAndTablesResponse > ExtractAllFieldsAndTablesWithHttpInfo (string recognitionMode = null, System.IO.Stream inputFile = null)
         {
 
             var localVarPath = "/document-ai/document/extract/all";
@@ -431,6 +549,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (recognitionMode != null) localVarHeaderParams.Add("recognitionMode", this.Configuration.ApiClient.ParameterToString(recognitionMode)); // header parameter
             if (inputFile != null) localVarFileParams.Add("InputFile", this.Configuration.ApiClient.ParameterToFile("InputFile", inputFile));
 
             // authentication (Apikey) required
@@ -461,11 +580,12 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract All Fields and Tables of Data from a Document using AI Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>Task of ExtractFieldsAndTablesResponse</returns>
-        public async System.Threading.Tasks.Task<ExtractFieldsAndTablesResponse> ExtractAllFieldsAndTablesAsync (System.IO.Stream inputFile = null)
+        public async System.Threading.Tasks.Task<ExtractFieldsAndTablesResponse> ExtractAllFieldsAndTablesAsync (string recognitionMode = null, System.IO.Stream inputFile = null)
         {
-             ApiResponse<ExtractFieldsAndTablesResponse> localVarResponse = await ExtractAllFieldsAndTablesAsyncWithHttpInfo(inputFile);
+             ApiResponse<ExtractFieldsAndTablesResponse> localVarResponse = await ExtractAllFieldsAndTablesAsyncWithHttpInfo(recognitionMode, inputFile);
              return localVarResponse.Data;
 
         }
@@ -474,9 +594,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract All Fields and Tables of Data from a Document using AI Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>Task of ApiResponse (ExtractFieldsAndTablesResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ExtractFieldsAndTablesResponse>> ExtractAllFieldsAndTablesAsyncWithHttpInfo (System.IO.Stream inputFile = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ExtractFieldsAndTablesResponse>> ExtractAllFieldsAndTablesAsyncWithHttpInfo (string recognitionMode = null, System.IO.Stream inputFile = null)
         {
 
             var localVarPath = "/document-ai/document/extract/all";
@@ -503,6 +624,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (recognitionMode != null) localVarHeaderParams.Add("recognitionMode", this.Configuration.ApiClient.ParameterToString(recognitionMode)); // header parameter
             if (inputFile != null) localVarFileParams.Add("InputFile", this.Configuration.ApiClient.ParameterToFile("InputFile", inputFile));
 
             // authentication (Apikey) required
@@ -530,15 +652,165 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
+        /// Extract Barcodes of from a Document using AI Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
+        /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
+        /// <returns>ExtractBarcodesAiResponse</returns>
+        public ExtractBarcodesAiResponse ExtractBarcodes (string recognitionMode = null, System.IO.Stream inputFile = null)
+        {
+             ApiResponse<ExtractBarcodesAiResponse> localVarResponse = ExtractBarcodesWithHttpInfo(recognitionMode, inputFile);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Extract Barcodes of from a Document using AI Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
+        /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
+        /// <returns>ApiResponse of ExtractBarcodesAiResponse</returns>
+        public ApiResponse< ExtractBarcodesAiResponse > ExtractBarcodesWithHttpInfo (string recognitionMode = null, System.IO.Stream inputFile = null)
+        {
+
+            var localVarPath = "/document-ai/document/extract/barcodes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (recognitionMode != null) localVarHeaderParams.Add("recognitionMode", this.Configuration.ApiClient.ParameterToString(recognitionMode)); // header parameter
+            if (inputFile != null) localVarFileParams.Add("InputFile", this.Configuration.ApiClient.ParameterToFile("InputFile", inputFile));
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ExtractBarcodes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ExtractBarcodesAiResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ExtractBarcodesAiResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExtractBarcodesAiResponse)));
+        }
+
+        /// <summary>
+        /// Extract Barcodes of from a Document using AI Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
+        /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
+        /// <returns>Task of ExtractBarcodesAiResponse</returns>
+        public async System.Threading.Tasks.Task<ExtractBarcodesAiResponse> ExtractBarcodesAsync (string recognitionMode = null, System.IO.Stream inputFile = null)
+        {
+             ApiResponse<ExtractBarcodesAiResponse> localVarResponse = await ExtractBarcodesAsyncWithHttpInfo(recognitionMode, inputFile);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Extract Barcodes of from a Document using AI Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
+        /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
+        /// <returns>Task of ApiResponse (ExtractBarcodesAiResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ExtractBarcodesAiResponse>> ExtractBarcodesAsyncWithHttpInfo (string recognitionMode = null, System.IO.Stream inputFile = null)
+        {
+
+            var localVarPath = "/document-ai/document/extract/barcodes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (recognitionMode != null) localVarHeaderParams.Add("recognitionMode", this.Configuration.ApiClient.ParameterToString(recognitionMode)); // header parameter
+            if (inputFile != null) localVarFileParams.Add("InputFile", this.Configuration.ApiClient.ParameterToFile("InputFile", inputFile));
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ExtractBarcodes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ExtractBarcodesAiResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ExtractBarcodesAiResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExtractBarcodesAiResponse)));
+        }
+
+        /// <summary>
         /// Extract Classification or Category from a Document using AI Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categories">Desired classification to extract (optional)</param>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>DocumentClassificationResult</returns>
-        public DocumentClassificationResult ExtractClassification (string categories = null, System.IO.Stream inputFile = null)
+        public DocumentClassificationResult ExtractClassification (string categories = null, string recognitionMode = null, System.IO.Stream inputFile = null)
         {
-             ApiResponse<DocumentClassificationResult> localVarResponse = ExtractClassificationWithHttpInfo(categories, inputFile);
+             ApiResponse<DocumentClassificationResult> localVarResponse = ExtractClassificationWithHttpInfo(categories, recognitionMode, inputFile);
              return localVarResponse.Data;
         }
 
@@ -547,9 +819,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categories">Desired classification to extract (optional)</param>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>ApiResponse of DocumentClassificationResult</returns>
-        public ApiResponse< DocumentClassificationResult > ExtractClassificationWithHttpInfo (string categories = null, System.IO.Stream inputFile = null)
+        public ApiResponse< DocumentClassificationResult > ExtractClassificationWithHttpInfo (string categories = null, string recognitionMode = null, System.IO.Stream inputFile = null)
         {
 
             var localVarPath = "/document-ai/document/extract/classify";
@@ -577,6 +850,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (categories != null) localVarHeaderParams.Add("Categories", this.Configuration.ApiClient.ParameterToString(categories)); // header parameter
+            if (recognitionMode != null) localVarHeaderParams.Add("recognitionMode", this.Configuration.ApiClient.ParameterToString(recognitionMode)); // header parameter
             if (inputFile != null) localVarFileParams.Add("InputFile", this.Configuration.ApiClient.ParameterToFile("InputFile", inputFile));
 
             // authentication (Apikey) required
@@ -608,11 +882,12 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categories">Desired classification to extract (optional)</param>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>Task of DocumentClassificationResult</returns>
-        public async System.Threading.Tasks.Task<DocumentClassificationResult> ExtractClassificationAsync (string categories = null, System.IO.Stream inputFile = null)
+        public async System.Threading.Tasks.Task<DocumentClassificationResult> ExtractClassificationAsync (string categories = null, string recognitionMode = null, System.IO.Stream inputFile = null)
         {
-             ApiResponse<DocumentClassificationResult> localVarResponse = await ExtractClassificationAsyncWithHttpInfo(categories, inputFile);
+             ApiResponse<DocumentClassificationResult> localVarResponse = await ExtractClassificationAsyncWithHttpInfo(categories, recognitionMode, inputFile);
              return localVarResponse.Data;
 
         }
@@ -622,9 +897,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categories">Desired classification to extract (optional)</param>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>Task of ApiResponse (DocumentClassificationResult)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DocumentClassificationResult>> ExtractClassificationAsyncWithHttpInfo (string categories = null, System.IO.Stream inputFile = null)
+        public async System.Threading.Tasks.Task<ApiResponse<DocumentClassificationResult>> ExtractClassificationAsyncWithHttpInfo (string categories = null, string recognitionMode = null, System.IO.Stream inputFile = null)
         {
 
             var localVarPath = "/document-ai/document/extract/classify";
@@ -652,6 +928,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (categories != null) localVarHeaderParams.Add("Categories", this.Configuration.ApiClient.ParameterToString(categories)); // header parameter
+            if (recognitionMode != null) localVarHeaderParams.Add("recognitionMode", this.Configuration.ApiClient.ParameterToString(recognitionMode)); // header parameter
             if (inputFile != null) localVarFileParams.Add("InputFile", this.Configuration.ApiClient.ParameterToFile("InputFile", inputFile));
 
             // authentication (Apikey) required
@@ -682,12 +959,13 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Field Values from a Document using AI Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fieldNames">Desired fields to extract (optional)</param>
+        /// <param name="fieldNames">Desired fields to extract, comma separated (optional)</param>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>ExtractFieldsResponse</returns>
-        public ExtractFieldsResponse ExtractFields (string fieldNames = null, System.IO.Stream inputFile = null)
+        public ExtractFieldsResponse ExtractFields (string fieldNames = null, string recognitionMode = null, System.IO.Stream inputFile = null)
         {
-             ApiResponse<ExtractFieldsResponse> localVarResponse = ExtractFieldsWithHttpInfo(fieldNames, inputFile);
+             ApiResponse<ExtractFieldsResponse> localVarResponse = ExtractFieldsWithHttpInfo(fieldNames, recognitionMode, inputFile);
              return localVarResponse.Data;
         }
 
@@ -695,10 +973,11 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Field Values from a Document using AI Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fieldNames">Desired fields to extract (optional)</param>
+        /// <param name="fieldNames">Desired fields to extract, comma separated (optional)</param>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>ApiResponse of ExtractFieldsResponse</returns>
-        public ApiResponse< ExtractFieldsResponse > ExtractFieldsWithHttpInfo (string fieldNames = null, System.IO.Stream inputFile = null)
+        public ApiResponse< ExtractFieldsResponse > ExtractFieldsWithHttpInfo (string fieldNames = null, string recognitionMode = null, System.IO.Stream inputFile = null)
         {
 
             var localVarPath = "/document-ai/document/extract/fields";
@@ -726,6 +1005,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (fieldNames != null) localVarHeaderParams.Add("FieldNames", this.Configuration.ApiClient.ParameterToString(fieldNames)); // header parameter
+            if (recognitionMode != null) localVarHeaderParams.Add("recognitionMode", this.Configuration.ApiClient.ParameterToString(recognitionMode)); // header parameter
             if (inputFile != null) localVarFileParams.Add("InputFile", this.Configuration.ApiClient.ParameterToFile("InputFile", inputFile));
 
             // authentication (Apikey) required
@@ -756,12 +1036,13 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Field Values from a Document using AI Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fieldNames">Desired fields to extract (optional)</param>
+        /// <param name="fieldNames">Desired fields to extract, comma separated (optional)</param>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>Task of ExtractFieldsResponse</returns>
-        public async System.Threading.Tasks.Task<ExtractFieldsResponse> ExtractFieldsAsync (string fieldNames = null, System.IO.Stream inputFile = null)
+        public async System.Threading.Tasks.Task<ExtractFieldsResponse> ExtractFieldsAsync (string fieldNames = null, string recognitionMode = null, System.IO.Stream inputFile = null)
         {
-             ApiResponse<ExtractFieldsResponse> localVarResponse = await ExtractFieldsAsyncWithHttpInfo(fieldNames, inputFile);
+             ApiResponse<ExtractFieldsResponse> localVarResponse = await ExtractFieldsAsyncWithHttpInfo(fieldNames, recognitionMode, inputFile);
              return localVarResponse.Data;
 
         }
@@ -770,10 +1051,11 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Field Values from a Document using AI Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fieldNames">Desired fields to extract (optional)</param>
+        /// <param name="fieldNames">Desired fields to extract, comma separated (optional)</param>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>Task of ApiResponse (ExtractFieldsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ExtractFieldsResponse>> ExtractFieldsAsyncWithHttpInfo (string fieldNames = null, System.IO.Stream inputFile = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ExtractFieldsResponse>> ExtractFieldsAsyncWithHttpInfo (string fieldNames = null, string recognitionMode = null, System.IO.Stream inputFile = null)
         {
 
             var localVarPath = "/document-ai/document/extract/fields";
@@ -801,6 +1083,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (fieldNames != null) localVarHeaderParams.Add("FieldNames", this.Configuration.ApiClient.ParameterToString(fieldNames)); // header parameter
+            if (recognitionMode != null) localVarHeaderParams.Add("recognitionMode", this.Configuration.ApiClient.ParameterToString(recognitionMode)); // header parameter
             if (inputFile != null) localVarFileParams.Add("InputFile", this.Configuration.ApiClient.ParameterToFile("InputFile", inputFile));
 
             // authentication (Apikey) required
@@ -831,11 +1114,12 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Field Values from a Document using Advanced AI Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="body">Input request, including document file as byte array, and information on which fields to extract (optional)</param>
         /// <returns>ExtractFieldsResponse</returns>
-        public ExtractFieldsResponse ExtractFieldsAdvanced (AdvancedExtractFieldsRequest body = null)
+        public ExtractFieldsResponse ExtractFieldsAdvanced (string recognitionMode = null, AdvancedExtractFieldsRequest body = null)
         {
-             ApiResponse<ExtractFieldsResponse> localVarResponse = ExtractFieldsAdvancedWithHttpInfo(body);
+             ApiResponse<ExtractFieldsResponse> localVarResponse = ExtractFieldsAdvancedWithHttpInfo(recognitionMode, body);
              return localVarResponse.Data;
         }
 
@@ -843,9 +1127,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Field Values from a Document using Advanced AI Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="body">Input request, including document file as byte array, and information on which fields to extract (optional)</param>
         /// <returns>ApiResponse of ExtractFieldsResponse</returns>
-        public ApiResponse< ExtractFieldsResponse > ExtractFieldsAdvancedWithHttpInfo (AdvancedExtractFieldsRequest body = null)
+        public ApiResponse< ExtractFieldsResponse > ExtractFieldsAdvancedWithHttpInfo (string recognitionMode = null, AdvancedExtractFieldsRequest body = null)
         {
 
             var localVarPath = "/document-ai/document/extract/fields/advanced";
@@ -874,6 +1159,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (recognitionMode != null) localVarHeaderParams.Add("recognitionMode", this.Configuration.ApiClient.ParameterToString(recognitionMode)); // header parameter
             if (body != null && body.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
@@ -911,11 +1197,12 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Field Values from a Document using Advanced AI Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="body">Input request, including document file as byte array, and information on which fields to extract (optional)</param>
         /// <returns>Task of ExtractFieldsResponse</returns>
-        public async System.Threading.Tasks.Task<ExtractFieldsResponse> ExtractFieldsAdvancedAsync (AdvancedExtractFieldsRequest body = null)
+        public async System.Threading.Tasks.Task<ExtractFieldsResponse> ExtractFieldsAdvancedAsync (string recognitionMode = null, AdvancedExtractFieldsRequest body = null)
         {
-             ApiResponse<ExtractFieldsResponse> localVarResponse = await ExtractFieldsAdvancedAsyncWithHttpInfo(body);
+             ApiResponse<ExtractFieldsResponse> localVarResponse = await ExtractFieldsAdvancedAsyncWithHttpInfo(recognitionMode, body);
              return localVarResponse.Data;
 
         }
@@ -924,9 +1211,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Field Values from a Document using Advanced AI Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="body">Input request, including document file as byte array, and information on which fields to extract (optional)</param>
         /// <returns>Task of ApiResponse (ExtractFieldsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ExtractFieldsResponse>> ExtractFieldsAdvancedAsyncWithHttpInfo (AdvancedExtractFieldsRequest body = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ExtractFieldsResponse>> ExtractFieldsAdvancedAsyncWithHttpInfo (string recognitionMode = null, AdvancedExtractFieldsRequest body = null)
         {
 
             var localVarPath = "/document-ai/document/extract/fields/advanced";
@@ -955,6 +1243,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (recognitionMode != null) localVarHeaderParams.Add("recognitionMode", this.Configuration.ApiClient.ParameterToString(recognitionMode)); // header parameter
             if (body != null && body.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
@@ -992,11 +1281,12 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Summary from a Document using AI Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>SummarizeDocumentResponse</returns>
-        public SummarizeDocumentResponse ExtractSummary (System.IO.Stream inputFile = null)
+        public SummarizeDocumentResponse ExtractSummary (string recognitionMode = null, System.IO.Stream inputFile = null)
         {
-             ApiResponse<SummarizeDocumentResponse> localVarResponse = ExtractSummaryWithHttpInfo(inputFile);
+             ApiResponse<SummarizeDocumentResponse> localVarResponse = ExtractSummaryWithHttpInfo(recognitionMode, inputFile);
              return localVarResponse.Data;
         }
 
@@ -1004,9 +1294,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Summary from a Document using AI Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>ApiResponse of SummarizeDocumentResponse</returns>
-        public ApiResponse< SummarizeDocumentResponse > ExtractSummaryWithHttpInfo (System.IO.Stream inputFile = null)
+        public ApiResponse< SummarizeDocumentResponse > ExtractSummaryWithHttpInfo (string recognitionMode = null, System.IO.Stream inputFile = null)
         {
 
             var localVarPath = "/document-ai/document/extract/summary";
@@ -1033,6 +1324,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (recognitionMode != null) localVarHeaderParams.Add("recognitionMode", this.Configuration.ApiClient.ParameterToString(recognitionMode)); // header parameter
             if (inputFile != null) localVarFileParams.Add("InputFile", this.Configuration.ApiClient.ParameterToFile("InputFile", inputFile));
 
             // authentication (Apikey) required
@@ -1063,11 +1355,12 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Summary from a Document using AI Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>Task of SummarizeDocumentResponse</returns>
-        public async System.Threading.Tasks.Task<SummarizeDocumentResponse> ExtractSummaryAsync (System.IO.Stream inputFile = null)
+        public async System.Threading.Tasks.Task<SummarizeDocumentResponse> ExtractSummaryAsync (string recognitionMode = null, System.IO.Stream inputFile = null)
         {
-             ApiResponse<SummarizeDocumentResponse> localVarResponse = await ExtractSummaryAsyncWithHttpInfo(inputFile);
+             ApiResponse<SummarizeDocumentResponse> localVarResponse = await ExtractSummaryAsyncWithHttpInfo(recognitionMode, inputFile);
              return localVarResponse.Data;
 
         }
@@ -1076,9 +1369,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Summary from a Document using AI Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>Task of ApiResponse (SummarizeDocumentResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<SummarizeDocumentResponse>> ExtractSummaryAsyncWithHttpInfo (System.IO.Stream inputFile = null)
+        public async System.Threading.Tasks.Task<ApiResponse<SummarizeDocumentResponse>> ExtractSummaryAsyncWithHttpInfo (string recognitionMode = null, System.IO.Stream inputFile = null)
         {
 
             var localVarPath = "/document-ai/document/extract/summary";
@@ -1105,6 +1399,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (recognitionMode != null) localVarHeaderParams.Add("recognitionMode", this.Configuration.ApiClient.ParameterToString(recognitionMode)); // header parameter
             if (inputFile != null) localVarFileParams.Add("InputFile", this.Configuration.ApiClient.ParameterToFile("InputFile", inputFile));
 
             // authentication (Apikey) required
@@ -1135,11 +1430,12 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Tables of Data from a Document using AI Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>ExtractTablesResponse</returns>
-        public ExtractTablesResponse ExtractTables (System.IO.Stream inputFile = null)
+        public ExtractTablesResponse ExtractTables (string recognitionMode = null, System.IO.Stream inputFile = null)
         {
-             ApiResponse<ExtractTablesResponse> localVarResponse = ExtractTablesWithHttpInfo(inputFile);
+             ApiResponse<ExtractTablesResponse> localVarResponse = ExtractTablesWithHttpInfo(recognitionMode, inputFile);
              return localVarResponse.Data;
         }
 
@@ -1147,9 +1443,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Tables of Data from a Document using AI Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>ApiResponse of ExtractTablesResponse</returns>
-        public ApiResponse< ExtractTablesResponse > ExtractTablesWithHttpInfo (System.IO.Stream inputFile = null)
+        public ApiResponse< ExtractTablesResponse > ExtractTablesWithHttpInfo (string recognitionMode = null, System.IO.Stream inputFile = null)
         {
 
             var localVarPath = "/document-ai/document/extract/tables";
@@ -1176,6 +1473,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (recognitionMode != null) localVarHeaderParams.Add("recognitionMode", this.Configuration.ApiClient.ParameterToString(recognitionMode)); // header parameter
             if (inputFile != null) localVarFileParams.Add("InputFile", this.Configuration.ApiClient.ParameterToFile("InputFile", inputFile));
 
             // authentication (Apikey) required
@@ -1206,11 +1504,12 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Tables of Data from a Document using AI Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>Task of ExtractTablesResponse</returns>
-        public async System.Threading.Tasks.Task<ExtractTablesResponse> ExtractTablesAsync (System.IO.Stream inputFile = null)
+        public async System.Threading.Tasks.Task<ExtractTablesResponse> ExtractTablesAsync (string recognitionMode = null, System.IO.Stream inputFile = null)
         {
-             ApiResponse<ExtractTablesResponse> localVarResponse = await ExtractTablesAsyncWithHttpInfo(inputFile);
+             ApiResponse<ExtractTablesResponse> localVarResponse = await ExtractTablesAsyncWithHttpInfo(recognitionMode, inputFile);
              return localVarResponse.Data;
 
         }
@@ -1219,9 +1518,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Tables of Data from a Document using AI Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>Task of ApiResponse (ExtractTablesResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ExtractTablesResponse>> ExtractTablesAsyncWithHttpInfo (System.IO.Stream inputFile = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ExtractTablesResponse>> ExtractTablesAsyncWithHttpInfo (string recognitionMode = null, System.IO.Stream inputFile = null)
         {
 
             var localVarPath = "/document-ai/document/extract/tables";
@@ -1248,6 +1548,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (recognitionMode != null) localVarHeaderParams.Add("recognitionMode", this.Configuration.ApiClient.ParameterToString(recognitionMode)); // header parameter
             if (inputFile != null) localVarFileParams.Add("InputFile", this.Configuration.ApiClient.ParameterToFile("InputFile", inputFile));
 
             // authentication (Apikey) required
@@ -1272,6 +1573,155 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
             return new ApiResponse<ExtractTablesResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ExtractTablesResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExtractTablesResponse)));
+        }
+
+        /// <summary>
+        /// Extract Text from a Document using AI Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
+        /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
+        /// <returns>ExtractTextResponse</returns>
+        public ExtractTextResponse ExtractText (string recognitionMode = null, System.IO.Stream inputFile = null)
+        {
+             ApiResponse<ExtractTextResponse> localVarResponse = ExtractTextWithHttpInfo(recognitionMode, inputFile);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Extract Text from a Document using AI Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
+        /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
+        /// <returns>ApiResponse of ExtractTextResponse</returns>
+        public ApiResponse< ExtractTextResponse > ExtractTextWithHttpInfo (string recognitionMode = null, System.IO.Stream inputFile = null)
+        {
+
+            var localVarPath = "/document-ai/document/extract/text";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (recognitionMode != null) localVarHeaderParams.Add("recognitionMode", this.Configuration.ApiClient.ParameterToString(recognitionMode)); // header parameter
+            if (inputFile != null) localVarFileParams.Add("InputFile", this.Configuration.ApiClient.ParameterToFile("InputFile", inputFile));
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ExtractText", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ExtractTextResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ExtractTextResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExtractTextResponse)));
+        }
+
+        /// <summary>
+        /// Extract Text from a Document using AI Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
+        /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
+        /// <returns>Task of ExtractTextResponse</returns>
+        public async System.Threading.Tasks.Task<ExtractTextResponse> ExtractTextAsync (string recognitionMode = null, System.IO.Stream inputFile = null)
+        {
+             ApiResponse<ExtractTextResponse> localVarResponse = await ExtractTextAsyncWithHttpInfo(recognitionMode, inputFile);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Extract Text from a Document using AI Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
+        /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
+        /// <returns>Task of ApiResponse (ExtractTextResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ExtractTextResponse>> ExtractTextAsyncWithHttpInfo (string recognitionMode = null, System.IO.Stream inputFile = null)
+        {
+
+            var localVarPath = "/document-ai/document/extract/text";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (recognitionMode != null) localVarHeaderParams.Add("recognitionMode", this.Configuration.ApiClient.ParameterToString(recognitionMode)); // header parameter
+            if (inputFile != null) localVarFileParams.Add("InputFile", this.Configuration.ApiClient.ParameterToFile("InputFile", inputFile));
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ExtractText", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ExtractTextResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ExtractTextResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExtractTextResponse)));
         }
 
     }

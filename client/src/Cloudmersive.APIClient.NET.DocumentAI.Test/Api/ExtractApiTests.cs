@@ -71,9 +71,23 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Test
         public void ExtractAllFieldsAndTablesTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
+            //string recognitionMode = null;
             //System.IO.Stream inputFile = null;
-            //var response = instance.ExtractAllFieldsAndTables(inputFile);
+            //var response = instance.ExtractAllFieldsAndTables(recognitionMode, inputFile);
             //Assert.IsInstanceOf<ExtractFieldsAndTablesResponse> (response, "response is ExtractFieldsAndTablesResponse");
+        }
+        
+        /// <summary>
+        /// Test ExtractBarcodes
+        /// </summary>
+        [Test]
+        public void ExtractBarcodesTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string recognitionMode = null;
+            //System.IO.Stream inputFile = null;
+            //var response = instance.ExtractBarcodes(recognitionMode, inputFile);
+            //Assert.IsInstanceOf<ExtractBarcodesAiResponse> (response, "response is ExtractBarcodesAiResponse");
         }
         
         /// <summary>
@@ -84,8 +98,9 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string categories = null;
+            //string recognitionMode = null;
             //System.IO.Stream inputFile = null;
-            //var response = instance.ExtractClassification(categories, inputFile);
+            //var response = instance.ExtractClassification(categories, recognitionMode, inputFile);
             //Assert.IsInstanceOf<DocumentClassificationResult> (response, "response is DocumentClassificationResult");
         }
         
@@ -97,8 +112,9 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string fieldNames = null;
+            //string recognitionMode = null;
             //System.IO.Stream inputFile = null;
-            //var response = instance.ExtractFields(fieldNames, inputFile);
+            //var response = instance.ExtractFields(fieldNames, recognitionMode, inputFile);
             //Assert.IsInstanceOf<ExtractFieldsResponse> (response, "response is ExtractFieldsResponse");
         }
         
@@ -109,8 +125,9 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Test
         public void ExtractFieldsAdvancedTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
+            //string recognitionMode = null;
             //AdvancedExtractFieldsRequest body = null;
-            //var response = instance.ExtractFieldsAdvanced(body);
+            //var response = instance.ExtractFieldsAdvanced(recognitionMode, body);
             //Assert.IsInstanceOf<ExtractFieldsResponse> (response, "response is ExtractFieldsResponse");
         }
         
@@ -121,8 +138,9 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Test
         public void ExtractSummaryTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
+            //string recognitionMode = null;
             //System.IO.Stream inputFile = null;
-            //var response = instance.ExtractSummary(inputFile);
+            //var response = instance.ExtractSummary(recognitionMode, inputFile);
             //Assert.IsInstanceOf<SummarizeDocumentResponse> (response, "response is SummarizeDocumentResponse");
         }
         
@@ -133,9 +151,23 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Test
         public void ExtractTablesTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
+            //string recognitionMode = null;
             //System.IO.Stream inputFile = null;
-            //var response = instance.ExtractTables(inputFile);
+            //var response = instance.ExtractTables(recognitionMode, inputFile);
             //Assert.IsInstanceOf<ExtractTablesResponse> (response, "response is ExtractTablesResponse");
+        }
+        
+        /// <summary>
+        /// Test ExtractText
+        /// </summary>
+        [Test]
+        public void ExtractTextTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string recognitionMode = null;
+            //System.IO.Stream inputFile = null;
+            //var response = instance.ExtractText(recognitionMode, inputFile);
+            //Assert.IsInstanceOf<ExtractTextResponse> (response, "response is ExtractTextResponse");
         }
         
     }

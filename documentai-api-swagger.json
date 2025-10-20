@@ -43,6 +43,46 @@
         }
       }
     },
+    "/document-ai/document/extract/text": {
+      "post": {
+        "tags": [
+          "Extract"
+        ],
+        "summary": "Extract Text from a Document using AI",
+        "description": "Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.",
+        "operationId": "ExtractText",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "recognitionMode",
+            "description": "Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images",
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "InputFile",
+            "description": "Input document, or photos of a document, to extract data from",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ExtractTextResponse"
+            }
+          }
+        }
+      }
+    },
     "/document-ai/document/extract/fields": {
       "post": {
         "tags": [
@@ -63,7 +103,13 @@
           {
             "in": "header",
             "name": "FieldNames",
-            "description": "Desired fields to extract",
+            "description": "Desired fields to extract, comma separated",
+            "type": "string"
+          },
+          {
+            "in": "header",
+            "name": "recognitionMode",
+            "description": "Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images",
             "type": "string"
           },
           {
@@ -103,6 +149,12 @@
         ],
         "parameters": [
           {
+            "in": "header",
+            "name": "recognitionMode",
+            "description": "Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images",
+            "type": "string"
+          },
+          {
             "in": "body",
             "name": "body",
             "description": "Input request, including document file as byte array, and information on which fields to extract",
@@ -139,6 +191,12 @@
         ],
         "parameters": [
           {
+            "in": "header",
+            "name": "recognitionMode",
+            "description": "Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images",
+            "type": "string"
+          },
+          {
             "in": "formData",
             "name": "InputFile",
             "description": "Input document, or photos of a document, to extract data from",
@@ -150,6 +208,46 @@
             "description": "OK",
             "schema": {
               "$ref": "#/definitions/ExtractTablesResponse"
+            }
+          }
+        }
+      }
+    },
+    "/document-ai/document/extract/barcodes": {
+      "post": {
+        "tags": [
+          "Extract"
+        ],
+        "summary": "Extract Barcodes of from a Document using AI",
+        "description": "Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "operationId": "ExtractBarcodes",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "recognitionMode",
+            "description": "Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images",
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "InputFile",
+            "description": "Input document, or photos of a document, to extract data from",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ExtractBarcodesAiResponse"
             }
           }
         }
@@ -172,6 +270,12 @@
           "text/json"
         ],
         "parameters": [
+          {
+            "in": "header",
+            "name": "recognitionMode",
+            "description": "Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images",
+            "type": "string"
+          },
           {
             "in": "formData",
             "name": "InputFile",
@@ -213,6 +317,12 @@
             "type": "string"
           },
           {
+            "in": "header",
+            "name": "recognitionMode",
+            "description": "Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images",
+            "type": "string"
+          },
+          {
             "in": "formData",
             "name": "InputFile",
             "description": "Input document, or photos of a document, to extract data from",
@@ -246,6 +356,12 @@
           "text/json"
         ],
         "parameters": [
+          {
+            "in": "header",
+            "name": "recognitionMode",
+            "description": "Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images",
+            "type": "string"
+          },
           {
             "in": "formData",
             "name": "InputFile",
@@ -341,6 +457,24 @@
       },
       "additionalProperties": false
     },
+    "ExtractBarcodesAiResponse": {
+      "description": "Result of extracting barcodes from a document",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if successful, false otherwise",
+          "type": "boolean"
+        },
+        "BarcodeResults": {
+          "description": "Table value results from the extraction operation",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ExtractedBarcodeItem"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
     "ExtractFieldsAndTablesResponse": {
       "description": "Result of extracting fields from a document",
       "type": "object",
@@ -398,6 +532,55 @@
           "items": {
             "$ref": "#/definitions/TableResult"
           }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ExtractTextResponse": {
+      "description": "Result of extracting text from a document",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if successful, false otherwise",
+          "type": "boolean"
+        },
+        "PageResults": {
+          "description": "Page results from the extraction operation",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ExtractedTextPage"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ExtractedBarcodeItem": {
+      "description": "Extracted barcode result",
+      "type": "object",
+      "properties": {
+        "BarcodeType": {
+          "description": "Type of the barcode identified, possible values are: AZTEC, CODABAR, CODE_39, CODE_93, CODE_128, DATA_MATRIX, EAN_8, EAN_13, ITF, MAXICODE, PDF_417, QR_CODE, RSS_14, RSS_EXPANDED, UPC_A, UPC_E, All_1D, UPC_EAN_EXTENSION, MSI, PLESSEY, IMB, UNKNOWN",
+          "type": "string"
+        },
+        "BarcodeValue": {
+          "description": "Value of the barcode as a string",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ExtractedTextPage": {
+      "description": "Extracted page from an input document",
+      "type": "object",
+      "properties": {
+        "PageNumber": {
+          "format": "int32",
+          "description": "Page number index, 1-based",
+          "type": "integer"
+        },
+        "TextResult": {
+          "description": "Text content of the page",
+          "type": "string"
         }
       },
       "additionalProperties": false
