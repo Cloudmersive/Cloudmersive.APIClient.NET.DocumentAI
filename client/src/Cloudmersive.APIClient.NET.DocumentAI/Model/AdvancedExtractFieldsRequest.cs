@@ -35,10 +35,12 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
         /// </summary>
         /// <param name="inputFile">Input document file to perform the operation on as a byte array.</param>
         /// <param name="fieldsToExtract">Fields to extract from the document.</param>
-        public AdvancedExtractFieldsRequest(byte[] inputFile = default(byte[]), List<FieldToExtract> fieldsToExtract = default(List<FieldToExtract>))
+        /// <param name="maximumPagesProcessed">Optional: Limit the number of pages processed.</param>
+        public AdvancedExtractFieldsRequest(byte[] inputFile = default(byte[]), List<FieldToExtract> fieldsToExtract = default(List<FieldToExtract>), int? maximumPagesProcessed = default(int?))
         {
             this.InputFile = inputFile;
             this.FieldsToExtract = fieldsToExtract;
+            this.MaximumPagesProcessed = maximumPagesProcessed;
         }
         
         /// <summary>
@@ -56,6 +58,13 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
         public List<FieldToExtract> FieldsToExtract { get; set; }
 
         /// <summary>
+        /// Optional: Limit the number of pages processed
+        /// </summary>
+        /// <value>Optional: Limit the number of pages processed</value>
+        [DataMember(Name="MaximumPagesProcessed", EmitDefaultValue=false)]
+        public int? MaximumPagesProcessed { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,6 +74,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
             sb.Append("class AdvancedExtractFieldsRequest {\n");
             sb.Append("  InputFile: ").Append(InputFile).Append("\n");
             sb.Append("  FieldsToExtract: ").Append(FieldsToExtract).Append("\n");
+            sb.Append("  MaximumPagesProcessed: ").Append(MaximumPagesProcessed).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,6 +118,11 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
                     this.FieldsToExtract == input.FieldsToExtract ||
                     this.FieldsToExtract != null &&
                     this.FieldsToExtract.SequenceEqual(input.FieldsToExtract)
+                ) && 
+                (
+                    this.MaximumPagesProcessed == input.MaximumPagesProcessed ||
+                    (this.MaximumPagesProcessed != null &&
+                    this.MaximumPagesProcessed.Equals(input.MaximumPagesProcessed))
                 );
         }
 
@@ -124,6 +139,8 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
                     hashCode = hashCode * 59 + this.InputFile.GetHashCode();
                 if (this.FieldsToExtract != null)
                     hashCode = hashCode * 59 + this.FieldsToExtract.GetHashCode();
+                if (this.MaximumPagesProcessed != null)
+                    hashCode = hashCode * 59 + this.MaximumPagesProcessed.GetHashCode();
                 return hashCode;
             }
         }

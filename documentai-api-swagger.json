@@ -378,6 +378,200 @@
           }
         }
       }
+    },
+    "/document-ai/document/batch-job/extract/text": {
+      "post": {
+        "tags": [
+          "RunBatchJob"
+        ],
+        "summary": "Extract Text from a Document using AI as a Batch Job",
+        "description": "Creates an async batch job for processing a large document as an AI batch job.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "recognitionMode",
+            "description": "Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images",
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "InputFile",
+            "description": "Input document, or photos of a document, to extract data from",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ExtractDocumentBatchJobResult"
+            }
+          }
+        }
+      }
+    },
+    "/document-ai/document/batch-job/extract/fields/advanced": {
+      "post": {
+        "tags": [
+          "RunBatchJob"
+        ],
+        "summary": "Extract Field Values from a Document using Advanced AI as a Batch Job",
+        "description": "Creates an async batch job for processing a large document as an AI batch job.  Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "recognitionMode",
+            "description": "Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AdvancedExtractFieldsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ExtractDocumentBatchJobResult"
+            }
+          }
+        }
+      }
+    },
+    "/document-ai/document/batch-job/extract/all": {
+      "post": {
+        "tags": [
+          "RunBatchJob"
+        ],
+        "summary": "Extract All Fields and Tables of Data from a Document using AI as a Batch Job",
+        "description": "Creates an async batch job for processing a large document as an AI batch job.  Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "recognitionMode",
+            "description": "Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images",
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "InputFile",
+            "description": "Input document, or photos of a document, to extract data from",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ExtractDocumentBatchJobResult"
+            }
+          }
+        }
+      }
+    },
+    "/document-ai/document/batch-job/extract/classify": {
+      "post": {
+        "tags": [
+          "RunBatchJob"
+        ],
+        "summary": "Extract Classification or Category from a Document using AI as a Batch Job",
+        "description": "Creates an async batch job for processing a large document as an AI batch job.  Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Categories",
+            "description": "Desired classification to extract",
+            "type": "string"
+          },
+          {
+            "in": "header",
+            "name": "recognitionMode",
+            "description": "Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images",
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "InputFile",
+            "description": "Input document, or photos of a document, to extract data from",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ExtractDocumentBatchJobResult"
+            }
+          }
+        }
+      }
+    },
+    "/document-ai/document/batch-job/batch-job/status": {
+      "get": {
+        "tags": [
+          "RunBatchJob"
+        ],
+        "summary": "Get the status and result of an Extract Document Batch Job",
+        "description": "Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "AsyncJobID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ExtractDocumentJobStatusResult"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -396,6 +590,11 @@
           "items": {
             "$ref": "#/definitions/FieldToExtract"
           }
+        },
+        "MaximumPagesProcessed": {
+          "format": "int32",
+          "description": "Optional: Limit the number of pages processed",
+          "type": "integer"
         }
       },
       "additionalProperties": false
@@ -471,6 +670,56 @@
           "items": {
             "$ref": "#/definitions/ExtractedBarcodeItem"
           }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ExtractDocumentBatchJobResult": {
+      "description": "Result of performing a split document batch job",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if successful, false otherwise",
+          "type": "boolean"
+        },
+        "AsyncJobID": {
+          "description": "When creating a job, an Async Job ID is returned.  Use the GetAsyncJobStatus API to check on the status of this job using the AsyncJobID and get the result when it finishes",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ExtractDocumentJobStatusResult": {
+      "description": "Result of performing a batch job operation",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if the operation to check the status of the job was successful, false otherwise",
+          "type": "boolean"
+        },
+        "AsyncJobStatus": {
+          "description": "Returns the job status of the Async Job, if applicable.  Possible states are STARTED and COMPLETED",
+          "type": "string"
+        },
+        "AsyncJobID": {
+          "description": "Job ID",
+          "type": "string"
+        },
+        "ExtractTextResult": {
+          "$ref": "#/definitions/ExtractTextResponse"
+        },
+        "ExtractFieldsAndTablesResult": {
+          "$ref": "#/definitions/ExtractFieldsAndTablesResponse"
+        },
+        "ExtractFieldsResult": {
+          "$ref": "#/definitions/ExtractFieldsResponse"
+        },
+        "ExtractClassificationResult": {
+          "$ref": "#/definitions/DocumentClassificationResult"
+        },
+        "ErrorMessage": {
+          "description": "Error message (if any)",
+          "type": "string"
         }
       },
       "additionalProperties": false
