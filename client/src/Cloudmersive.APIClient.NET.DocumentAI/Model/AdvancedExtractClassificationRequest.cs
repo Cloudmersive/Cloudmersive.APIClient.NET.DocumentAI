@@ -25,35 +25,44 @@ using SwaggerDateConverter = Cloudmersive.APIClient.NET.DocumentAI.Client.Swagge
 namespace Cloudmersive.APIClient.NET.DocumentAI.Model
 {
     /// <summary>
-    /// Request to analyze a document
+    /// Request to perform an AI document classification on a document
     /// </summary>
     [DataContract]
-    public partial class DocumentPolicyRequest :  IEquatable<DocumentPolicyRequest>, IValidatableObject
+    public partial class AdvancedExtractClassificationRequest :  IEquatable<AdvancedExtractClassificationRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DocumentPolicyRequest" /> class.
+        /// Initializes a new instance of the <see cref="AdvancedExtractClassificationRequest" /> class.
         /// </summary>
-        /// <param name="inputFile">Input file as a byte array.</param>
-        /// <param name="rules">Rules to apply to the document.</param>
-        public DocumentPolicyRequest(byte[] inputFile = default(byte[]), List<PolicyRule> rules = default(List<PolicyRule>))
+        /// <param name="inputFile">Input document file to perform the operation on as a byte array.</param>
+        /// <param name="categories">Possible categories for the document.</param>
+        /// <param name="maximumPagesProcessed">Optional: Limit the number of pages processed.</param>
+        public AdvancedExtractClassificationRequest(byte[] inputFile = default(byte[]), List<DocumentCategories> categories = default(List<DocumentCategories>), int? maximumPagesProcessed = default(int?))
         {
             this.InputFile = inputFile;
-            this.Rules = rules;
+            this.Categories = categories;
+            this.MaximumPagesProcessed = maximumPagesProcessed;
         }
         
         /// <summary>
-        /// Input file as a byte array
+        /// Input document file to perform the operation on as a byte array
         /// </summary>
-        /// <value>Input file as a byte array</value>
+        /// <value>Input document file to perform the operation on as a byte array</value>
         [DataMember(Name="InputFile", EmitDefaultValue=false)]
         public byte[] InputFile { get; set; }
 
         /// <summary>
-        /// Rules to apply to the document
+        /// Possible categories for the document
         /// </summary>
-        /// <value>Rules to apply to the document</value>
-        [DataMember(Name="Rules", EmitDefaultValue=false)]
-        public List<PolicyRule> Rules { get; set; }
+        /// <value>Possible categories for the document</value>
+        [DataMember(Name="Categories", EmitDefaultValue=false)]
+        public List<DocumentCategories> Categories { get; set; }
+
+        /// <summary>
+        /// Optional: Limit the number of pages processed
+        /// </summary>
+        /// <value>Optional: Limit the number of pages processed</value>
+        [DataMember(Name="MaximumPagesProcessed", EmitDefaultValue=false)]
+        public int? MaximumPagesProcessed { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,9 +71,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DocumentPolicyRequest {\n");
+            sb.Append("class AdvancedExtractClassificationRequest {\n");
             sb.Append("  InputFile: ").Append(InputFile).Append("\n");
-            sb.Append("  Rules: ").Append(Rules).Append("\n");
+            sb.Append("  Categories: ").Append(Categories).Append("\n");
+            sb.Append("  MaximumPagesProcessed: ").Append(MaximumPagesProcessed).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -85,15 +95,15 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DocumentPolicyRequest);
+            return this.Equals(input as AdvancedExtractClassificationRequest);
         }
 
         /// <summary>
-        /// Returns true if DocumentPolicyRequest instances are equal
+        /// Returns true if AdvancedExtractClassificationRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of DocumentPolicyRequest to be compared</param>
+        /// <param name="input">Instance of AdvancedExtractClassificationRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DocumentPolicyRequest input)
+        public bool Equals(AdvancedExtractClassificationRequest input)
         {
             if (input == null)
                 return false;
@@ -105,9 +115,14 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
                     this.InputFile.Equals(input.InputFile))
                 ) && 
                 (
-                    this.Rules == input.Rules ||
-                    this.Rules != null &&
-                    this.Rules.SequenceEqual(input.Rules)
+                    this.Categories == input.Categories ||
+                    this.Categories != null &&
+                    this.Categories.SequenceEqual(input.Categories)
+                ) && 
+                (
+                    this.MaximumPagesProcessed == input.MaximumPagesProcessed ||
+                    (this.MaximumPagesProcessed != null &&
+                    this.MaximumPagesProcessed.Equals(input.MaximumPagesProcessed))
                 );
         }
 
@@ -122,8 +137,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
                 int hashCode = 41;
                 if (this.InputFile != null)
                     hashCode = hashCode * 59 + this.InputFile.GetHashCode();
-                if (this.Rules != null)
-                    hashCode = hashCode * 59 + this.Rules.GetHashCode();
+                if (this.Categories != null)
+                    hashCode = hashCode * 59 + this.Categories.GetHashCode();
+                if (this.MaximumPagesProcessed != null)
+                    hashCode = hashCode * 59 + this.MaximumPagesProcessed.GetHashCode();
                 return hashCode;
             }
         }

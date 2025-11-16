@@ -25,20 +25,20 @@ using SwaggerDateConverter = Cloudmersive.APIClient.NET.DocumentAI.Client.Swagge
 namespace Cloudmersive.APIClient.NET.DocumentAI.Model
 {
     /// <summary>
-    /// Result of summarizing a document
+    /// Result of classifying a document using AI
     /// </summary>
     [DataContract]
-    public partial class SummarizeDocumentResponse :  IEquatable<SummarizeDocumentResponse>, IValidatableObject
+    public partial class DocumentAdvancedClassificationResult :  IEquatable<DocumentAdvancedClassificationResult>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SummarizeDocumentResponse" /> class.
+        /// Initializes a new instance of the <see cref="DocumentAdvancedClassificationResult" /> class.
         /// </summary>
         /// <param name="successful">True if successful, false otherwise.</param>
-        /// <param name="documentSummaryText">Summary of the document.</param>
-        public SummarizeDocumentResponse(bool? successful = default(bool?), string documentSummaryText = default(string))
+        /// <param name="documentCategoryResult">Category applied to the document; if a category could not be identified then \&quot;other\&quot; will be used.  Spaces are replaced with underscores..</param>
+        public DocumentAdvancedClassificationResult(bool? successful = default(bool?), string documentCategoryResult = default(string))
         {
             this.Successful = successful;
-            this.DocumentSummaryText = documentSummaryText;
+            this.DocumentCategoryResult = documentCategoryResult;
         }
         
         /// <summary>
@@ -49,11 +49,11 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
         public bool? Successful { get; set; }
 
         /// <summary>
-        /// Summary of the document
+        /// Category applied to the document; if a category could not be identified then \&quot;other\&quot; will be used.  Spaces are replaced with underscores.
         /// </summary>
-        /// <value>Summary of the document</value>
-        [DataMember(Name="DocumentSummaryText", EmitDefaultValue=false)]
-        public string DocumentSummaryText { get; set; }
+        /// <value>Category applied to the document; if a category could not be identified then \&quot;other\&quot; will be used.  Spaces are replaced with underscores.</value>
+        [DataMember(Name="DocumentCategoryResult", EmitDefaultValue=false)]
+        public string DocumentCategoryResult { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,9 +62,9 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class SummarizeDocumentResponse {\n");
+            sb.Append("class DocumentAdvancedClassificationResult {\n");
             sb.Append("  Successful: ").Append(Successful).Append("\n");
-            sb.Append("  DocumentSummaryText: ").Append(DocumentSummaryText).Append("\n");
+            sb.Append("  DocumentCategoryResult: ").Append(DocumentCategoryResult).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -85,15 +85,15 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as SummarizeDocumentResponse);
+            return this.Equals(input as DocumentAdvancedClassificationResult);
         }
 
         /// <summary>
-        /// Returns true if SummarizeDocumentResponse instances are equal
+        /// Returns true if DocumentAdvancedClassificationResult instances are equal
         /// </summary>
-        /// <param name="input">Instance of SummarizeDocumentResponse to be compared</param>
+        /// <param name="input">Instance of DocumentAdvancedClassificationResult to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SummarizeDocumentResponse input)
+        public bool Equals(DocumentAdvancedClassificationResult input)
         {
             if (input == null)
                 return false;
@@ -105,9 +105,9 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
                     this.Successful.Equals(input.Successful))
                 ) && 
                 (
-                    this.DocumentSummaryText == input.DocumentSummaryText ||
-                    (this.DocumentSummaryText != null &&
-                    this.DocumentSummaryText.Equals(input.DocumentSummaryText))
+                    this.DocumentCategoryResult == input.DocumentCategoryResult ||
+                    (this.DocumentCategoryResult != null &&
+                    this.DocumentCategoryResult.Equals(input.DocumentCategoryResult))
                 );
         }
 
@@ -122,8 +122,8 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
                 int hashCode = 41;
                 if (this.Successful != null)
                     hashCode = hashCode * 59 + this.Successful.GetHashCode();
-                if (this.DocumentSummaryText != null)
-                    hashCode = hashCode * 59 + this.DocumentSummaryText.GetHashCode();
+                if (this.DocumentCategoryResult != null)
+                    hashCode = hashCode * 59 + this.DocumentCategoryResult.GetHashCode();
                 return hashCode;
             }
         }

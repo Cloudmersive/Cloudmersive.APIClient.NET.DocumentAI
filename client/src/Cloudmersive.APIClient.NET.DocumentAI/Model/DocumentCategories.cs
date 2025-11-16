@@ -25,35 +25,35 @@ using SwaggerDateConverter = Cloudmersive.APIClient.NET.DocumentAI.Client.Swagge
 namespace Cloudmersive.APIClient.NET.DocumentAI.Model
 {
     /// <summary>
-    /// Result of summarizing a document
+    /// Document category option
     /// </summary>
     [DataContract]
-    public partial class SummarizeDocumentResponse :  IEquatable<SummarizeDocumentResponse>, IValidatableObject
+    public partial class DocumentCategories :  IEquatable<DocumentCategories>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SummarizeDocumentResponse" /> class.
+        /// Initializes a new instance of the <see cref="DocumentCategories" /> class.
         /// </summary>
-        /// <param name="successful">True if successful, false otherwise.</param>
-        /// <param name="documentSummaryText">Summary of the document.</param>
-        public SummarizeDocumentResponse(bool? successful = default(bool?), string documentSummaryText = default(string))
+        /// <param name="categoryName">Name of the classification.</param>
+        /// <param name="categoryDescription">Optional but recommended: Description of the classification in natural langugage.</param>
+        public DocumentCategories(string categoryName = default(string), string categoryDescription = default(string))
         {
-            this.Successful = successful;
-            this.DocumentSummaryText = documentSummaryText;
+            this.CategoryName = categoryName;
+            this.CategoryDescription = categoryDescription;
         }
         
         /// <summary>
-        /// True if successful, false otherwise
+        /// Name of the classification
         /// </summary>
-        /// <value>True if successful, false otherwise</value>
-        [DataMember(Name="Successful", EmitDefaultValue=false)]
-        public bool? Successful { get; set; }
+        /// <value>Name of the classification</value>
+        [DataMember(Name="CategoryName", EmitDefaultValue=false)]
+        public string CategoryName { get; set; }
 
         /// <summary>
-        /// Summary of the document
+        /// Optional but recommended: Description of the classification in natural langugage
         /// </summary>
-        /// <value>Summary of the document</value>
-        [DataMember(Name="DocumentSummaryText", EmitDefaultValue=false)]
-        public string DocumentSummaryText { get; set; }
+        /// <value>Optional but recommended: Description of the classification in natural langugage</value>
+        [DataMember(Name="CategoryDescription", EmitDefaultValue=false)]
+        public string CategoryDescription { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,9 +62,9 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class SummarizeDocumentResponse {\n");
-            sb.Append("  Successful: ").Append(Successful).Append("\n");
-            sb.Append("  DocumentSummaryText: ").Append(DocumentSummaryText).Append("\n");
+            sb.Append("class DocumentCategories {\n");
+            sb.Append("  CategoryName: ").Append(CategoryName).Append("\n");
+            sb.Append("  CategoryDescription: ").Append(CategoryDescription).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -85,29 +85,29 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as SummarizeDocumentResponse);
+            return this.Equals(input as DocumentCategories);
         }
 
         /// <summary>
-        /// Returns true if SummarizeDocumentResponse instances are equal
+        /// Returns true if DocumentCategories instances are equal
         /// </summary>
-        /// <param name="input">Instance of SummarizeDocumentResponse to be compared</param>
+        /// <param name="input">Instance of DocumentCategories to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SummarizeDocumentResponse input)
+        public bool Equals(DocumentCategories input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Successful == input.Successful ||
-                    (this.Successful != null &&
-                    this.Successful.Equals(input.Successful))
+                    this.CategoryName == input.CategoryName ||
+                    (this.CategoryName != null &&
+                    this.CategoryName.Equals(input.CategoryName))
                 ) && 
                 (
-                    this.DocumentSummaryText == input.DocumentSummaryText ||
-                    (this.DocumentSummaryText != null &&
-                    this.DocumentSummaryText.Equals(input.DocumentSummaryText))
+                    this.CategoryDescription == input.CategoryDescription ||
+                    (this.CategoryDescription != null &&
+                    this.CategoryDescription.Equals(input.CategoryDescription))
                 );
         }
 
@@ -120,10 +120,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Successful != null)
-                    hashCode = hashCode * 59 + this.Successful.GetHashCode();
-                if (this.DocumentSummaryText != null)
-                    hashCode = hashCode * 59 + this.DocumentSummaryText.GetHashCode();
+                if (this.CategoryName != null)
+                    hashCode = hashCode * 59 + this.CategoryName.GetHashCode();
+                if (this.CategoryDescription != null)
+                    hashCode = hashCode * 59 + this.CategoryDescription.GetHashCode();
                 return hashCode;
             }
         }
