@@ -36,11 +36,15 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
         /// <param name="inputFile">Input document file to perform the operation on as a byte array.</param>
         /// <param name="fieldsToExtract">Fields to extract from the document.</param>
         /// <param name="maximumPagesProcessed">Optional: Limit the number of pages processed.</param>
-        public AdvancedExtractFieldsRequest(byte[] inputFile = default(byte[]), List<FieldToExtract> fieldsToExtract = default(List<FieldToExtract>), int? maximumPagesProcessed = default(int?))
+        /// <param name="preprocessing">Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are &#39;Auto&#39; and &#39;None&#39;.  Default is Auto..</param>
+        /// <param name="resultCrossCheck">Optional: Set the level of output accuracy cross-checking to perform on the input.  Possible values are &#39;None&#39; and &#39;Advanced&#39;.  Default is None..</param>
+        public AdvancedExtractFieldsRequest(byte[] inputFile = default(byte[]), List<FieldToExtract> fieldsToExtract = default(List<FieldToExtract>), int? maximumPagesProcessed = default(int?), string preprocessing = default(string), string resultCrossCheck = default(string))
         {
             this.InputFile = inputFile;
             this.FieldsToExtract = fieldsToExtract;
             this.MaximumPagesProcessed = maximumPagesProcessed;
+            this.Preprocessing = preprocessing;
+            this.ResultCrossCheck = resultCrossCheck;
         }
         
         /// <summary>
@@ -65,6 +69,20 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
         public int? MaximumPagesProcessed { get; set; }
 
         /// <summary>
+        /// Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are &#39;Auto&#39; and &#39;None&#39;.  Default is Auto.
+        /// </summary>
+        /// <value>Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are &#39;Auto&#39; and &#39;None&#39;.  Default is Auto.</value>
+        [DataMember(Name="Preprocessing", EmitDefaultValue=false)]
+        public string Preprocessing { get; set; }
+
+        /// <summary>
+        /// Optional: Set the level of output accuracy cross-checking to perform on the input.  Possible values are &#39;None&#39; and &#39;Advanced&#39;.  Default is None.
+        /// </summary>
+        /// <value>Optional: Set the level of output accuracy cross-checking to perform on the input.  Possible values are &#39;None&#39; and &#39;Advanced&#39;.  Default is None.</value>
+        [DataMember(Name="ResultCrossCheck", EmitDefaultValue=false)]
+        public string ResultCrossCheck { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -75,6 +93,8 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
             sb.Append("  InputFile: ").Append(InputFile).Append("\n");
             sb.Append("  FieldsToExtract: ").Append(FieldsToExtract).Append("\n");
             sb.Append("  MaximumPagesProcessed: ").Append(MaximumPagesProcessed).Append("\n");
+            sb.Append("  Preprocessing: ").Append(Preprocessing).Append("\n");
+            sb.Append("  ResultCrossCheck: ").Append(ResultCrossCheck).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -123,6 +143,16 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
                     this.MaximumPagesProcessed == input.MaximumPagesProcessed ||
                     (this.MaximumPagesProcessed != null &&
                     this.MaximumPagesProcessed.Equals(input.MaximumPagesProcessed))
+                ) && 
+                (
+                    this.Preprocessing == input.Preprocessing ||
+                    (this.Preprocessing != null &&
+                    this.Preprocessing.Equals(input.Preprocessing))
+                ) && 
+                (
+                    this.ResultCrossCheck == input.ResultCrossCheck ||
+                    (this.ResultCrossCheck != null &&
+                    this.ResultCrossCheck.Equals(input.ResultCrossCheck))
                 );
         }
 
@@ -141,6 +171,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
                     hashCode = hashCode * 59 + this.FieldsToExtract.GetHashCode();
                 if (this.MaximumPagesProcessed != null)
                     hashCode = hashCode * 59 + this.MaximumPagesProcessed.GetHashCode();
+                if (this.Preprocessing != null)
+                    hashCode = hashCode * 59 + this.Preprocessing.GetHashCode();
+                if (this.ResultCrossCheck != null)
+                    hashCode = hashCode * 59 + this.ResultCrossCheck.GetHashCode();
                 return hashCode;
             }
         }

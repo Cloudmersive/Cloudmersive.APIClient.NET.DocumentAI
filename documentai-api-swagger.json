@@ -169,7 +169,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/ExtractFieldsResponse"
+              "$ref": "#/definitions/ExtractFieldsAdvancedResponse"
             }
           }
         }
@@ -670,6 +670,14 @@
           "format": "int32",
           "description": "Optional: Limit the number of pages processed",
           "type": "integer"
+        },
+        "Preprocessing": {
+          "description": "Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are 'Auto' and 'None'.  Default is Auto.",
+          "type": "string"
+        },
+        "ResultCrossCheck": {
+          "description": "Optional: Set the level of output accuracy cross-checking to perform on the input.  Possible values are 'None' and 'Advanced'.  Default is None.",
+          "type": "string"
         }
       },
       "additionalProperties": false
@@ -829,6 +837,24 @@
       },
       "additionalProperties": false
     },
+    "ExtractFieldsAdvancedResponse": {
+      "description": "Result of extracting fields from a document",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if successful, false otherwise",
+          "type": "boolean"
+        },
+        "Results": {
+          "description": "Field value results from the extraction operation",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FieldAdvancedValue"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
     "ExtractFieldsAndTablesResponse": {
       "description": "Result of extracting fields from a document",
       "type": "object",
@@ -934,6 +960,21 @@
         },
         "TextResult": {
           "description": "Text content of the page",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "FieldAdvancedValue": {
+      "description": "Field value result of extracting fields from a document",
+      "type": "object",
+      "properties": {
+        "FieldName": {
+          "description": "Name of the field (note that spaces will be replaced with underscore)",
+          "type": "string"
+        },
+        "FieldStringValue": {
+          "description": "String value of the field that was extractged from the document",
           "type": "string"
         }
       },

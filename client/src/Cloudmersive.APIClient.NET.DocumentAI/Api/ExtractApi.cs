@@ -152,8 +152,8 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="body">Input request, including document file as byte array, and information on which fields to extract (optional)</param>
-        /// <returns>ExtractFieldsResponse</returns>
-        ExtractFieldsResponse ExtractFieldsAdvanced (string recognitionMode = null, AdvancedExtractFieldsRequest body = null);
+        /// <returns>ExtractFieldsAdvancedResponse</returns>
+        ExtractFieldsAdvancedResponse ExtractFieldsAdvanced (string recognitionMode = null, AdvancedExtractFieldsRequest body = null);
 
         /// <summary>
         /// Extract Field Values from a Document using Advanced AI
@@ -164,8 +164,8 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="body">Input request, including document file as byte array, and information on which fields to extract (optional)</param>
-        /// <returns>ApiResponse of ExtractFieldsResponse</returns>
-        ApiResponse<ExtractFieldsResponse> ExtractFieldsAdvancedWithHttpInfo (string recognitionMode = null, AdvancedExtractFieldsRequest body = null);
+        /// <returns>ApiResponse of ExtractFieldsAdvancedResponse</returns>
+        ApiResponse<ExtractFieldsAdvancedResponse> ExtractFieldsAdvancedWithHttpInfo (string recognitionMode = null, AdvancedExtractFieldsRequest body = null);
         /// <summary>
         /// Extract Summary from a Document using AI
         /// </summary>
@@ -365,8 +365,8 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="body">Input request, including document file as byte array, and information on which fields to extract (optional)</param>
-        /// <returns>Task of ExtractFieldsResponse</returns>
-        System.Threading.Tasks.Task<ExtractFieldsResponse> ExtractFieldsAdvancedAsync (string recognitionMode = null, AdvancedExtractFieldsRequest body = null);
+        /// <returns>Task of ExtractFieldsAdvancedResponse</returns>
+        System.Threading.Tasks.Task<ExtractFieldsAdvancedResponse> ExtractFieldsAdvancedAsync (string recognitionMode = null, AdvancedExtractFieldsRequest body = null);
 
         /// <summary>
         /// Extract Field Values from a Document using Advanced AI
@@ -377,8 +377,8 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="body">Input request, including document file as byte array, and information on which fields to extract (optional)</param>
-        /// <returns>Task of ApiResponse (ExtractFieldsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ExtractFieldsResponse>> ExtractFieldsAdvancedAsyncWithHttpInfo (string recognitionMode = null, AdvancedExtractFieldsRequest body = null);
+        /// <returns>Task of ApiResponse (ExtractFieldsAdvancedResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ExtractFieldsAdvancedResponse>> ExtractFieldsAdvancedAsyncWithHttpInfo (string recognitionMode = null, AdvancedExtractFieldsRequest body = null);
         /// <summary>
         /// Extract Summary from a Document using AI
         /// </summary>
@@ -1329,10 +1329,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="body">Input request, including document file as byte array, and information on which fields to extract (optional)</param>
-        /// <returns>ExtractFieldsResponse</returns>
-        public ExtractFieldsResponse ExtractFieldsAdvanced (string recognitionMode = null, AdvancedExtractFieldsRequest body = null)
+        /// <returns>ExtractFieldsAdvancedResponse</returns>
+        public ExtractFieldsAdvancedResponse ExtractFieldsAdvanced (string recognitionMode = null, AdvancedExtractFieldsRequest body = null)
         {
-             ApiResponse<ExtractFieldsResponse> localVarResponse = ExtractFieldsAdvancedWithHttpInfo(recognitionMode, body);
+             ApiResponse<ExtractFieldsAdvancedResponse> localVarResponse = ExtractFieldsAdvancedWithHttpInfo(recognitionMode, body);
              return localVarResponse.Data;
         }
 
@@ -1342,8 +1342,8 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="body">Input request, including document file as byte array, and information on which fields to extract (optional)</param>
-        /// <returns>ApiResponse of ExtractFieldsResponse</returns>
-        public ApiResponse< ExtractFieldsResponse > ExtractFieldsAdvancedWithHttpInfo (string recognitionMode = null, AdvancedExtractFieldsRequest body = null)
+        /// <returns>ApiResponse of ExtractFieldsAdvancedResponse</returns>
+        public ApiResponse< ExtractFieldsAdvancedResponse > ExtractFieldsAdvancedWithHttpInfo (string recognitionMode = null, AdvancedExtractFieldsRequest body = null)
         {
 
             var localVarPath = "/document-ai/document/extract/fields/advanced";
@@ -1401,9 +1401,9 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ExtractFieldsResponse>(localVarStatusCode,
+            return new ApiResponse<ExtractFieldsAdvancedResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ExtractFieldsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExtractFieldsResponse)));
+                (ExtractFieldsAdvancedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExtractFieldsAdvancedResponse)));
         }
 
         /// <summary>
@@ -1412,10 +1412,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="body">Input request, including document file as byte array, and information on which fields to extract (optional)</param>
-        /// <returns>Task of ExtractFieldsResponse</returns>
-        public async System.Threading.Tasks.Task<ExtractFieldsResponse> ExtractFieldsAdvancedAsync (string recognitionMode = null, AdvancedExtractFieldsRequest body = null)
+        /// <returns>Task of ExtractFieldsAdvancedResponse</returns>
+        public async System.Threading.Tasks.Task<ExtractFieldsAdvancedResponse> ExtractFieldsAdvancedAsync (string recognitionMode = null, AdvancedExtractFieldsRequest body = null)
         {
-             ApiResponse<ExtractFieldsResponse> localVarResponse = await ExtractFieldsAdvancedAsyncWithHttpInfo(recognitionMode, body);
+             ApiResponse<ExtractFieldsAdvancedResponse> localVarResponse = await ExtractFieldsAdvancedAsyncWithHttpInfo(recognitionMode, body);
              return localVarResponse.Data;
 
         }
@@ -1426,8 +1426,8 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
         /// <param name="body">Input request, including document file as byte array, and information on which fields to extract (optional)</param>
-        /// <returns>Task of ApiResponse (ExtractFieldsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ExtractFieldsResponse>> ExtractFieldsAdvancedAsyncWithHttpInfo (string recognitionMode = null, AdvancedExtractFieldsRequest body = null)
+        /// <returns>Task of ApiResponse (ExtractFieldsAdvancedResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ExtractFieldsAdvancedResponse>> ExtractFieldsAdvancedAsyncWithHttpInfo (string recognitionMode = null, AdvancedExtractFieldsRequest body = null)
         {
 
             var localVarPath = "/document-ai/document/extract/fields/advanced";
@@ -1485,9 +1485,9 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ExtractFieldsResponse>(localVarStatusCode,
+            return new ApiResponse<ExtractFieldsAdvancedResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ExtractFieldsResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExtractFieldsResponse)));
+                (ExtractFieldsAdvancedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExtractFieldsAdvancedResponse)));
         }
 
         /// <summary>

@@ -141,7 +141,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Test
             //string recognitionMode = null;
             //AdvancedExtractFieldsRequest body = null;
             //var response = instance.ExtractFieldsAdvanced(recognitionMode, body);
-            //Assert.IsInstanceOf<ExtractFieldsResponse> (response, "response is ExtractFieldsResponse");
+            //Assert.IsInstanceOf<ExtractFieldsAdvancedResponse> (response, "response is ExtractFieldsAdvancedResponse");
         }
         
         /// <summary>

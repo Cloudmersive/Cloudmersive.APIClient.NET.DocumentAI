@@ -5,7 +5,7 @@ Use next-generation AI to extract data, fields, insights and text from documents
 This C# SDK is for the [Cloudmersive Document AI API](https://www.cloudmersive.com/document-ai-api):
 
 - API version: v1
-- SDK version: 3.0.5
+- SDK version: 3.0.6
 - Build package: io.swagger.codegen.languages.CSharpClientCodegen
 
 <a name="frameworks-supported"></a>
@@ -131,12 +131,14 @@ Class | Method | HTTP request | Description
  - [Model.ExtractBarcodesAiResponse](docs/ExtractBarcodesAiResponse.md)
  - [Model.ExtractDocumentBatchJobResult](docs/ExtractDocumentBatchJobResult.md)
  - [Model.ExtractDocumentJobStatusResult](docs/ExtractDocumentJobStatusResult.md)
+ - [Model.ExtractFieldsAdvancedResponse](docs/ExtractFieldsAdvancedResponse.md)
  - [Model.ExtractFieldsAndTablesResponse](docs/ExtractFieldsAndTablesResponse.md)
  - [Model.ExtractFieldsResponse](docs/ExtractFieldsResponse.md)
  - [Model.ExtractTablesResponse](docs/ExtractTablesResponse.md)
  - [Model.ExtractTextResponse](docs/ExtractTextResponse.md)
  - [Model.ExtractedBarcodeItem](docs/ExtractedBarcodeItem.md)
  - [Model.ExtractedTextPage](docs/ExtractedTextPage.md)
+ - [Model.FieldAdvancedValue](docs/FieldAdvancedValue.md)
  - [Model.FieldToExtract](docs/FieldToExtract.md)
  - [Model.FieldValue](docs/FieldValue.md)
  - [Model.PolicyRule](docs/PolicyRule.md)

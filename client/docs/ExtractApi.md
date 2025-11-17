@@ -361,7 +361,7 @@ Name | Type | Description  | Notes
 
 <a name="extractfieldsadvanced"></a>
 # **ExtractFieldsAdvanced**
-> ExtractFieldsResponse ExtractFieldsAdvanced (string recognitionMode = null, AdvancedExtractFieldsRequest body = null)
+> ExtractFieldsAdvancedResponse ExtractFieldsAdvanced (string recognitionMode = null, AdvancedExtractFieldsRequest body = null)
 
 Extract Field Values from a Document using Advanced AI
 
@@ -393,7 +393,7 @@ namespace Example
             try
             {
                 // Extract Field Values from a Document using Advanced AI
-                ExtractFieldsResponse result = apiInstance.ExtractFieldsAdvanced(recognitionMode, body);
+                ExtractFieldsAdvancedResponse result = apiInstance.ExtractFieldsAdvanced(recognitionMode, body);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -414,7 +414,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExtractFieldsResponse**](ExtractFieldsResponse.md)
+[**ExtractFieldsAdvancedResponse**](ExtractFieldsAdvancedResponse.md)
 
 ### Authorization
 
