@@ -36,7 +36,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
         /// <param name="inputFile">Input document file to perform the operation on as a byte array.</param>
         /// <param name="fieldsToExtract">Fields to extract from the document.</param>
         /// <param name="maximumPagesProcessed">Optional: Limit the number of pages processed.</param>
-        /// <param name="preprocessing">Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are &#39;Auto&#39; and &#39;None&#39;.  Default is Auto..</param>
+        /// <param name="preprocessing">Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are &#39;Auto&#39;, &#39;SmoothEdges&#39;, &#39;SmoothEdgesPlus&#39;, &#39;Compatability&#39; and &#39;None&#39;.  Default is Auto.  Set to SmoothEdges to smooth harsh edges in the input image to enhance recognition accuracy.  Set to SmoothEdgesPlus to smooth harsh edges to a higher degree.  Set to Compatability for maximum PDF feature compatability..</param>
         /// <param name="resultCrossCheck">Optional: Set the level of output accuracy cross-checking to perform on the input.  Possible values are &#39;None&#39; and &#39;Advanced&#39;.  Default is None..</param>
         public AdvancedExtractFieldsRequest(byte[] inputFile = default(byte[]), List<FieldToExtract> fieldsToExtract = default(List<FieldToExtract>), int? maximumPagesProcessed = default(int?), string preprocessing = default(string), string resultCrossCheck = default(string))
         {
@@ -69,9 +69,9 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
         public int? MaximumPagesProcessed { get; set; }
 
         /// <summary>
-        /// Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are &#39;Auto&#39; and &#39;None&#39;.  Default is Auto.
+        /// Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are &#39;Auto&#39;, &#39;SmoothEdges&#39;, &#39;SmoothEdgesPlus&#39;, &#39;Compatability&#39; and &#39;None&#39;.  Default is Auto.  Set to SmoothEdges to smooth harsh edges in the input image to enhance recognition accuracy.  Set to SmoothEdgesPlus to smooth harsh edges to a higher degree.  Set to Compatability for maximum PDF feature compatability.
         /// </summary>
-        /// <value>Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are &#39;Auto&#39; and &#39;None&#39;.  Default is Auto.</value>
+        /// <value>Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are &#39;Auto&#39;, &#39;SmoothEdges&#39;, &#39;SmoothEdgesPlus&#39;, &#39;Compatability&#39; and &#39;None&#39;.  Default is Auto.  Set to SmoothEdges to smooth harsh edges in the input image to enhance recognition accuracy.  Set to SmoothEdgesPlus to smooth harsh edges to a higher degree.  Set to Compatability for maximum PDF feature compatability.</value>
         [DataMember(Name="Preprocessing", EmitDefaultValue=false)]
         public string Preprocessing { get; set; }
 
