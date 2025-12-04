@@ -83,12 +83,36 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Test
             // TODO unit test for the property 'Categories'
         }
         /// <summary>
+        /// Test the property 'Preprocessing'
+        /// </summary>
+        [Test]
+        public void PreprocessingTest()
+        {
+            // TODO unit test for the property 'Preprocessing'
+        }
+        /// <summary>
+        /// Test the property 'ResultCrossCheck'
+        /// </summary>
+        [Test]
+        public void ResultCrossCheckTest()
+        {
+            // TODO unit test for the property 'ResultCrossCheck'
+        }
+        /// <summary>
         /// Test the property 'MaximumPagesProcessed'
         /// </summary>
         [Test]
         public void MaximumPagesProcessedTest()
         {
             // TODO unit test for the property 'MaximumPagesProcessed'
+        }
+        /// <summary>
+        /// Test the property 'RotateImageDegrees'
+        /// </summary>
+        [Test]
+        public void RotateImageDegreesTest()
+        {
+            // TODO unit test for the property 'RotateImageDegrees'
         }
 
     }

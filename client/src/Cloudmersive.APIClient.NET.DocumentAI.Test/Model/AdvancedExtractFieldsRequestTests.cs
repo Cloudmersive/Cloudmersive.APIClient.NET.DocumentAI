@@ -106,6 +106,14 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Test
         {
             // TODO unit test for the property 'ResultCrossCheck'
         }
+        /// <summary>
+        /// Test the property 'RotateImageDegrees'
+        /// </summary>
+        [Test]
+        public void RotateImageDegreesTest()
+        {
+            // TODO unit test for the property 'RotateImageDegrees'
+        }
 
     }
 

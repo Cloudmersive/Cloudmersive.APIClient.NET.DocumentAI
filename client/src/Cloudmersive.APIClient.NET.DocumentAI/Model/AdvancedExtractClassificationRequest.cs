@@ -35,12 +35,18 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
         /// </summary>
         /// <param name="inputFile">Input document file to perform the operation on as a byte array.</param>
         /// <param name="categories">Possible categories for the document.</param>
+        /// <param name="preprocessing">Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are &#39;Auto&#39;, &#39;SmoothEdges&#39;, &#39;SmoothEdgesPlus&#39;, &#39;Compatability&#39; and &#39;None&#39;.  Default is Auto.  Set to SmoothEdges to smooth harsh edges in the input image to enhance recognition accuracy.  Set to SmoothEdgesPlus to smooth harsh edges to a higher degree.  Set to Compatability for maximum PDF feature compatability..</param>
+        /// <param name="resultCrossCheck">Optional: Set the level of output accuracy cross-checking to perform on the input.  Possible values are &#39;None&#39;, &#39;Advanced&#39;, &#39;Ultra&#39; and &#39;Hyper&#39;.  Default is None.  Ultra and Hyper will produce the highest accuracy but at the cost of longer processing times..</param>
         /// <param name="maximumPagesProcessed">Optional: Limit the number of pages processed.</param>
-        public AdvancedExtractClassificationRequest(byte[] inputFile = default(byte[]), List<DocumentCategories> categories = default(List<DocumentCategories>), int? maximumPagesProcessed = default(int?))
+        /// <param name="rotateImageDegrees">Optional: Rotate the input image before recognition by the specified number of degrees; valid values range from -360 to +360..</param>
+        public AdvancedExtractClassificationRequest(byte[] inputFile = default(byte[]), List<DocumentCategories> categories = default(List<DocumentCategories>), string preprocessing = default(string), string resultCrossCheck = default(string), int? maximumPagesProcessed = default(int?), double? rotateImageDegrees = default(double?))
         {
             this.InputFile = inputFile;
             this.Categories = categories;
+            this.Preprocessing = preprocessing;
+            this.ResultCrossCheck = resultCrossCheck;
             this.MaximumPagesProcessed = maximumPagesProcessed;
+            this.RotateImageDegrees = rotateImageDegrees;
         }
         
         /// <summary>
@@ -58,11 +64,32 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
         public List<DocumentCategories> Categories { get; set; }
 
         /// <summary>
+        /// Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are &#39;Auto&#39;, &#39;SmoothEdges&#39;, &#39;SmoothEdgesPlus&#39;, &#39;Compatability&#39; and &#39;None&#39;.  Default is Auto.  Set to SmoothEdges to smooth harsh edges in the input image to enhance recognition accuracy.  Set to SmoothEdgesPlus to smooth harsh edges to a higher degree.  Set to Compatability for maximum PDF feature compatability.
+        /// </summary>
+        /// <value>Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are &#39;Auto&#39;, &#39;SmoothEdges&#39;, &#39;SmoothEdgesPlus&#39;, &#39;Compatability&#39; and &#39;None&#39;.  Default is Auto.  Set to SmoothEdges to smooth harsh edges in the input image to enhance recognition accuracy.  Set to SmoothEdgesPlus to smooth harsh edges to a higher degree.  Set to Compatability for maximum PDF feature compatability.</value>
+        [DataMember(Name="Preprocessing", EmitDefaultValue=false)]
+        public string Preprocessing { get; set; }
+
+        /// <summary>
+        /// Optional: Set the level of output accuracy cross-checking to perform on the input.  Possible values are &#39;None&#39;, &#39;Advanced&#39;, &#39;Ultra&#39; and &#39;Hyper&#39;.  Default is None.  Ultra and Hyper will produce the highest accuracy but at the cost of longer processing times.
+        /// </summary>
+        /// <value>Optional: Set the level of output accuracy cross-checking to perform on the input.  Possible values are &#39;None&#39;, &#39;Advanced&#39;, &#39;Ultra&#39; and &#39;Hyper&#39;.  Default is None.  Ultra and Hyper will produce the highest accuracy but at the cost of longer processing times.</value>
+        [DataMember(Name="ResultCrossCheck", EmitDefaultValue=false)]
+        public string ResultCrossCheck { get; set; }
+
+        /// <summary>
         /// Optional: Limit the number of pages processed
         /// </summary>
         /// <value>Optional: Limit the number of pages processed</value>
         [DataMember(Name="MaximumPagesProcessed", EmitDefaultValue=false)]
         public int? MaximumPagesProcessed { get; set; }
+
+        /// <summary>
+        /// Optional: Rotate the input image before recognition by the specified number of degrees; valid values range from -360 to +360.
+        /// </summary>
+        /// <value>Optional: Rotate the input image before recognition by the specified number of degrees; valid values range from -360 to +360.</value>
+        [DataMember(Name="RotateImageDegrees", EmitDefaultValue=false)]
+        public double? RotateImageDegrees { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -74,7 +101,10 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
             sb.Append("class AdvancedExtractClassificationRequest {\n");
             sb.Append("  InputFile: ").Append(InputFile).Append("\n");
             sb.Append("  Categories: ").Append(Categories).Append("\n");
+            sb.Append("  Preprocessing: ").Append(Preprocessing).Append("\n");
+            sb.Append("  ResultCrossCheck: ").Append(ResultCrossCheck).Append("\n");
             sb.Append("  MaximumPagesProcessed: ").Append(MaximumPagesProcessed).Append("\n");
+            sb.Append("  RotateImageDegrees: ").Append(RotateImageDegrees).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -120,9 +150,24 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
                     this.Categories.SequenceEqual(input.Categories)
                 ) && 
                 (
+                    this.Preprocessing == input.Preprocessing ||
+                    (this.Preprocessing != null &&
+                    this.Preprocessing.Equals(input.Preprocessing))
+                ) && 
+                (
+                    this.ResultCrossCheck == input.ResultCrossCheck ||
+                    (this.ResultCrossCheck != null &&
+                    this.ResultCrossCheck.Equals(input.ResultCrossCheck))
+                ) && 
+                (
                     this.MaximumPagesProcessed == input.MaximumPagesProcessed ||
                     (this.MaximumPagesProcessed != null &&
                     this.MaximumPagesProcessed.Equals(input.MaximumPagesProcessed))
+                ) && 
+                (
+                    this.RotateImageDegrees == input.RotateImageDegrees ||
+                    (this.RotateImageDegrees != null &&
+                    this.RotateImageDegrees.Equals(input.RotateImageDegrees))
                 );
         }
 
@@ -139,8 +184,14 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
                     hashCode = hashCode * 59 + this.InputFile.GetHashCode();
                 if (this.Categories != null)
                     hashCode = hashCode * 59 + this.Categories.GetHashCode();
+                if (this.Preprocessing != null)
+                    hashCode = hashCode * 59 + this.Preprocessing.GetHashCode();
+                if (this.ResultCrossCheck != null)
+                    hashCode = hashCode * 59 + this.ResultCrossCheck.GetHashCode();
                 if (this.MaximumPagesProcessed != null)
                     hashCode = hashCode * 59 + this.MaximumPagesProcessed.GetHashCode();
+                if (this.RotateImageDegrees != null)
+                    hashCode = hashCode * 59 + this.RotateImageDegrees.GetHashCode();
                 return hashCode;
             }
         }

@@ -82,6 +82,14 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Test
         {
             // TODO unit test for the property 'DocumentCategoryResult'
         }
+        /// <summary>
+        /// Test the property 'ConfidenceScore'
+        /// </summary>
+        [Test]
+        public void ConfidenceScoreTest()
+        {
+            // TODO unit test for the property 'ConfidenceScore'
+        }
 
     }
 

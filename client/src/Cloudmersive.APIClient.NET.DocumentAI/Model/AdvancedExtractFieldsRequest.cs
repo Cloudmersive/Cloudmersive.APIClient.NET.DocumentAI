@@ -36,15 +36,17 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
         /// <param name="inputFile">Input document file to perform the operation on as a byte array.</param>
         /// <param name="fieldsToExtract">Fields to extract from the document.</param>
         /// <param name="maximumPagesProcessed">Optional: Limit the number of pages processed.</param>
-        /// <param name="preprocessing">Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are &#39;Auto&#39;, &#39;SmoothEdges&#39;, &#39;SmoothEdgesPlus&#39;, &#39;Compatability&#39; and &#39;None&#39;.  Default is Auto.  Set to SmoothEdges to smooth harsh edges in the input image to enhance recognition accuracy.  Set to SmoothEdgesPlus to smooth harsh edges to a higher degree.  Set to Compatability for maximum PDF feature compatability..</param>
-        /// <param name="resultCrossCheck">Optional: Set the level of output accuracy cross-checking to perform on the input.  Possible values are &#39;None&#39; and &#39;Advanced&#39;.  Default is None..</param>
-        public AdvancedExtractFieldsRequest(byte[] inputFile = default(byte[]), List<FieldToExtract> fieldsToExtract = default(List<FieldToExtract>), int? maximumPagesProcessed = default(int?), string preprocessing = default(string), string resultCrossCheck = default(string))
+        /// <param name="preprocessing">Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are &#39;Auto&#39;, &#39;SmoothEdges&#39;, &#39;SmoothEdgesPlus&#39;, &#39;ContrastEdges&#39;, &#39;ContrastEdgesPlus&#39;, &#39;Invert&#39;, &#39;Binarize&#39;, &#39;Compatability&#39; and &#39;None&#39;.  Default is Auto.  Set to SmoothEdges to smooth harsh edges in the input image to enhance recognition accuracy.  Set to SmoothEdgesPlus to smooth harsh edges to a higher degree.  Set to ContrastEdges and ContrastEdgesPlus to enhance contrast and readability for low quality black and white or grayscale images.  Set to Invert to invert the input image.  Set to Binarize to binarize the input image.  Set to Compatability for maximum PDF feature compatability..</param>
+        /// <param name="resultCrossCheck">Optional: Set the level of output accuracy cross-checking to perform on the input.  Possible values are &#39;None&#39;, &#39;Advanced&#39; and &#39;Ultra&#39;.  Default is None.  Ultra will produce the highest accuracy but at the cost of longer processing times..</param>
+        /// <param name="rotateImageDegrees">Optional: Rotate the input image before recognition by the specified number of degrees; valid values range from -360 to +360..</param>
+        public AdvancedExtractFieldsRequest(byte[] inputFile = default(byte[]), List<FieldToExtract> fieldsToExtract = default(List<FieldToExtract>), int? maximumPagesProcessed = default(int?), string preprocessing = default(string), string resultCrossCheck = default(string), double? rotateImageDegrees = default(double?))
         {
             this.InputFile = inputFile;
             this.FieldsToExtract = fieldsToExtract;
             this.MaximumPagesProcessed = maximumPagesProcessed;
             this.Preprocessing = preprocessing;
             this.ResultCrossCheck = resultCrossCheck;
+            this.RotateImageDegrees = rotateImageDegrees;
         }
         
         /// <summary>
@@ -69,18 +71,25 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
         public int? MaximumPagesProcessed { get; set; }
 
         /// <summary>
-        /// Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are &#39;Auto&#39;, &#39;SmoothEdges&#39;, &#39;SmoothEdgesPlus&#39;, &#39;Compatability&#39; and &#39;None&#39;.  Default is Auto.  Set to SmoothEdges to smooth harsh edges in the input image to enhance recognition accuracy.  Set to SmoothEdgesPlus to smooth harsh edges to a higher degree.  Set to Compatability for maximum PDF feature compatability.
+        /// Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are &#39;Auto&#39;, &#39;SmoothEdges&#39;, &#39;SmoothEdgesPlus&#39;, &#39;ContrastEdges&#39;, &#39;ContrastEdgesPlus&#39;, &#39;Invert&#39;, &#39;Binarize&#39;, &#39;Compatability&#39; and &#39;None&#39;.  Default is Auto.  Set to SmoothEdges to smooth harsh edges in the input image to enhance recognition accuracy.  Set to SmoothEdgesPlus to smooth harsh edges to a higher degree.  Set to ContrastEdges and ContrastEdgesPlus to enhance contrast and readability for low quality black and white or grayscale images.  Set to Invert to invert the input image.  Set to Binarize to binarize the input image.  Set to Compatability for maximum PDF feature compatability.
         /// </summary>
-        /// <value>Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are &#39;Auto&#39;, &#39;SmoothEdges&#39;, &#39;SmoothEdgesPlus&#39;, &#39;Compatability&#39; and &#39;None&#39;.  Default is Auto.  Set to SmoothEdges to smooth harsh edges in the input image to enhance recognition accuracy.  Set to SmoothEdgesPlus to smooth harsh edges to a higher degree.  Set to Compatability for maximum PDF feature compatability.</value>
+        /// <value>Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are &#39;Auto&#39;, &#39;SmoothEdges&#39;, &#39;SmoothEdgesPlus&#39;, &#39;ContrastEdges&#39;, &#39;ContrastEdgesPlus&#39;, &#39;Invert&#39;, &#39;Binarize&#39;, &#39;Compatability&#39; and &#39;None&#39;.  Default is Auto.  Set to SmoothEdges to smooth harsh edges in the input image to enhance recognition accuracy.  Set to SmoothEdgesPlus to smooth harsh edges to a higher degree.  Set to ContrastEdges and ContrastEdgesPlus to enhance contrast and readability for low quality black and white or grayscale images.  Set to Invert to invert the input image.  Set to Binarize to binarize the input image.  Set to Compatability for maximum PDF feature compatability.</value>
         [DataMember(Name="Preprocessing", EmitDefaultValue=false)]
         public string Preprocessing { get; set; }
 
         /// <summary>
-        /// Optional: Set the level of output accuracy cross-checking to perform on the input.  Possible values are &#39;None&#39; and &#39;Advanced&#39;.  Default is None.
+        /// Optional: Set the level of output accuracy cross-checking to perform on the input.  Possible values are &#39;None&#39;, &#39;Advanced&#39; and &#39;Ultra&#39;.  Default is None.  Ultra will produce the highest accuracy but at the cost of longer processing times.
         /// </summary>
-        /// <value>Optional: Set the level of output accuracy cross-checking to perform on the input.  Possible values are &#39;None&#39; and &#39;Advanced&#39;.  Default is None.</value>
+        /// <value>Optional: Set the level of output accuracy cross-checking to perform on the input.  Possible values are &#39;None&#39;, &#39;Advanced&#39; and &#39;Ultra&#39;.  Default is None.  Ultra will produce the highest accuracy but at the cost of longer processing times.</value>
         [DataMember(Name="ResultCrossCheck", EmitDefaultValue=false)]
         public string ResultCrossCheck { get; set; }
+
+        /// <summary>
+        /// Optional: Rotate the input image before recognition by the specified number of degrees; valid values range from -360 to +360.
+        /// </summary>
+        /// <value>Optional: Rotate the input image before recognition by the specified number of degrees; valid values range from -360 to +360.</value>
+        [DataMember(Name="RotateImageDegrees", EmitDefaultValue=false)]
+        public double? RotateImageDegrees { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -95,6 +104,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
             sb.Append("  MaximumPagesProcessed: ").Append(MaximumPagesProcessed).Append("\n");
             sb.Append("  Preprocessing: ").Append(Preprocessing).Append("\n");
             sb.Append("  ResultCrossCheck: ").Append(ResultCrossCheck).Append("\n");
+            sb.Append("  RotateImageDegrees: ").Append(RotateImageDegrees).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -153,6 +163,11 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
                     this.ResultCrossCheck == input.ResultCrossCheck ||
                     (this.ResultCrossCheck != null &&
                     this.ResultCrossCheck.Equals(input.ResultCrossCheck))
+                ) && 
+                (
+                    this.RotateImageDegrees == input.RotateImageDegrees ||
+                    (this.RotateImageDegrees != null &&
+                    this.RotateImageDegrees.Equals(input.RotateImageDegrees))
                 );
         }
 
@@ -175,6 +190,8 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
                     hashCode = hashCode * 59 + this.Preprocessing.GetHashCode();
                 if (this.ResultCrossCheck != null)
                     hashCode = hashCode * 59 + this.ResultCrossCheck.GetHashCode();
+                if (this.RotateImageDegrees != null)
+                    hashCode = hashCode * 59 + this.RotateImageDegrees.GetHashCode();
                 return hashCode;
             }
         }

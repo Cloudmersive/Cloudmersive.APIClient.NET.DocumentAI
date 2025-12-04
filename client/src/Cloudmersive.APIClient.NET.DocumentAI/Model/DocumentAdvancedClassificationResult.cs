@@ -35,10 +35,12 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
         /// </summary>
         /// <param name="successful">True if successful, false otherwise.</param>
         /// <param name="documentCategoryResult">Category applied to the document; if a category could not be identified then \&quot;other\&quot; will be used.  Spaces are replaced with underscores..</param>
-        public DocumentAdvancedClassificationResult(bool? successful = default(bool?), string documentCategoryResult = default(string))
+        /// <param name="confidenceScore">Confidence score between 0.0 and 1.0, where values &gt; 0.8 indicate high confidence.</param>
+        public DocumentAdvancedClassificationResult(bool? successful = default(bool?), string documentCategoryResult = default(string), double? confidenceScore = default(double?))
         {
             this.Successful = successful;
             this.DocumentCategoryResult = documentCategoryResult;
+            this.ConfidenceScore = confidenceScore;
         }
         
         /// <summary>
@@ -56,6 +58,13 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
         public string DocumentCategoryResult { get; set; }
 
         /// <summary>
+        /// Confidence score between 0.0 and 1.0, where values &gt; 0.8 indicate high confidence
+        /// </summary>
+        /// <value>Confidence score between 0.0 and 1.0, where values &gt; 0.8 indicate high confidence</value>
+        [DataMember(Name="ConfidenceScore", EmitDefaultValue=false)]
+        public double? ConfidenceScore { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,6 +74,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
             sb.Append("class DocumentAdvancedClassificationResult {\n");
             sb.Append("  Successful: ").Append(Successful).Append("\n");
             sb.Append("  DocumentCategoryResult: ").Append(DocumentCategoryResult).Append("\n");
+            sb.Append("  ConfidenceScore: ").Append(ConfidenceScore).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,6 +118,11 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
                     this.DocumentCategoryResult == input.DocumentCategoryResult ||
                     (this.DocumentCategoryResult != null &&
                     this.DocumentCategoryResult.Equals(input.DocumentCategoryResult))
+                ) && 
+                (
+                    this.ConfidenceScore == input.ConfidenceScore ||
+                    (this.ConfidenceScore != null &&
+                    this.ConfidenceScore.Equals(input.ConfidenceScore))
                 );
         }
 
@@ -124,6 +139,8 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
                     hashCode = hashCode * 59 + this.Successful.GetHashCode();
                 if (this.DocumentCategoryResult != null)
                     hashCode = hashCode * 59 + this.DocumentCategoryResult.GetHashCode();
+                if (this.ConfidenceScore != null)
+                    hashCode = hashCode * 59 + this.ConfidenceScore.GetHashCode();
                 return hashCode;
             }
         }

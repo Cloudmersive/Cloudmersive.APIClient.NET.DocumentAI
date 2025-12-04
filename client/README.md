@@ -5,7 +5,7 @@ Use next-generation AI to extract data, fields, insights and text from documents
 This C# SDK is for the [Cloudmersive Document AI API](https://www.cloudmersive.com/document-ai-api):
 
 - API version: v1
-- SDK version: 3.0.7
+- SDK version: 3.0.8
 - Build package: io.swagger.codegen.languages.CSharpClientCodegen
 
 <a name="frameworks-supported"></a>
