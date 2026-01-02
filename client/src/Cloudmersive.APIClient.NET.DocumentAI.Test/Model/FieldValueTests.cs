@@ -82,6 +82,14 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Test
         {
             // TODO unit test for the property 'FieldStringValue'
         }
+        /// <summary>
+        /// Test the property 'AdditionalFieldStringValues'
+        /// </summary>
+        [Test]
+        public void AdditionalFieldStringValuesTest()
+        {
+            // TODO unit test for the property 'AdditionalFieldStringValues'
+        }
 
     }
 

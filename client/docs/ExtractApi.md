@@ -17,11 +17,11 @@ Method | HTTP request | Description
 
 <a name="extractallfieldsandtables"></a>
 # **ExtractAllFieldsAndTables**
-> ExtractFieldsAndTablesResponse ExtractAllFieldsAndTables (string recognitionMode = null, System.IO.Stream inputFile = null)
+> ExtractFieldsAndTablesResponse ExtractAllFieldsAndTables (string recognitionMode = null, string preprocessing = null, System.IO.Stream inputFile = null)
 
 Extract All Fields and Tables of Data from a Document using AI
 
-Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
 
 ### Example
 ```csharp
@@ -44,12 +44,13 @@ namespace Example
 
             var apiInstance = new ExtractApi();
             var recognitionMode = recognitionMode_example;  // string | Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional) 
+            var preprocessing = preprocessing_example;  // string | Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are 'Auto' (default), 'Paged', and 'Compatability'.  Use 'Paged' to treat each page as a separate document for extraction (requires Advanced recognitionMode).  Default is Auto. (optional) 
             var inputFile = new System.IO.Stream(); // System.IO.Stream | Input document, or photos of a document, to extract data from (optional) 
 
             try
             {
                 // Extract All Fields and Tables of Data from a Document using AI
-                ExtractFieldsAndTablesResponse result = apiInstance.ExtractAllFieldsAndTables(recognitionMode, inputFile);
+                ExtractFieldsAndTablesResponse result = apiInstance.ExtractAllFieldsAndTables(recognitionMode, preprocessing, inputFile);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -66,6 +67,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **recognitionMode** | **string**| Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images | [optional] 
+ **preprocessing** | **string**| Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are &#39;Auto&#39; (default), &#39;Paged&#39;, and &#39;Compatability&#39;.  Use &#39;Paged&#39; to treat each page as a separate document for extraction (requires Advanced recognitionMode).  Default is Auto. | [optional] 
  **inputFile** | **System.IO.Stream**| Input document, or photos of a document, to extract data from | [optional] 
 
 ### Return type
@@ -89,7 +91,7 @@ Name | Type | Description  | Notes
 
 Extract Barcodes of from a Document using AI
 
-Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG, HEIC and WEBP.  Consumes 100 API calls per page.
 
 ### Example
 ```csharp
@@ -157,7 +159,7 @@ Name | Type | Description  | Notes
 
 Extract Classification or Category from a Document using AI
 
-Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
 
 ### Example
 ```csharp
@@ -227,7 +229,7 @@ Name | Type | Description  | Notes
 
 Extract Classification or Category from a Document using Advanced AI
 
-Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
 
 ### Example
 ```csharp
@@ -295,7 +297,7 @@ Name | Type | Description  | Notes
 
 Extract Field Values from a Document using AI
 
-Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
 
 ### Example
 ```csharp
@@ -365,7 +367,7 @@ Name | Type | Description  | Notes
 
 Extract Field Values from a Document using Advanced AI
 
-Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
 
 ### Example
 ```csharp
@@ -433,7 +435,7 @@ Name | Type | Description  | Notes
 
 Extract Summary from a Document using AI
 
-Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
 
 ### Example
 ```csharp
@@ -501,7 +503,7 @@ Name | Type | Description  | Notes
 
 Extract Tables of Data from a Document using AI
 
-Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumeds 100 API calls per page.
+Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumeds 100 API calls per page.
 
 ### Example
 ```csharp
@@ -569,7 +571,7 @@ Name | Type | Description  | Notes
 
 Extract Text from a Document using AI
 
-Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.  Consumes 100 API calls per page.
+Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Supports a wide range of languages.  Consumes 100 API calls per page.
 
 ### Example
 ```csharp

@@ -72,8 +72,9 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string recognitionMode = null;
+            //string preprocessing = null;
             //System.IO.Stream inputFile = null;
-            //var response = instance.ExtractAllFieldsAndTables(recognitionMode, inputFile);
+            //var response = instance.ExtractAllFieldsAndTables(recognitionMode, preprocessing, inputFile);
             //Assert.IsInstanceOf<ExtractFieldsAndTablesResponse> (response, "response is ExtractFieldsAndTablesResponse");
         }
         

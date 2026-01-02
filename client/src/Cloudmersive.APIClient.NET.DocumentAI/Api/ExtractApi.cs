@@ -28,30 +28,32 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract All Fields and Tables of Data from a Document using AI
         /// </summary>
         /// <remarks>
-        /// Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
+        /// <param name="preprocessing">Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are &#39;Auto&#39; (default), &#39;Paged&#39;, and &#39;Compatability&#39;.  Use &#39;Paged&#39; to treat each page as a separate document for extraction (requires Advanced recognitionMode).  Default is Auto. (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>ExtractFieldsAndTablesResponse</returns>
-        ExtractFieldsAndTablesResponse ExtractAllFieldsAndTables (string recognitionMode = null, System.IO.Stream inputFile = null);
+        ExtractFieldsAndTablesResponse ExtractAllFieldsAndTables (string recognitionMode = null, string preprocessing = null, System.IO.Stream inputFile = null);
 
         /// <summary>
         /// Extract All Fields and Tables of Data from a Document using AI
         /// </summary>
         /// <remarks>
-        /// Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
+        /// <param name="preprocessing">Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are &#39;Auto&#39; (default), &#39;Paged&#39;, and &#39;Compatability&#39;.  Use &#39;Paged&#39; to treat each page as a separate document for extraction (requires Advanced recognitionMode).  Default is Auto. (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>ApiResponse of ExtractFieldsAndTablesResponse</returns>
-        ApiResponse<ExtractFieldsAndTablesResponse> ExtractAllFieldsAndTablesWithHttpInfo (string recognitionMode = null, System.IO.Stream inputFile = null);
+        ApiResponse<ExtractFieldsAndTablesResponse> ExtractAllFieldsAndTablesWithHttpInfo (string recognitionMode = null, string preprocessing = null, System.IO.Stream inputFile = null);
         /// <summary>
         /// Extract Barcodes of from a Document using AI
         /// </summary>
         /// <remarks>
-        /// Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG, HEIC and WEBP.  Consumes 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -63,7 +65,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Barcodes of from a Document using AI
         /// </summary>
         /// <remarks>
-        /// Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG, HEIC and WEBP.  Consumes 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -74,7 +76,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Classification or Category from a Document using AI
         /// </summary>
         /// <remarks>
-        /// Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categories">Desired classification to extract (optional)</param>
@@ -87,7 +89,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Classification or Category from a Document using AI
         /// </summary>
         /// <remarks>
-        /// Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categories">Desired classification to extract (optional)</param>
@@ -99,7 +101,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Classification or Category from a Document using Advanced AI
         /// </summary>
         /// <remarks>
-        /// Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -111,7 +113,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Classification or Category from a Document using Advanced AI
         /// </summary>
         /// <remarks>
-        /// Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -122,7 +124,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Field Values from a Document using AI
         /// </summary>
         /// <remarks>
-        /// Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fieldNames">Desired fields to extract, comma separated (optional)</param>
@@ -135,7 +137,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Field Values from a Document using AI
         /// </summary>
         /// <remarks>
-        /// Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fieldNames">Desired fields to extract, comma separated (optional)</param>
@@ -147,7 +149,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Field Values from a Document using Advanced AI
         /// </summary>
         /// <remarks>
-        /// Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -159,7 +161,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Field Values from a Document using Advanced AI
         /// </summary>
         /// <remarks>
-        /// Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -170,7 +172,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Summary from a Document using AI
         /// </summary>
         /// <remarks>
-        /// Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -182,7 +184,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Summary from a Document using AI
         /// </summary>
         /// <remarks>
-        /// Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -193,7 +195,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Tables of Data from a Document using AI
         /// </summary>
         /// <remarks>
-        /// Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumeds 100 API calls per page.
+        /// Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumeds 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -205,7 +207,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Tables of Data from a Document using AI
         /// </summary>
         /// <remarks>
-        /// Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumeds 100 API calls per page.
+        /// Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumeds 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -216,7 +218,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Text from a Document using AI
         /// </summary>
         /// <remarks>
-        /// Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.  Consumes 100 API calls per page.
+        /// Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Supports a wide range of languages.  Consumes 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -228,7 +230,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Text from a Document using AI
         /// </summary>
         /// <remarks>
-        /// Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.  Consumes 100 API calls per page.
+        /// Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Supports a wide range of languages.  Consumes 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -241,30 +243,32 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract All Fields and Tables of Data from a Document using AI
         /// </summary>
         /// <remarks>
-        /// Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
+        /// <param name="preprocessing">Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are &#39;Auto&#39; (default), &#39;Paged&#39;, and &#39;Compatability&#39;.  Use &#39;Paged&#39; to treat each page as a separate document for extraction (requires Advanced recognitionMode).  Default is Auto. (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>Task of ExtractFieldsAndTablesResponse</returns>
-        System.Threading.Tasks.Task<ExtractFieldsAndTablesResponse> ExtractAllFieldsAndTablesAsync (string recognitionMode = null, System.IO.Stream inputFile = null);
+        System.Threading.Tasks.Task<ExtractFieldsAndTablesResponse> ExtractAllFieldsAndTablesAsync (string recognitionMode = null, string preprocessing = null, System.IO.Stream inputFile = null);
 
         /// <summary>
         /// Extract All Fields and Tables of Data from a Document using AI
         /// </summary>
         /// <remarks>
-        /// Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
+        /// <param name="preprocessing">Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are &#39;Auto&#39; (default), &#39;Paged&#39;, and &#39;Compatability&#39;.  Use &#39;Paged&#39; to treat each page as a separate document for extraction (requires Advanced recognitionMode).  Default is Auto. (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>Task of ApiResponse (ExtractFieldsAndTablesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ExtractFieldsAndTablesResponse>> ExtractAllFieldsAndTablesAsyncWithHttpInfo (string recognitionMode = null, System.IO.Stream inputFile = null);
+        System.Threading.Tasks.Task<ApiResponse<ExtractFieldsAndTablesResponse>> ExtractAllFieldsAndTablesAsyncWithHttpInfo (string recognitionMode = null, string preprocessing = null, System.IO.Stream inputFile = null);
         /// <summary>
         /// Extract Barcodes of from a Document using AI
         /// </summary>
         /// <remarks>
-        /// Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG, HEIC and WEBP.  Consumes 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -276,7 +280,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Barcodes of from a Document using AI
         /// </summary>
         /// <remarks>
-        /// Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG, HEIC and WEBP.  Consumes 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -287,7 +291,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Classification or Category from a Document using AI
         /// </summary>
         /// <remarks>
-        /// Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categories">Desired classification to extract (optional)</param>
@@ -300,7 +304,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Classification or Category from a Document using AI
         /// </summary>
         /// <remarks>
-        /// Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categories">Desired classification to extract (optional)</param>
@@ -312,7 +316,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Classification or Category from a Document using Advanced AI
         /// </summary>
         /// <remarks>
-        /// Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -324,7 +328,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Classification or Category from a Document using Advanced AI
         /// </summary>
         /// <remarks>
-        /// Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -335,7 +339,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Field Values from a Document using AI
         /// </summary>
         /// <remarks>
-        /// Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fieldNames">Desired fields to extract, comma separated (optional)</param>
@@ -348,7 +352,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Field Values from a Document using AI
         /// </summary>
         /// <remarks>
-        /// Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fieldNames">Desired fields to extract, comma separated (optional)</param>
@@ -360,7 +364,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Field Values from a Document using Advanced AI
         /// </summary>
         /// <remarks>
-        /// Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -372,7 +376,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Field Values from a Document using Advanced AI
         /// </summary>
         /// <remarks>
-        /// Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -383,7 +387,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Summary from a Document using AI
         /// </summary>
         /// <remarks>
-        /// Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -395,7 +399,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Summary from a Document using AI
         /// </summary>
         /// <remarks>
-        /// Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -406,7 +410,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Tables of Data from a Document using AI
         /// </summary>
         /// <remarks>
-        /// Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumeds 100 API calls per page.
+        /// Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumeds 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -418,7 +422,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Tables of Data from a Document using AI
         /// </summary>
         /// <remarks>
-        /// Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumeds 100 API calls per page.
+        /// Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumeds 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -429,7 +433,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Text from a Document using AI
         /// </summary>
         /// <remarks>
-        /// Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.  Consumes 100 API calls per page.
+        /// Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Supports a wide range of languages.  Consumes 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -441,7 +445,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         /// Extract Text from a Document using AI
         /// </summary>
         /// <remarks>
-        /// Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.  Consumes 100 API calls per page.
+        /// Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Supports a wide range of languages.  Consumes 100 API calls per page.
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -549,26 +553,28 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract All Fields and Tables of Data from a Document using AI Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract All Fields and Tables of Data from a Document using AI Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
+        /// <param name="preprocessing">Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are &#39;Auto&#39; (default), &#39;Paged&#39;, and &#39;Compatability&#39;.  Use &#39;Paged&#39; to treat each page as a separate document for extraction (requires Advanced recognitionMode).  Default is Auto. (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>ExtractFieldsAndTablesResponse</returns>
-        public ExtractFieldsAndTablesResponse ExtractAllFieldsAndTables (string recognitionMode = null, System.IO.Stream inputFile = null)
+        public ExtractFieldsAndTablesResponse ExtractAllFieldsAndTables (string recognitionMode = null, string preprocessing = null, System.IO.Stream inputFile = null)
         {
-             ApiResponse<ExtractFieldsAndTablesResponse> localVarResponse = ExtractAllFieldsAndTablesWithHttpInfo(recognitionMode, inputFile);
+             ApiResponse<ExtractFieldsAndTablesResponse> localVarResponse = ExtractAllFieldsAndTablesWithHttpInfo(recognitionMode, preprocessing, inputFile);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Extract All Fields and Tables of Data from a Document using AI Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract All Fields and Tables of Data from a Document using AI Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
+        /// <param name="preprocessing">Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are &#39;Auto&#39; (default), &#39;Paged&#39;, and &#39;Compatability&#39;.  Use &#39;Paged&#39; to treat each page as a separate document for extraction (requires Advanced recognitionMode).  Default is Auto. (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>ApiResponse of ExtractFieldsAndTablesResponse</returns>
-        public ApiResponse< ExtractFieldsAndTablesResponse > ExtractAllFieldsAndTablesWithHttpInfo (string recognitionMode = null, System.IO.Stream inputFile = null)
+        public ApiResponse< ExtractFieldsAndTablesResponse > ExtractAllFieldsAndTablesWithHttpInfo (string recognitionMode = null, string preprocessing = null, System.IO.Stream inputFile = null)
         {
 
             var localVarPath = "/document-ai/document/extract/all";
@@ -596,6 +602,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (recognitionMode != null) localVarHeaderParams.Add("recognitionMode", this.Configuration.ApiClient.ParameterToString(recognitionMode)); // header parameter
+            if (preprocessing != null) localVarHeaderParams.Add("preprocessing", this.Configuration.ApiClient.ParameterToString(preprocessing)); // header parameter
             if (inputFile != null) localVarFileParams.Add("InputFile", this.Configuration.ApiClient.ParameterToFile("InputFile", inputFile));
 
             // authentication (Apikey) required
@@ -623,27 +630,29 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract All Fields and Tables of Data from a Document using AI Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract All Fields and Tables of Data from a Document using AI Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
+        /// <param name="preprocessing">Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are &#39;Auto&#39; (default), &#39;Paged&#39;, and &#39;Compatability&#39;.  Use &#39;Paged&#39; to treat each page as a separate document for extraction (requires Advanced recognitionMode).  Default is Auto. (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>Task of ExtractFieldsAndTablesResponse</returns>
-        public async System.Threading.Tasks.Task<ExtractFieldsAndTablesResponse> ExtractAllFieldsAndTablesAsync (string recognitionMode = null, System.IO.Stream inputFile = null)
+        public async System.Threading.Tasks.Task<ExtractFieldsAndTablesResponse> ExtractAllFieldsAndTablesAsync (string recognitionMode = null, string preprocessing = null, System.IO.Stream inputFile = null)
         {
-             ApiResponse<ExtractFieldsAndTablesResponse> localVarResponse = await ExtractAllFieldsAndTablesAsyncWithHttpInfo(recognitionMode, inputFile);
+             ApiResponse<ExtractFieldsAndTablesResponse> localVarResponse = await ExtractAllFieldsAndTablesAsyncWithHttpInfo(recognitionMode, preprocessing, inputFile);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Extract All Fields and Tables of Data from a Document using AI Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract All Fields and Tables of Data from a Document using AI Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
+        /// <param name="preprocessing">Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are &#39;Auto&#39; (default), &#39;Paged&#39;, and &#39;Compatability&#39;.  Use &#39;Paged&#39; to treat each page as a separate document for extraction (requires Advanced recognitionMode).  Default is Auto. (optional)</param>
         /// <param name="inputFile">Input document, or photos of a document, to extract data from (optional)</param>
         /// <returns>Task of ApiResponse (ExtractFieldsAndTablesResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ExtractFieldsAndTablesResponse>> ExtractAllFieldsAndTablesAsyncWithHttpInfo (string recognitionMode = null, System.IO.Stream inputFile = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ExtractFieldsAndTablesResponse>> ExtractAllFieldsAndTablesAsyncWithHttpInfo (string recognitionMode = null, string preprocessing = null, System.IO.Stream inputFile = null)
         {
 
             var localVarPath = "/document-ai/document/extract/all";
@@ -671,6 +680,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (recognitionMode != null) localVarHeaderParams.Add("recognitionMode", this.Configuration.ApiClient.ParameterToString(recognitionMode)); // header parameter
+            if (preprocessing != null) localVarHeaderParams.Add("preprocessing", this.Configuration.ApiClient.ParameterToString(preprocessing)); // header parameter
             if (inputFile != null) localVarFileParams.Add("InputFile", this.Configuration.ApiClient.ParameterToFile("InputFile", inputFile));
 
             // authentication (Apikey) required
@@ -698,7 +708,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract Barcodes of from a Document using AI Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Barcodes of from a Document using AI Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG, HEIC and WEBP.  Consumes 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -711,7 +721,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract Barcodes of from a Document using AI Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Barcodes of from a Document using AI Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG, HEIC and WEBP.  Consumes 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -772,7 +782,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract Barcodes of from a Document using AI Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Barcodes of from a Document using AI Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG, HEIC and WEBP.  Consumes 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -786,7 +796,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract Barcodes of from a Document using AI Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Barcodes of from a Document using AI Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG, HEIC and WEBP.  Consumes 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -847,7 +857,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract Classification or Category from a Document using AI Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Classification or Category from a Document using AI Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categories">Desired classification to extract (optional)</param>
@@ -861,7 +871,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract Classification or Category from a Document using AI Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Classification or Category from a Document using AI Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categories">Desired classification to extract (optional)</param>
@@ -924,7 +934,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract Classification or Category from a Document using AI Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Classification or Category from a Document using AI Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categories">Desired classification to extract (optional)</param>
@@ -939,7 +949,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract Classification or Category from a Document using AI Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Classification or Category from a Document using AI Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categories">Desired classification to extract (optional)</param>
@@ -1002,7 +1012,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract Classification or Category from a Document using Advanced AI Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Classification or Category from a Document using Advanced AI Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -1015,7 +1025,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract Classification or Category from a Document using Advanced AI Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Classification or Category from a Document using Advanced AI Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -1085,7 +1095,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract Classification or Category from a Document using Advanced AI Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Classification or Category from a Document using Advanced AI Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -1099,7 +1109,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract Classification or Category from a Document using Advanced AI Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Classification or Category from a Document using Advanced AI Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -1169,7 +1179,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract Field Values from a Document using AI Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Field Values from a Document using AI Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fieldNames">Desired fields to extract, comma separated (optional)</param>
@@ -1183,7 +1193,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract Field Values from a Document using AI Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Field Values from a Document using AI Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fieldNames">Desired fields to extract, comma separated (optional)</param>
@@ -1246,7 +1256,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract Field Values from a Document using AI Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Field Values from a Document using AI Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fieldNames">Desired fields to extract, comma separated (optional)</param>
@@ -1261,7 +1271,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract Field Values from a Document using AI Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Field Values from a Document using AI Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fieldNames">Desired fields to extract, comma separated (optional)</param>
@@ -1324,7 +1334,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract Field Values from a Document using Advanced AI Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Field Values from a Document using Advanced AI Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -1337,7 +1347,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract Field Values from a Document using Advanced AI Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Field Values from a Document using Advanced AI Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -1407,7 +1417,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract Field Values from a Document using Advanced AI Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Field Values from a Document using Advanced AI Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -1421,7 +1431,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract Field Values from a Document using Advanced AI Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Field Values from a Document using Advanced AI Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -1491,7 +1501,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract Summary from a Document using AI Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Summary from a Document using AI Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -1504,7 +1514,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract Summary from a Document using AI Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Summary from a Document using AI Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -1565,7 +1575,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract Summary from a Document using AI Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Summary from a Document using AI Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -1579,7 +1589,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract Summary from a Document using AI Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// Extract Summary from a Document using AI Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -1640,7 +1650,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract Tables of Data from a Document using AI Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumeds 100 API calls per page.
+        /// Extract Tables of Data from a Document using AI Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumeds 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -1653,7 +1663,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract Tables of Data from a Document using AI Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumeds 100 API calls per page.
+        /// Extract Tables of Data from a Document using AI Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumeds 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -1714,7 +1724,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract Tables of Data from a Document using AI Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumeds 100 API calls per page.
+        /// Extract Tables of Data from a Document using AI Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumeds 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -1728,7 +1738,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract Tables of Data from a Document using AI Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumeds 100 API calls per page.
+        /// Extract Tables of Data from a Document using AI Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumeds 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -1789,7 +1799,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract Text from a Document using AI Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.  Consumes 100 API calls per page.
+        /// Extract Text from a Document using AI Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Supports a wide range of languages.  Consumes 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -1802,7 +1812,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract Text from a Document using AI Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.  Consumes 100 API calls per page.
+        /// Extract Text from a Document using AI Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Supports a wide range of languages.  Consumes 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -1863,7 +1873,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract Text from a Document using AI Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.  Consumes 100 API calls per page.
+        /// Extract Text from a Document using AI Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Supports a wide range of languages.  Consumes 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
@@ -1877,7 +1887,7 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         }
 
         /// <summary>
-        /// Extract Text from a Document using AI Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.  Consumes 100 API calls per page.
+        /// Extract Text from a Document using AI Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Supports a wide range of languages.  Consumes 100 API calls per page.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recognitionMode">Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)</param>
