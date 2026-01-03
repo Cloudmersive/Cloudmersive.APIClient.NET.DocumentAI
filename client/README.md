@@ -5,7 +5,7 @@ Use next-generation AI to extract data, fields, insights and text from documents
 This C# SDK is for the [Cloudmersive Document AI API](https://www.cloudmersive.com/document-ai-api):
 
 - API version: v1
-- SDK version: 3.0.9
+- SDK version: 3.1.0
 - Build package: io.swagger.codegen.languages.CSharpClientCodegen
 
 <a name="frameworks-supported"></a>
@@ -76,17 +76,17 @@ namespace Example
             // Configuration.Default.ApiKeyPrefix.Add("Apikey", "Bearer");
 
             var apiInstance = new AnalyzeApi();
-            var body = new DocumentPolicyRequest(); // DocumentPolicyRequest | Input request, including document and policy rules (optional) 
+            var body = new DocumentQuestionsRequest(); // DocumentQuestionsRequest | Input request, including document and questions (optional) 
 
             try
             {
-                // Enforce Policies to a Document to allow or block it using Advanced AI
-                DocumentPolicyResult result = apiInstance.ApplyRules(body);
+                // Answer Questions about a Document in a structured way using Advanced AI
+                DocumentQuestionAnswersResult result = apiInstance.AnswerQuestions(body);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling AnalyzeApi.ApplyRules: " + e.Message );
+                Debug.Print("Exception when calling AnalyzeApi.AnswerQuestions: " + e.Message );
             }
 
         }
@@ -101,6 +101,7 @@ All URIs are relative to *https://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AnalyzeApi* | [**AnswerQuestions**](docs/AnalyzeApi.md#answerquestions) | **POST** /document-ai/document/analyze/answer-questions | Answer Questions about a Document in a structured way using Advanced AI
 *AnalyzeApi* | [**ApplyRules**](docs/AnalyzeApi.md#applyrules) | **POST** /document-ai/document/analyze/enforce-policy | Enforce Policies to a Document to allow or block it using Advanced AI
 *ExtractApi* | [**ExtractAllFieldsAndTables**](docs/ExtractApi.md#extractallfieldsandtables) | **POST** /document-ai/document/extract/all | Extract All Fields and Tables of Data from a Document using AI
 *ExtractApi* | [**ExtractBarcodes**](docs/ExtractApi.md#extractbarcodes) | **POST** /document-ai/document/extract/barcodes | Extract Barcodes of from a Document using AI
@@ -128,6 +129,13 @@ Class | Method | HTTP request | Description
  - [Model.DocumentClassificationResult](docs/DocumentClassificationResult.md)
  - [Model.DocumentPolicyRequest](docs/DocumentPolicyRequest.md)
  - [Model.DocumentPolicyResult](docs/DocumentPolicyResult.md)
+ - [Model.DocumentQuestionAnswerItem](docs/DocumentQuestionAnswerItem.md)
+ - [Model.DocumentQuestionAnswersResult](docs/DocumentQuestionAnswersResult.md)
+ - [Model.DocumentQuestionBoolean](docs/DocumentQuestionBoolean.md)
+ - [Model.DocumentQuestionChoiceItem](docs/DocumentQuestionChoiceItem.md)
+ - [Model.DocumentQuestionFreeResponse](docs/DocumentQuestionFreeResponse.md)
+ - [Model.DocumentQuestionMultipleChoice](docs/DocumentQuestionMultipleChoice.md)
+ - [Model.DocumentQuestionsRequest](docs/DocumentQuestionsRequest.md)
  - [Model.ExtractBarcodesAiResponse](docs/ExtractBarcodesAiResponse.md)
  - [Model.ExtractDocumentBatchJobResult](docs/ExtractDocumentBatchJobResult.md)
  - [Model.ExtractDocumentJobStatusResult](docs/ExtractDocumentJobStatusResult.md)

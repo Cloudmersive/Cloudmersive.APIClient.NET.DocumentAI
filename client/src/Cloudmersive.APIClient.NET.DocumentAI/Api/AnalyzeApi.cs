@@ -25,6 +25,27 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Answer Questions about a Document in a structured way using Advanced AI
+        /// </summary>
+        /// <remarks>
+        /// Answer boolean (yes/no), multiple-choice and free-response questions about the contents of a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request, including document and questions (optional)</param>
+        /// <returns>DocumentQuestionAnswersResult</returns>
+        DocumentQuestionAnswersResult AnswerQuestions (DocumentQuestionsRequest body = null);
+
+        /// <summary>
+        /// Answer Questions about a Document in a structured way using Advanced AI
+        /// </summary>
+        /// <remarks>
+        /// Answer boolean (yes/no), multiple-choice and free-response questions about the contents of a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request, including document and questions (optional)</param>
+        /// <returns>ApiResponse of DocumentQuestionAnswersResult</returns>
+        ApiResponse<DocumentQuestionAnswersResult> AnswerQuestionsWithHttpInfo (DocumentQuestionsRequest body = null);
+        /// <summary>
         /// Enforce Policies to a Document to allow or block it using Advanced AI
         /// </summary>
         /// <remarks>
@@ -47,6 +68,27 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         ApiResponse<DocumentPolicyResult> ApplyRulesWithHttpInfo (DocumentPolicyRequest body = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
+        /// <summary>
+        /// Answer Questions about a Document in a structured way using Advanced AI
+        /// </summary>
+        /// <remarks>
+        /// Answer boolean (yes/no), multiple-choice and free-response questions about the contents of a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request, including document and questions (optional)</param>
+        /// <returns>Task of DocumentQuestionAnswersResult</returns>
+        System.Threading.Tasks.Task<DocumentQuestionAnswersResult> AnswerQuestionsAsync (DocumentQuestionsRequest body = null);
+
+        /// <summary>
+        /// Answer Questions about a Document in a structured way using Advanced AI
+        /// </summary>
+        /// <remarks>
+        /// Answer boolean (yes/no), multiple-choice and free-response questions about the contents of a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request, including document and questions (optional)</param>
+        /// <returns>Task of ApiResponse (DocumentQuestionAnswersResult)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DocumentQuestionAnswersResult>> AnswerQuestionsAsyncWithHttpInfo (DocumentQuestionsRequest body = null);
         /// <summary>
         /// Enforce Policies to a Document to allow or block it using Advanced AI
         /// </summary>
@@ -166,6 +208,167 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Api
         public void AddDefaultHeader(string key, string value)
         {
             this.Configuration.AddDefaultHeader(key, value);
+        }
+
+        /// <summary>
+        /// Answer Questions about a Document in a structured way using Advanced AI Answer boolean (yes/no), multiple-choice and free-response questions about the contents of a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request, including document and questions (optional)</param>
+        /// <returns>DocumentQuestionAnswersResult</returns>
+        public DocumentQuestionAnswersResult AnswerQuestions (DocumentQuestionsRequest body = null)
+        {
+             ApiResponse<DocumentQuestionAnswersResult> localVarResponse = AnswerQuestionsWithHttpInfo(body);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Answer Questions about a Document in a structured way using Advanced AI Answer boolean (yes/no), multiple-choice and free-response questions about the contents of a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request, including document and questions (optional)</param>
+        /// <returns>ApiResponse of DocumentQuestionAnswersResult</returns>
+        public ApiResponse< DocumentQuestionAnswersResult > AnswerQuestionsWithHttpInfo (DocumentQuestionsRequest body = null)
+        {
+
+            var localVarPath = "/document-ai/document/analyze/answer-questions";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AnswerQuestions", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<DocumentQuestionAnswersResult>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (DocumentQuestionAnswersResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DocumentQuestionAnswersResult)));
+        }
+
+        /// <summary>
+        /// Answer Questions about a Document in a structured way using Advanced AI Answer boolean (yes/no), multiple-choice and free-response questions about the contents of a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request, including document and questions (optional)</param>
+        /// <returns>Task of DocumentQuestionAnswersResult</returns>
+        public async System.Threading.Tasks.Task<DocumentQuestionAnswersResult> AnswerQuestionsAsync (DocumentQuestionsRequest body = null)
+        {
+             ApiResponse<DocumentQuestionAnswersResult> localVarResponse = await AnswerQuestionsAsyncWithHttpInfo(body);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Answer Questions about a Document in a structured way using Advanced AI Answer boolean (yes/no), multiple-choice and free-response questions about the contents of a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.DocumentAI.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Input request, including document and questions (optional)</param>
+        /// <returns>Task of ApiResponse (DocumentQuestionAnswersResult)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<DocumentQuestionAnswersResult>> AnswerQuestionsAsyncWithHttpInfo (DocumentQuestionsRequest body = null)
+        {
+
+            var localVarPath = "/document-ai/document/analyze/answer-questions";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AnswerQuestions", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<DocumentQuestionAnswersResult>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (DocumentQuestionAnswersResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DocumentQuestionAnswersResult)));
         }
 
         /// <summary>

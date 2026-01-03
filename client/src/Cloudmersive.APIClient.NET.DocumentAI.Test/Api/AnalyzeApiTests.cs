@@ -65,6 +65,18 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Test
 
         
         /// <summary>
+        /// Test AnswerQuestions
+        /// </summary>
+        [Test]
+        public void AnswerQuestionsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //DocumentQuestionsRequest body = null;
+            //var response = instance.AnswerQuestions(body);
+            //Assert.IsInstanceOf<DocumentQuestionAnswersResult> (response, "response is DocumentQuestionAnswersResult");
+        }
+        
+        /// <summary>
         /// Test ApplyRules
         /// </summary>
         [Test]

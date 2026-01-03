@@ -25,21 +25,25 @@ using SwaggerDateConverter = Cloudmersive.APIClient.NET.DocumentAI.Client.Swagge
 namespace Cloudmersive.APIClient.NET.DocumentAI.Model
 {
     /// <summary>
-    /// Request to analyze a document
+    /// DocumentQuestionsRequest
     /// </summary>
     [DataContract]
-    public partial class DocumentPolicyRequest :  IEquatable<DocumentPolicyRequest>, IValidatableObject
+    public partial class DocumentQuestionsRequest :  IEquatable<DocumentQuestionsRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DocumentPolicyRequest" /> class.
+        /// Initializes a new instance of the <see cref="DocumentQuestionsRequest" /> class.
         /// </summary>
         /// <param name="inputFile">Input file as a byte array.</param>
-        /// <param name="rules">Rules to apply to the document.</param>
+        /// <param name="questionsYesNo">Optional: Yes or No boolean questions to answer about the document.</param>
+        /// <param name="questionsMultipleChoice">Optional: Multiple choice questions to answer about the document.</param>
+        /// <param name="questionsFreeResponse">Optional: Free response questions to answer about the document.</param>
         /// <param name="recognitionMode">Optional; Recognition mode - Normal (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images.</param>
-        public DocumentPolicyRequest(byte[] inputFile = default(byte[]), List<PolicyRule> rules = default(List<PolicyRule>), string recognitionMode = default(string))
+        public DocumentQuestionsRequest(byte[] inputFile = default(byte[]), List<DocumentQuestionBoolean> questionsYesNo = default(List<DocumentQuestionBoolean>), List<DocumentQuestionMultipleChoice> questionsMultipleChoice = default(List<DocumentQuestionMultipleChoice>), List<DocumentQuestionFreeResponse> questionsFreeResponse = default(List<DocumentQuestionFreeResponse>), string recognitionMode = default(string))
         {
             this.InputFile = inputFile;
-            this.Rules = rules;
+            this.QuestionsYesNo = questionsYesNo;
+            this.QuestionsMultipleChoice = questionsMultipleChoice;
+            this.QuestionsFreeResponse = questionsFreeResponse;
             this.RecognitionMode = recognitionMode;
         }
         
@@ -51,11 +55,25 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
         public byte[] InputFile { get; set; }
 
         /// <summary>
-        /// Rules to apply to the document
+        /// Optional: Yes or No boolean questions to answer about the document
         /// </summary>
-        /// <value>Rules to apply to the document</value>
-        [DataMember(Name="Rules", EmitDefaultValue=false)]
-        public List<PolicyRule> Rules { get; set; }
+        /// <value>Optional: Yes or No boolean questions to answer about the document</value>
+        [DataMember(Name="QuestionsYesNo", EmitDefaultValue=false)]
+        public List<DocumentQuestionBoolean> QuestionsYesNo { get; set; }
+
+        /// <summary>
+        /// Optional: Multiple choice questions to answer about the document
+        /// </summary>
+        /// <value>Optional: Multiple choice questions to answer about the document</value>
+        [DataMember(Name="QuestionsMultipleChoice", EmitDefaultValue=false)]
+        public List<DocumentQuestionMultipleChoice> QuestionsMultipleChoice { get; set; }
+
+        /// <summary>
+        /// Optional: Free response questions to answer about the document
+        /// </summary>
+        /// <value>Optional: Free response questions to answer about the document</value>
+        [DataMember(Name="QuestionsFreeResponse", EmitDefaultValue=false)]
+        public List<DocumentQuestionFreeResponse> QuestionsFreeResponse { get; set; }
 
         /// <summary>
         /// Optional; Recognition mode - Normal (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images
@@ -71,9 +89,11 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DocumentPolicyRequest {\n");
+            sb.Append("class DocumentQuestionsRequest {\n");
             sb.Append("  InputFile: ").Append(InputFile).Append("\n");
-            sb.Append("  Rules: ").Append(Rules).Append("\n");
+            sb.Append("  QuestionsYesNo: ").Append(QuestionsYesNo).Append("\n");
+            sb.Append("  QuestionsMultipleChoice: ").Append(QuestionsMultipleChoice).Append("\n");
+            sb.Append("  QuestionsFreeResponse: ").Append(QuestionsFreeResponse).Append("\n");
             sb.Append("  RecognitionMode: ").Append(RecognitionMode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -95,15 +115,15 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DocumentPolicyRequest);
+            return this.Equals(input as DocumentQuestionsRequest);
         }
 
         /// <summary>
-        /// Returns true if DocumentPolicyRequest instances are equal
+        /// Returns true if DocumentQuestionsRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of DocumentPolicyRequest to be compared</param>
+        /// <param name="input">Instance of DocumentQuestionsRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DocumentPolicyRequest input)
+        public bool Equals(DocumentQuestionsRequest input)
         {
             if (input == null)
                 return false;
@@ -115,9 +135,19 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
                     this.InputFile.Equals(input.InputFile))
                 ) && 
                 (
-                    this.Rules == input.Rules ||
-                    this.Rules != null &&
-                    this.Rules.SequenceEqual(input.Rules)
+                    this.QuestionsYesNo == input.QuestionsYesNo ||
+                    this.QuestionsYesNo != null &&
+                    this.QuestionsYesNo.SequenceEqual(input.QuestionsYesNo)
+                ) && 
+                (
+                    this.QuestionsMultipleChoice == input.QuestionsMultipleChoice ||
+                    this.QuestionsMultipleChoice != null &&
+                    this.QuestionsMultipleChoice.SequenceEqual(input.QuestionsMultipleChoice)
+                ) && 
+                (
+                    this.QuestionsFreeResponse == input.QuestionsFreeResponse ||
+                    this.QuestionsFreeResponse != null &&
+                    this.QuestionsFreeResponse.SequenceEqual(input.QuestionsFreeResponse)
                 ) && 
                 (
                     this.RecognitionMode == input.RecognitionMode ||
@@ -137,8 +167,12 @@ namespace Cloudmersive.APIClient.NET.DocumentAI.Model
                 int hashCode = 41;
                 if (this.InputFile != null)
                     hashCode = hashCode * 59 + this.InputFile.GetHashCode();
-                if (this.Rules != null)
-                    hashCode = hashCode * 59 + this.Rules.GetHashCode();
+                if (this.QuestionsYesNo != null)
+                    hashCode = hashCode * 59 + this.QuestionsYesNo.GetHashCode();
+                if (this.QuestionsMultipleChoice != null)
+                    hashCode = hashCode * 59 + this.QuestionsMultipleChoice.GetHashCode();
+                if (this.QuestionsFreeResponse != null)
+                    hashCode = hashCode * 59 + this.QuestionsFreeResponse.GetHashCode();
                 if (this.RecognitionMode != null)
                     hashCode = hashCode * 59 + this.RecognitionMode.GetHashCode();
                 return hashCode;
