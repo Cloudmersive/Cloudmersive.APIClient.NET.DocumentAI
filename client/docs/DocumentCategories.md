@@ -1,4 +1,6 @@
 # Cloudmersive.APIClient.NET.DocumentAI.Model.DocumentCategories
+Document category option
+
 ## Properties
 
 Name | Type | Description | Notes

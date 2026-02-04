@@ -1,0 +1,6 @@
+# Ignore PDF test files (but keep the folder via .gitkeep)
+test-files/*.pdf
+
+# Build outputs
+bin/
+obj/

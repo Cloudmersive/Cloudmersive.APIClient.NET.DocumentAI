@@ -1,9 +1,11 @@
 # Cloudmersive.APIClient.NET.DocumentAI.Model.ExtractDocumentJobStatusResult
+Result of performing a batch job operation
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Successful** | **bool?** | True if the operation to check the status of the job was successful, false otherwise | [optional] 
+**Successful** | **bool** | True if the operation to check the status of the job was successful, false otherwise | [optional] 
 **AsyncJobStatus** | **string** | Returns the job status of the Async Job, if applicable.  Possible states are STARTED and COMPLETED | [optional] 
 **AsyncJobID** | **string** | Job ID | [optional] 
 **ExtractTextResult** | [**ExtractTextResponse**](ExtractTextResponse.md) |  | [optional] 

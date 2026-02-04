@@ -1,9 +1,11 @@
 # Cloudmersive.APIClient.NET.DocumentAI.Model.ExtractedTextPage
+Extracted page from an input document
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PageNumber** | **int?** | Page number index, 1-based | [optional] 
+**PageNumber** | **int** | Page number index, 1-based | [optional] 
 **TextResult** | **string** | Text content of the page | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

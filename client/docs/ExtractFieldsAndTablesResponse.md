@@ -1,9 +1,11 @@
 # Cloudmersive.APIClient.NET.DocumentAI.Model.ExtractFieldsAndTablesResponse
+Result of extracting fields from a document
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Successful** | **bool?** | True if successful, false otherwise | [optional] 
+**Successful** | **bool** | True if successful, false otherwise | [optional] 
 **FieldResults** | [**List&lt;FieldValue&gt;**](FieldValue.md) | Field value results from the extraction operation | [optional] 
 **TableResults** | [**List&lt;TableResult&gt;**](TableResult.md) | Table value results from the extraction operation | [optional] 
 
