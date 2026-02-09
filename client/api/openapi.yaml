@@ -1,12 +1,20 @@
 openapi: 3.0.1
 info:
-  description: "Use next-generation AI to extract data, fields, insights and text\
-    \ from documents. Instantly."
+  contact:
+    email: support@cloudmersive.com
+    name: Cloudmersive
+    url: https://www.cloudmersive.com
+  description: "Extract structured data including named fields, tables, barcodes,\
+    \ classifications, and summaries from common document formats, scanned documents,\
+    \ and photos of documents using AI.  Also supports handwriting and low quality\
+    \ photos and scans, as well as digital document input.  Supports a wide range\
+    \ of languages, and is able to analyze and infer semantic structure from the visual\
+    \ layout for documents."
   termsOfService: https://portal.cloudmersive.com/terms-of-service
   title: Document AI API
   version: v1
 servers:
-- url: /
+- url: https://api.cloudmersive.com/
 security:
 - Apikey: []
 paths:
@@ -47,6 +55,43 @@ paths:
       tags:
       - Analyze
       x-codegen-request-body-name: body
+  /document-ai/document/analyze/answer-questions:
+    post:
+      description: "Answer boolean (yes/no), multiple-choice and free-response questions\
+        \ about the contents of a document using Advanced AI.  Input document formats\
+        \ supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page."
+      operationId: AnswerQuestions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DocumentQuestionsRequest"
+          text/json:
+            schema:
+              $ref: "#/components/schemas/DocumentQuestionsRequest"
+          application/*+json:
+            schema:
+              $ref: "#/components/schemas/DocumentQuestionsRequest"
+        description: "Input request, including document and questions"
+        required: false
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/DocumentQuestionAnswersResult"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DocumentQuestionAnswersResult"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/DocumentQuestionAnswersResult"
+          description: OK
+      summary: Answer Questions about a Document in a structured way using Advanced
+        AI
+      tags:
+      - Analyze
+      x-codegen-request-body-name: body
   /document-ai/document/extract/text:
     post:
       description: "Extract raw text from a document using AI.  Input document formats\
@@ -56,7 +101,8 @@ paths:
       parameters:
       - description: "Optional; Recognition mode - Advanced (default) provides the\
           \ highest accuracy but slower speed, while Normal provides faster response\
-          \ but lower accuracy for low quality images"
+          \ but lower accuracy for low quality images.  Set to Deterministic to directly\
+          \ extract text from digital documents without using AI."
         in: header
         name: recognitionMode
         schema:
@@ -383,6 +429,12 @@ paths:
         name: recognitionMode
         schema:
           type: string
+      - description: "Optional; Three-letter language code (ISO 639) for the summary.\
+          \  Default is ENG.  Possible language codes are: AAR,ABK,ACE,ACH,ADA,ADY,AFA,AFH,AFR,AIN,AKA,AKK,ALB,ALE,ALG,ALT,AMH,ANG,ANP,APA,ARA,ARC,ARG,ARM,ARN,ARP,ART,ARW,ASM,AST,ATH,AUS,AVA,AVE,AWA,AYM,AZE,BAD,BAI,BAK,BAL,BAM,BAN,BAQ,BAS,BAT,BEJ,BEL,BEM,BEN,BER,BHO,BIH,BIK,BIN,BIS,BLA,BNT,BOD,BOS,BRA,BRE,BTK,BUA,BUG,BUL,BUR,BYN,CAD,CAI,CAR,CAT,CAU,CEB,CEL,CES,CHA,CHB,CHE,CHG,CHI,CHK,CHM,CHN,CHO,CHP,CHR,CHU,CHV,CHY,CMC,CNR,COP,COR,COS,CPE,CPF,CPP,CRE,CRH,CRP,CSB,CUS,CYM,CZE,DAK,DAN,DAR,DAY,DEL,DEN,DEU,DGR,DIN,DIV,DOI,DRA,DSB,DUA,DUM,DUT,DYU,DZO,EFI,EGY,EKA,ELL,ELX,ENG,ENM,EPO,EST,EUS,EWE,EWO,FAN,FAO,FAS,FAT,FIJ,FIL,FIN,FIU,FON,FRA,FRE,FRM,FRO,FRR,FRS,FRY,FUL,FUR,GAA,GAY,GBA,GEM,GEO,GER,GEZ,GIL,GLA,GLE,GLG,GLV,GMH,GOH,GON,GOR,GOT,GRB,GRC,GRE,GRN,GSW,GUJ,GWI,HAI,HAT,HAU,HAW,HEB,HER,HIL,HIM,HIN,HIT,HMN,HMO,HRV,HSB,HUN,HUP,HYE,IBA,IBO,ICE,IDO,III,IJO,IKU,ILE,ILO,INA,INC,IND,INE,INH,IPK,IRA,IRO,ISL,ITA,JAV,JBO,JPN,JPR,JRB,KAA,KAB,KAC,KAL,KAM,KAN,KAR,KAS,KAT,KAU,KAW,KAZ,KBD,KHA,KHI,KHM,KHO,KIK,KIN,KIR,KMB,KOK,KOM,KON,KOR,KOS,KPE,KRC,KRL,KRO,KRU,KUA,KUM,KUR,KUT,LAD,LAH,LAM,LAO,LAT,LAV,LEZ,LIM,LIN,LIT,LOL,LOZ,LTZ,LUA,LUB,LUG,LUI,LUN,LUO,LUS,MAC,MAD,MAG,MAH,MAI,MAK,MAL,MAN,MAO,MAP,MAR,MAS,MAY,MDF,MDR,MEN,MGA,MIC,MIN,MIS,MKD,MKH,MLG,MLT,MNC,MNI,MNO,MOH,MON,MOS,MRI,MSA,MUL,MUN,MUS,MWL,MWR,MYA,MYN,MYV,NAH,NAI,NAP,NAU,NAV,NBL,NDE,NDO,NDS,NEP,NEW,NIA,NIC,NIU,NLD,NNO,NOB,NOG,NON,NOR,NQO,NSO,NUB,NWC,NYA,NYM,NYN,NYO,NZI,OCI,OJI,ORI,ORM,OSA,OSS,OTA,OTO,PAA,PAG,PAL,PAM,PAN,PAP,PAU,PEO,PER,PHI,PHN,PLI,POL,PON,POR,PRA,PRO,PUS,QUE,RAJ,RAP,RAR,ROA,ROH,ROM,RON,RUM,RUN,RUP,RUS,SAD,SAG,SAH,SAI,SAL,SAM,SAN,SAS,SAT,SCN,SCO,SEL,SEM,SGA,SGN,SHN,SID,SIN,SIO,SIT,SLA,SLK,SLO,SLV,SMA,SME,SMI,SMJ,SMN,SMO,SMS,SNA,SND,SNK,SOG,SOM,SON,SOT,SPA,SQI,SRD,SRN,SRP,SRR,SSA,SSW,SUK,SUN,SUS,SUX,SWA,SWE,SYC,SYR,TAH,TAI,TAM,TAT,TEL,TEM,TER,TET,TGK,TGL,THA,TIB,TIG,TIR,TIV,TKL,TLH,TLI,TMH,TOG,TON,TPI,TSI,TSN,TSO,TUK,TUM,TUP,TUR,TUT,TVL,TWI,TYV,UDM,UGA,UIG,UKR,UMB,UND,URD,UZB,VAI,VEN,VIE,VOL,VOT,WAK,WAL,WAR,WAS,WEL,WEN,WLN,WOL,XAL,XHO,YAO,YAP,YID,YOR,YPK,ZAP,ZBL,ZEN,ZGH,ZHA,ZHO,ZND,ZUL,ZUN,ZXX,ZZA."
+        in: header
+        name: language
+        schema:
+          type: string
       requestBody:
         content:
           multipart/form-data:
@@ -402,6 +454,45 @@ paths:
                 $ref: "#/components/schemas/SummarizeDocumentResponse"
           description: OK
       summary: Extract Summary from a Document using AI
+      tags:
+      - Extract
+  /document-ai/document/extract/split:
+    post:
+      description: "Analyzes a document containing multiple sub-documents (such as\
+        \ a scanned batch of ID cards, forms, or mixed documents) and intelligently\
+        \ splits it into separate sub-documents.  Uses AI to detect document boundaries\
+        \ based on visual content, headers, names, and document types.  Returns the\
+        \ page ranges and PDF bytes for each identified sub-document.  Input document\
+        \ formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and\
+        \ WEBP.  Consumes 100 API calls per page."
+      operationId: ExtractSplit
+      parameters:
+      - description: "Optional; Recognition mode - Advanced (default) provides the\
+          \ highest accuracy but slower speed, while Normal provides faster response\
+          \ but lower accuracy for low quality images"
+        in: header
+        name: recognitionMode
+        schema:
+          type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: "#/components/schemas/ExtractSplit_request"
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/SplitDocumentResponse"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SplitDocumentResponse"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/SplitDocumentResponse"
+          description: OK
+      summary: Intelligently Split a Combined Document into Sub-Documents using AI
       tags:
       - Extract
   /document-ai/document/batch-job/extract/text:
@@ -467,6 +558,7 @@ paths:
           application/*+json:
             schema:
               $ref: "#/components/schemas/AdvancedExtractFieldsRequest"
+        description: Input document and parameters
         required: false
       responses:
         "200":
@@ -572,7 +664,8 @@ paths:
         and Private Cloud deployments.
       operationId: GetAsyncJobStatus
       parameters:
-      - in: query
+      - description: Job ID for the batch job to get the status of
+        in: query
         name: AsyncJobID
         schema:
           type: string
@@ -755,6 +848,7 @@ components:
       additionalProperties: false
       description: Request to analyze a document
       example:
+        RecognitionMode: RecognitionMode
         Rules:
         - RuleDescription: RuleDescription
           RuleId: RuleId
@@ -774,6 +868,11 @@ components:
           items:
             $ref: "#/components/schemas/PolicyRule"
           type: array
+        RecognitionMode:
+          description: "Optional; Recognition mode - Normal (default) provides the\
+            \ highest accuracy but slower speed, while Normal provides faster response\
+            \ but lower accuracy for low quality images"
+          type: string
       type: object
     DocumentPolicyResult:
       additionalProperties: false
@@ -803,6 +902,191 @@ components:
           items:
             $ref: "#/components/schemas/PolicyRuleViolation"
           type: array
+      type: object
+    DocumentQuestionAnswerItem:
+      additionalProperties: false
+      description: Answer to an input question
+      example:
+        AnswerValue: AnswerValue
+        QuestionId: QuestionId
+        ConfidenceScore: 6.027456183070403
+        AnswerRationale: AnswerRationale
+      properties:
+        QuestionId:
+          description: ID of the input question
+          type: string
+        AnswerValue:
+          description: "Answer response value, formatted as a string, for this question.\
+            \  Boolean questions will return YES or NO."
+          type: string
+        AnswerRationale:
+          description: Rationale explaining why this answer was given
+          type: string
+        ConfidenceScore:
+          description: Confidence score between 0.0 and 1.0 where values above 0.8
+            indicate high confidence
+          format: double
+          type: number
+      type: object
+    DocumentQuestionAnswersResult:
+      additionalProperties: false
+      description: Result of performing a document question answering operation
+      example:
+        ConfidenceScore: 0.8008281904610115
+        AnswerResults:
+        - AnswerValue: AnswerValue
+          QuestionId: QuestionId
+          ConfidenceScore: 6.027456183070403
+          AnswerRationale: AnswerRationale
+        - AnswerValue: AnswerValue
+          QuestionId: QuestionId
+          ConfidenceScore: 6.027456183070403
+          AnswerRationale: AnswerRationale
+        Successful: true
+      properties:
+        Successful:
+          description: "True if the operation was completed successfully, or false\
+            \ otherwise"
+          type: boolean
+        ConfidenceScore:
+          description: Confidence score between 0.0 and 1.0 where values above 0.8
+            indicate high confidence
+          format: double
+          type: number
+        AnswerResults:
+          items:
+            $ref: "#/components/schemas/DocumentQuestionAnswerItem"
+          type: array
+      type: object
+    DocumentQuestionBoolean:
+      additionalProperties: false
+      description: Boolean document question
+      example:
+        QuestionId: QuestionId
+        QuestionText: QuestionText
+      properties:
+        QuestionId:
+          description: "Unique ID of the question, e.g. 1 or 2A"
+          type: string
+        QuestionText:
+          description: "Question in natural language to ask of the document where\
+            \ the answer resolves to YES or NO, e.g. 'Is this document signed and\
+            \ countersigned by both parties?'"
+          type: string
+      type: object
+    DocumentQuestionChoiceItem:
+      additionalProperties: false
+      description: Possible response choice for a multiple-choice question
+      example:
+        ChoiceText: ChoiceText
+        ChoiceId: ChoiceId
+      properties:
+        ChoiceId:
+          description: "Unique ID of the response choice, e.g. 3C"
+          type: string
+        ChoiceText:
+          description: "Description text of this choice, e.g. 'Delaware'"
+          type: string
+      type: object
+    DocumentQuestionFreeResponse:
+      additionalProperties: false
+      description: Free response question
+      example:
+        QuestionId: QuestionId
+        QuestionText: QuestionText
+      properties:
+        QuestionId:
+          description: "Unique ID of the question, e.g. 7 or 5A"
+          type: string
+        QuestionText:
+          description: "Question in natural language to ask of the document where\
+            \ the answer resolves to a free response, e.g. 'Who is the counterparty\
+            \ in this agreement?'"
+          type: string
+      type: object
+    DocumentQuestionMultipleChoice:
+      additionalProperties: false
+      description: Multiple choice question
+      example:
+        ResponseChoices:
+        - ChoiceText: ChoiceText
+          ChoiceId: ChoiceId
+        - ChoiceText: ChoiceText
+          ChoiceId: ChoiceId
+        QuestionId: QuestionId
+        QuestionText: QuestionText
+      properties:
+        QuestionId:
+          description: "Unique ID of the question, e.g. 1 or 2A"
+          type: string
+        QuestionText:
+          description: "Question in natural language to ask of the document where\
+            \ the answer resolves to one of a fixed number of provided choices, e.g.\
+            \ 'What is the governing law of this agreement?'"
+          type: string
+        ResponseChoices:
+          description: Possible response choices for the multiple-choice question
+          items:
+            $ref: "#/components/schemas/DocumentQuestionChoiceItem"
+          type: array
+      type: object
+    DocumentQuestionsRequest:
+      additionalProperties: false
+      example:
+        QuestionsFreeResponse:
+        - QuestionId: QuestionId
+          QuestionText: QuestionText
+        - QuestionId: QuestionId
+          QuestionText: QuestionText
+        QuestionsMultipleChoice:
+        - ResponseChoices:
+          - ChoiceText: ChoiceText
+            ChoiceId: ChoiceId
+          - ChoiceText: ChoiceText
+            ChoiceId: ChoiceId
+          QuestionId: QuestionId
+          QuestionText: QuestionText
+        - ResponseChoices:
+          - ChoiceText: ChoiceText
+            ChoiceId: ChoiceId
+          - ChoiceText: ChoiceText
+            ChoiceId: ChoiceId
+          QuestionId: QuestionId
+          QuestionText: QuestionText
+        QuestionsYesNo:
+        - QuestionId: QuestionId
+          QuestionText: QuestionText
+        - QuestionId: QuestionId
+          QuestionText: QuestionText
+        RecognitionMode: RecognitionMode
+        InputFile: InputFile
+      properties:
+        InputFile:
+          description: Input file as a byte array
+          format: byte
+          pattern: "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$"
+          type: string
+        QuestionsYesNo:
+          description: "Optional: Yes or No boolean questions to answer about the\
+            \ document"
+          items:
+            $ref: "#/components/schemas/DocumentQuestionBoolean"
+          type: array
+        QuestionsMultipleChoice:
+          description: "Optional: Multiple choice questions to answer about the document"
+          items:
+            $ref: "#/components/schemas/DocumentQuestionMultipleChoice"
+          type: array
+        QuestionsFreeResponse:
+          description: "Optional: Free response questions to answer about the document"
+          items:
+            $ref: "#/components/schemas/DocumentQuestionFreeResponse"
+          type: array
+        RecognitionMode:
+          description: "Optional; Recognition mode - Normal (default) provides the\
+            \ highest accuracy but slower speed, while Normal provides faster response\
+            \ but lower accuracy for low quality images"
+          type: string
       type: object
     ExtractBarcodesAiResponse:
       additionalProperties: false
@@ -1236,6 +1520,60 @@ components:
           description: AI natural language rationale for why this policy was violated
           type: string
       type: object
+    SplitDocumentResponse:
+      additionalProperties: false
+      description: Result of splitting a document into sub-documents
+      example:
+        SubDocuments:
+        - EndPage: 6
+          StartPage: 0
+          DocumentDescription: DocumentDescription
+          FileBytes: FileBytes
+        - EndPage: 6
+          StartPage: 0
+          DocumentDescription: DocumentDescription
+          FileBytes: FileBytes
+        Successful: true
+      properties:
+        Successful:
+          description: "True if successful, false otherwise"
+          type: boolean
+        SubDocuments:
+          description: The sub-documents that were identified and extracted from the
+            input document
+          items:
+            $ref: "#/components/schemas/SubDocument"
+          type: array
+      type: object
+    SubDocument:
+      additionalProperties: false
+      description: A sub-document extracted from a combined document
+      example:
+        EndPage: 6
+        StartPage: 0
+        DocumentDescription: DocumentDescription
+        FileBytes: FileBytes
+      properties:
+        StartPage:
+          description: Starting page number (1-indexed) of this sub-document in the
+            original document
+          format: int32
+          type: integer
+        EndPage:
+          description: Ending page number (1-indexed) of this sub-document in the
+            original document
+          format: int32
+          type: integer
+        DocumentDescription:
+          description: Description of the sub-document including document type and
+            any identifying information such as person name
+          type: string
+        FileBytes:
+          description: The extracted sub-document as PDF file bytes
+          format: byte
+          pattern: "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$"
+          type: string
+      type: object
     SummarizeDocumentResponse:
       additionalProperties: false
       description: Result of summarizing a document
@@ -1310,6 +1648,13 @@ components:
       properties:
         InputFile:
           description: "Input document, or photos of a document, to extract data from"
+          format: binary
+          type: string
+      type: object
+    ExtractSplit_request:
+      properties:
+        InputFile:
+          description: Input document containing multiple sub-documents to split
           format: binary
           type: string
       type: object

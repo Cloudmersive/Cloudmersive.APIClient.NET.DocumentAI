@@ -1,6 +1,6 @@
 # Cloudmersive.APIClient.NET.DocumentAI - the C# library for the Document AI API
 
-Use next-generation AI to extract data, fields, insights and text from documents. Instantly.
+Extract structured data including named fields, tables, barcodes, classifications, and summaries from common document formats, scanned documents, and photos of documents using AI.  Also supports handwriting and low quality photos and scans, as well as digital document input.  Supports a wide range of languages, and is able to analyze and infer semantic structure from the visual layout for documents.
 
 This C# SDK is for the [Cloudmersive Document AI API](https://www.cloudmersive.com/document-ai-api):
 
@@ -8,6 +8,7 @@ This C# SDK is for the [Cloudmersive Document AI API](https://www.cloudmersive.c
 - SDK version: 4.0.0
 - Generator version: 7.19.0
 - Build package: org.openapitools.codegen.languages.CSharpClientCodegen
+    For more information, please visit [https://www.cloudmersive.com](https://www.cloudmersive.com)
 
 <a id="frameworks-supported"></a>
 ## Frameworks supported
@@ -107,7 +108,7 @@ namespace Example
         {
 
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.cloudmersive.com";
             // Configure API key authorization: Apikey
             config.ApiKey.Add("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -117,17 +118,17 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AnalyzeApi(httpClient, config, httpClientHandler);
-            var body = new DocumentPolicyRequest(); // DocumentPolicyRequest | Input request, including document and policy rules (optional) 
+            var body = new DocumentQuestionsRequest(); // DocumentQuestionsRequest | Input request, including document and questions (optional) 
 
             try
             {
-                // Enforce Policies to a Document to allow or block it using Advanced AI
-                DocumentPolicyResult result = apiInstance.ApplyRules(body);
+                // Answer Questions about a Document in a structured way using Advanced AI
+                DocumentQuestionAnswersResult result = apiInstance.AnswerQuestions(body);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling AnalyzeApi.ApplyRules: " + e.Message );
+                Debug.Print("Exception when calling AnalyzeApi.AnswerQuestions: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -140,10 +141,11 @@ namespace Example
 <a id="documentation-for-api-endpoints"></a>
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.cloudmersive.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AnalyzeApi* | [**AnswerQuestions**](docs/AnalyzeApi.md#answerquestions) | **POST** /document-ai/document/analyze/answer-questions | Answer Questions about a Document in a structured way using Advanced AI
 *AnalyzeApi* | [**ApplyRules**](docs/AnalyzeApi.md#applyrules) | **POST** /document-ai/document/analyze/enforce-policy | Enforce Policies to a Document to allow or block it using Advanced AI
 *ExtractApi* | [**ExtractAllFieldsAndTables**](docs/ExtractApi.md#extractallfieldsandtables) | **POST** /document-ai/document/extract/all | Extract All Fields and Tables of Data from a Document using AI
 *ExtractApi* | [**ExtractBarcodes**](docs/ExtractApi.md#extractbarcodes) | **POST** /document-ai/document/extract/barcodes | Extract Barcodes of from a Document using AI
@@ -151,6 +153,7 @@ Class | Method | HTTP request | Description
 *ExtractApi* | [**ExtractClassificationAdvanced**](docs/ExtractApi.md#extractclassificationadvanced) | **POST** /document-ai/document/extract/classify/advanced | Extract Classification or Category from a Document using Advanced AI
 *ExtractApi* | [**ExtractFields**](docs/ExtractApi.md#extractfields) | **POST** /document-ai/document/extract/fields | Extract Field Values from a Document using AI
 *ExtractApi* | [**ExtractFieldsAdvanced**](docs/ExtractApi.md#extractfieldsadvanced) | **POST** /document-ai/document/extract/fields/advanced | Extract Field Values from a Document using Advanced AI
+*ExtractApi* | [**ExtractSplit**](docs/ExtractApi.md#extractsplit) | **POST** /document-ai/document/extract/split | Intelligently Split a Combined Document into Sub-Documents using AI
 *ExtractApi* | [**ExtractSummary**](docs/ExtractApi.md#extractsummary) | **POST** /document-ai/document/extract/summary | Extract Summary from a Document using AI
 *ExtractApi* | [**ExtractTables**](docs/ExtractApi.md#extracttables) | **POST** /document-ai/document/extract/tables | Extract Tables of Data from a Document using AI
 *ExtractApi* | [**ExtractText**](docs/ExtractApi.md#extracttext) | **POST** /document-ai/document/extract/text | Extract Text from a Document using AI
@@ -171,6 +174,13 @@ Class | Method | HTTP request | Description
  - [Model.DocumentClassificationResult](docs/DocumentClassificationResult.md)
  - [Model.DocumentPolicyRequest](docs/DocumentPolicyRequest.md)
  - [Model.DocumentPolicyResult](docs/DocumentPolicyResult.md)
+ - [Model.DocumentQuestionAnswerItem](docs/DocumentQuestionAnswerItem.md)
+ - [Model.DocumentQuestionAnswersResult](docs/DocumentQuestionAnswersResult.md)
+ - [Model.DocumentQuestionBoolean](docs/DocumentQuestionBoolean.md)
+ - [Model.DocumentQuestionChoiceItem](docs/DocumentQuestionChoiceItem.md)
+ - [Model.DocumentQuestionFreeResponse](docs/DocumentQuestionFreeResponse.md)
+ - [Model.DocumentQuestionMultipleChoice](docs/DocumentQuestionMultipleChoice.md)
+ - [Model.DocumentQuestionsRequest](docs/DocumentQuestionsRequest.md)
  - [Model.ExtractBarcodesAiResponse](docs/ExtractBarcodesAiResponse.md)
  - [Model.ExtractDocumentBatchJobResult](docs/ExtractDocumentBatchJobResult.md)
  - [Model.ExtractDocumentJobStatusResult](docs/ExtractDocumentJobStatusResult.md)
@@ -186,6 +196,8 @@ Class | Method | HTTP request | Description
  - [Model.FieldValue](docs/FieldValue.md)
  - [Model.PolicyRule](docs/PolicyRule.md)
  - [Model.PolicyRuleViolation](docs/PolicyRuleViolation.md)
+ - [Model.SplitDocumentResponse](docs/SplitDocumentResponse.md)
+ - [Model.SubDocument](docs/SubDocument.md)
  - [Model.SummarizeDocumentResponse](docs/SummarizeDocumentResponse.md)
  - [Model.TableResult](docs/TableResult.md)
  - [Model.TableResultCell](docs/TableResultCell.md)

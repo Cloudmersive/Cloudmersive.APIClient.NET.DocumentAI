@@ -1,6 +1,6 @@
 # Cloudmersive.APIClient.NET.DocumentAI.Api.RunBatchJobApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.cloudmersive.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -34,7 +34,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.cloudmersive.com";
             // Configure API key authorization: Apikey
             config.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -136,7 +136,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.cloudmersive.com";
             // Configure API key authorization: Apikey
             config.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -240,7 +240,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.cloudmersive.com";
             // Configure API key authorization: Apikey
             config.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -251,7 +251,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RunBatchJobApi(httpClient, config, httpClientHandler);
             var recognitionMode = "recognitionMode_example";  // string | Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional) 
-            var body = new AdvancedExtractFieldsRequest(); // AdvancedExtractFieldsRequest |  (optional) 
+            var body = new AdvancedExtractFieldsRequest(); // AdvancedExtractFieldsRequest | Input document and parameters (optional) 
 
             try
             {
@@ -295,7 +295,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **recognitionMode** | **string** | Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images | [optional]  |
-| **body** | [**AdvancedExtractFieldsRequest**](AdvancedExtractFieldsRequest.md) |  | [optional]  |
+| **body** | [**AdvancedExtractFieldsRequest**](AdvancedExtractFieldsRequest.md) | Input document and parameters | [optional]  |
 
 ### Return type
 
@@ -342,7 +342,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.cloudmersive.com";
             // Configure API key authorization: Apikey
             config.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -444,7 +444,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.cloudmersive.com";
             // Configure API key authorization: Apikey
             config.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -454,7 +454,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RunBatchJobApi(httpClient, config, httpClientHandler);
-            var asyncJobID = "asyncJobID_example";  // string |  (optional) 
+            var asyncJobID = "asyncJobID_example";  // string | Job ID for the batch job to get the status of (optional) 
 
             try
             {
@@ -497,7 +497,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **asyncJobID** | **string** |  | [optional]  |
+| **asyncJobID** | **string** | Job ID for the batch job to get the status of | [optional]  |
 
 ### Return type
 

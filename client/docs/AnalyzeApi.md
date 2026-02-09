@@ -1,10 +1,111 @@
 # Cloudmersive.APIClient.NET.DocumentAI.Api.AnalyzeApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.cloudmersive.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
+| [**AnswerQuestions**](AnalyzeApi.md#answerquestions) | **POST** /document-ai/document/analyze/answer-questions | Answer Questions about a Document in a structured way using Advanced AI |
 | [**ApplyRules**](AnalyzeApi.md#applyrules) | **POST** /document-ai/document/analyze/enforce-policy | Enforce Policies to a Document to allow or block it using Advanced AI |
+
+<a id="answerquestions"></a>
+# **AnswerQuestions**
+> DocumentQuestionAnswersResult AnswerQuestions (DocumentQuestionsRequest body = null)
+
+Answer Questions about a Document in a structured way using Advanced AI
+
+Answer boolean (yes/no), multiple-choice and free-response questions about the contents of a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Cloudmersive.APIClient.NET.DocumentAI.Api;
+using Cloudmersive.APIClient.NET.DocumentAI.Client;
+using Cloudmersive.APIClient.NET.DocumentAI.Model;
+
+namespace Example
+{
+    public class AnswerQuestionsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.cloudmersive.com";
+            // Configure API key authorization: Apikey
+            config.AddApiKey("Apikey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Apikey", "Bearer");
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AnalyzeApi(httpClient, config, httpClientHandler);
+            var body = new DocumentQuestionsRequest(); // DocumentQuestionsRequest | Input request, including document and questions (optional) 
+
+            try
+            {
+                // Answer Questions about a Document in a structured way using Advanced AI
+                DocumentQuestionAnswersResult result = apiInstance.AnswerQuestions(body);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AnalyzeApi.AnswerQuestions: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the AnswerQuestionsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Answer Questions about a Document in a structured way using Advanced AI
+    ApiResponse<DocumentQuestionAnswersResult> response = apiInstance.AnswerQuestionsWithHttpInfo(body);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling AnalyzeApi.AnswerQuestionsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **body** | [**DocumentQuestionsRequest**](DocumentQuestionsRequest.md) | Input request, including document and questions | [optional]  |
+
+### Return type
+
+[**DocumentQuestionAnswersResult**](DocumentQuestionAnswersResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="applyrules"></a>
 # **ApplyRules**
@@ -30,7 +131,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.cloudmersive.com";
             // Configure API key authorization: Apikey
             config.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
