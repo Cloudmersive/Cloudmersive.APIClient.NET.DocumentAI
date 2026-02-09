@@ -1,4 +1,6 @@
 # Cloudmersive.APIClient.NET.DocumentAI.Model.TableResultCell
+Cell of a row of a table extracted from a document
+
 ## Properties
 
 Name | Type | Description | Notes

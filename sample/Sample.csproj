@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <RootNamespace>Cloudmersive.APIClient.NET.DocumentAI.Sample</RootNamespace>
+    <AssemblyName>Cloudmersive.APIClient.NET.DocumentAI.Sample</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\client\src\Cloudmersive.APIClient.NET.DocumentAI\Cloudmersive.APIClient.NET.DocumentAI.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+
+  <!-- Copy test-files folder to output directory -->
+  <ItemGroup>
+    <None Include="test-files\**\*" CopyToOutputDirectory="PreserveNewest" LinkBase="test-files" />
+  </ItemGroup>
+
+</Project>

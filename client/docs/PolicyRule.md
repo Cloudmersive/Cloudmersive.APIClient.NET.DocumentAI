@@ -1,4 +1,5 @@
 # Cloudmersive.APIClient.NET.DocumentAI.Model.PolicyRule
+
 ## Properties
 
 Name | Type | Description | Notes
